@@ -1,5 +1,5 @@
 import {FC, useMemo, useState} from 'react'
-import {Theme, ThemeContext} from './ThemeContext'
+import {Theme, ThemeContext} from '../lib/ThemeContext'
 
 const isTheme = (theme: string): theme is Theme => typeof theme === 'string' &&
 	Object.values(Theme).includes(theme as Theme)
