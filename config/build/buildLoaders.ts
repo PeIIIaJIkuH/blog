@@ -7,7 +7,17 @@ export function buildLoaders(): RuleSetRule[] {
 		exclude: /node_modules/,
 	}
 
+	const scssLoader: RuleSetRule = {
+		test: /\.s[ac]ss$/i,
+		use: [
+			'style-loader',
+			'css-loader',
+			'sass-loader',
+		],
+	}
+
 	return [
 		typescriptLoader,
+		scssLoader,
 	]
 }
