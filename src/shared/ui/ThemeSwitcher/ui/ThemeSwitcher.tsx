@@ -1,7 +1,8 @@
-import {Theme, useTheme} from 'app/providers/ThemeProvider'
 import {FC} from 'react'
-import {classNames} from 'shared/lib/classNames/classNames'
-import {Button, ButtonTheme} from 'shared/ui/Button'
+
+import {Theme, useTheme} from '@shared/ui/ThemeProvider'
+import {cls} from '@shared/helpers/cls'
+import {Button, ButtonTheme} from '@shared/ui/Button'
 
 import s from './ThemeSwitcher.module.scss'
 
@@ -16,7 +17,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({className}) => {
 	const {theme, toggleTheme} = useTheme()
 
 	return (
-		<Button theme={ButtonTheme.CLEAR} onClick={toggleTheme} className={classNames(s.ThemeSwitcher, {}, [className])}>
+		<Button theme={ButtonTheme.CLEAR} onClick={toggleTheme} className={cls(s.ThemeSwitcher, className)}>
 			{theme === Theme.Light ? (
 				<SunIcon color='white'/>
 			) : (

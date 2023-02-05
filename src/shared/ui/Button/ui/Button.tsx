@@ -1,5 +1,6 @@
 import {ButtonHTMLAttributes, FC} from 'react'
-import {classNames} from 'shared/lib/classNames/classNames'
+
+import {cls} from '@shared/helpers/cls'
 
 import s from './Button.module.scss'
 
@@ -16,7 +17,7 @@ export const Button: FC<ButtonProps> = (props) => {
 	const {className, theme = ButtonTheme.CLEAR, children, ...rest} = props
 
 	return (
-		<button className={classNames(s.Button, {}, [className, s[theme]])} {...rest}>
+		<button className={cls(s.Button, className, s[theme])} {...rest}>
 			{children}
 		</button>
 	)
