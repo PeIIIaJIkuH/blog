@@ -1,8 +1,9 @@
 import {FC} from 'react'
 
-import {useTheme} from '@app/../shared/ui/ThemeProvider'
+import {useTheme} from '@shared/ui/ThemeProvider'
 import {cls} from '@shared/helpers/cls'
 import {Navbar} from '@widgets/Navbar'
+import {Sidebar} from '@widgets/Sidebar'
 
 import {AppRouter} from './providers/router'
 
@@ -14,7 +15,10 @@ export const App: FC = () => {
 	return (
 		<div className={cls('app', theme)}>
 			<Navbar/>
-			<AppRouter/>
+			<div className='content-page'>
+				<Sidebar/>
+				<AppRouter/>
+			</div>
 		</div>
 	)
 }
