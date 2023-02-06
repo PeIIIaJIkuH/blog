@@ -1,9 +1,9 @@
 import { type FC, Suspense } from 'react'
 
-import { useTheme } from '@shared/providers/ThemeProvider'
-import { cls } from '@shared/helpers/cls'
 import { Navbar } from '@widgets/Navbar'
 import { Sidebar } from '@widgets/Sidebar'
+import { cls } from '@shared/helpers/cls'
+import { useTheme } from '@shared/providers/ThemeProvider'
 
 import { AppRouter } from './providers/router'
 

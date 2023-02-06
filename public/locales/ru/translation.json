@@ -3,5 +3,6 @@
 	"navbar.home": "Главная",
 	"navbar.about": "О нас",
 	"notFoundPage.title": "Страница не найдена",
-	"loading": "Загрузка..."
+	"loading": "Загрузка...",
+	"toggle-sidebar": "Переключить"
 }

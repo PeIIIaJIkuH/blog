@@ -1,8 +1,8 @@
-import { cls } from '@shared/helpers/cls'
-
-import { Button } from '@shared/ui/Button'
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
+
+import { cls } from '@shared/helpers/cls'
+import { Button } from '@shared/ui/Button'
 
 import s from './LanguageSwitcher.module.scss'
 

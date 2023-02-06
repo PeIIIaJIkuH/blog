@@ -8,8 +8,6 @@ module.exports = {
 		'standard-with-typescript',
 		'plugin:react/jsx-runtime',
 	],
-	overrides: [
-	],
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
@@ -19,6 +17,7 @@ module.exports = {
 		'react',
 		'@typescript-eslint',
 		'i18next',
+		'simple-import-sort',
 	],
 	rules: {
 		'no-tabs': 'off',
@@ -32,6 +31,8 @@ module.exports = {
 		'@typescript-eslint/explicit-function-return-type': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',
 		'i18next/no-literal-string': ['error', { markupOnly: true }],
+		'simple-import-sort/imports': 'error',
+		'simple-import-sort/exports': 'error',
 	},
 	settings: {
 		react: {
@@ -39,6 +40,25 @@ module.exports = {
 		},
 	},
 	globals: {
-		__IS_DEV__: 'readonly',
+		IS_DEV: 'readonly',
 	},
+	overrides: [
+		{
+			files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
+			rules: {
+				'simple-import-sort/imports': ['error', {
+					groups: [
+						['^react$', '^[a-z@]'],
+						['^@app', '^@pages', '^@widgets', '^@features', '^@entities', '^@shared(?![^ ]+(jpe?g|png|gif|svg|scss))'],
+						['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+						['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+						['^\\u0000'],
+						['@shared'],
+						['^.+\\.scss$'],
+						['.(jpe?g|png|gif|svg)$'],
+					],
+				}],
+			},
+		},
+	],
 }

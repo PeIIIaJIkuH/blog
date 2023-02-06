@@ -7,8 +7,8 @@
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
-    "lint:ts": "eslint --ext .ts,.tsx,.js,.jsx",
-    "lint:ts:fix": "eslint --ext .ts,.tsx,.js,.jsx --fix",
+    "lint:ts": "eslint --ext .ts,.tsx,.js,.jsx .",
+    "lint:ts:fix": "eslint --ext .ts,.tsx,.js,.jsx . --fix",
     "lint:scss": "stylelint \"**/*.scss\"",
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "unit": "jest --config ./config/jest/jest.config.ts"
@@ -55,6 +55,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "i18next": "22.4.9",
     "i18next-browser-languagedetector": "7.0.1",
     "i18next-http-backend": "2.1.1",
