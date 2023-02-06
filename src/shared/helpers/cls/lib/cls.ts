@@ -1,4 +1,4 @@
-type Mod = string | boolean | number | null | undefined | Record<string | number, boolean | null | undefined>
+type Mod = string | boolean | number | null | undefined | Record<string | number, boolean | number | null | undefined>
 
 export const cls = (...mods: Mod[]): string => {
 	return mods.map(mod => {
@@ -6,7 +6,7 @@ export const cls = (...mods: Mod[]): string => {
 			return mod
 		}
 		if (typeof mod === 'number') {
-			return String(mod)
+			return mod ? String(mod) : ''
 		}
 		if (typeof mod === 'boolean') {
 			return ''
@@ -17,5 +17,5 @@ export const cls = (...mods: Mod[]): string => {
 		return Object.keys(mod)
 			.filter(key => mod[key])
 			.join(' ')
-	}).join(' ')
+	}).join(' ').trim()
 }
