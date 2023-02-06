@@ -1,3 +1,6 @@
+const imageExtensions = 'jpe?g|png|gif|svg'
+const styleExtensions = 'scss'
+
 module.exports = {
 	env: {
 		browser: true,
@@ -49,13 +52,12 @@ module.exports = {
 				'simple-import-sort/imports': ['error', {
 					groups: [
 						['^react$', '^[a-z@]'],
-						['^@app', '^@pages', '^@widgets', '^@features', '^@entities', '^@shared(?![^ ]+(jpe?g|png|gif|svg|scss))'],
+						['^@app', '^@pages', '^@widgets', '^@features', '^@entities', `^@shared(?![^ ]+(${imageExtensions}|${styleExtensions}))`],
 						['^\\.\\.(?!/?$)', '^\\.\\./?$'],
 						['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
 						['^\\u0000'],
-						['@shared'],
-						['^.+\\.scss$'],
-						['.(jpe?g|png|gif|svg)$'],
+						[`@shared(?=[^ ]+(${styleExtensions}))`, `^.+\\.(${styleExtensions})$`],
+						[`@shared(?=[^ ]+(${imageExtensions}))`, `.(${imageExtensions})$`],
 					],
 				}],
 			},
