@@ -10,6 +10,10 @@
   width: var(--sidebar-width-collapsed);
 }
 
+.toggleButton {
+  color: var(--inverted-color-primary);
+}
+
 .switchers {
   position: absolute;
   bottom: 20px;
