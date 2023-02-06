@@ -3,6 +3,8 @@ import { Route, type RouteProps, Routes } from 'react-router-dom'
 
 import { AboutPage } from '@pages/AboutPage'
 import { MainPage } from '@pages/MainPage'
+import { NotFoundPage } from '@pages/NotFoundPage'
+import { PageLoader } from '@widgets/PageLoader'
 import { AppRoutes, ERoutes } from '@shared/config/routes'
 
 const routes: Record<ERoutes, RouteProps> = {
@@ -14,11 +16,15 @@ const routes: Record<ERoutes, RouteProps> = {
 		path: AppRoutes[ERoutes.ABOUT],
 		element: <AboutPage/>,
 	},
+	[ERoutes.NOT_FOUND]: {
+		path: AppRoutes[ERoutes.NOT_FOUND],
+		element: <NotFoundPage/>,
+	},
 }
 
 export const AppRouter: FC = () => {
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={<PageLoader/>}>
 			<Routes>
 				{Object.values(routes).map(({ path, element }) => (
 					<Route key={path} path={path} element={(

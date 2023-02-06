@@ -1,5 +1,7 @@
 {
 	"change-language-title": "Русский",
 	"navbar.home": "Home",
-	"navbar.about": "About"
+	"navbar.about": "About",
+	"notFoundPage.title": "Page not found",
+	"loading": "Loading..."
 }
