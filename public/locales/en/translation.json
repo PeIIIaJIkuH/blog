@@ -3,6 +3,5 @@
 	"navbar.home": "Home",
 	"navbar.about": "About",
 	"notFoundPage.title": "Page not found",
-	"loading": "Loading...",
-	"toggle-sidebar": "Toggle"
+	"loading": "Loading..."
 }

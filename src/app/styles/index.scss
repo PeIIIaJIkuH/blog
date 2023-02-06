@@ -1,13 +1,22 @@
 @import 'normalize';
-@import 'variables/global';
+@import 'variables';
 @import './themes/light';
 @import './themes/dark';
 
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 .app {
 	font: var(--font-m);
-	background: var(--bg-color);
-	color: var(--color-primary);
+	background: var(--color-light);
+	color: var(--color-dark);
 	min-height: 100vh;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	grid-template-columns: auto 1fr;
 }
 
 .content-page {

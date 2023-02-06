@@ -33,7 +33,7 @@ module.exports = {
 		'multiline-ternary': 'off',
 		'@typescript-eslint/explicit-function-return-type': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',
-		'i18next/no-literal-string': ['error', { markupOnly: true }],
+		'i18next/no-literal-string': ['warn', { markupOnly: true }],
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
 	},

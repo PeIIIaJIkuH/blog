@@ -18,8 +18,8 @@ export const App: FC = () => {
 		<div className={cls('app', theme)}>
 			<Suspense fallback=''>
 				<Navbar/>
+				<Sidebar/>
 				<div className='content-page'>
-					<Sidebar/>
 					<AppRouter/>
 				</div>
 			</Suspense>
