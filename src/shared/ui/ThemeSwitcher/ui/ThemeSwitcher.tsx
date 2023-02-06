@@ -1,6 +1,6 @@
 import {FC} from 'react'
 
-import {Theme, useTheme} from '@shared/ui/ThemeProvider'
+import {Theme, useTheme} from '@shared/providers/ThemeProvider'
 import {cls} from '@shared/helpers/cls'
 import {Button, ButtonTheme} from '@shared/ui/Button'
 

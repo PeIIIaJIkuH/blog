@@ -1,6 +1,6 @@
 import {FC} from 'react'
 
-import {useTheme} from '@shared/ui/ThemeProvider'
+import {useTheme} from '@shared/providers/ThemeProvider'
 import {cls} from '@shared/helpers/cls'
 import {Navbar} from '@widgets/Navbar'
 import {Sidebar} from '@widgets/Sidebar'
