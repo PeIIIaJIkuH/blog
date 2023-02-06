@@ -1,13 +1,13 @@
 import {FC, PropsWithChildren, useMemo, useState} from 'react'
 
-import {Theme, ThemeContext} from '../lib/ThemeContext'
+import {AllThemes, Theme, ThemeContext} from '../lib/ThemeContext'
 
 const isTheme = (theme: string): theme is Theme => typeof theme === 'string' &&
-	Object.values(Theme).includes(theme as Theme)
+	Object.values(AllThemes).includes(theme as Theme)
 
 const getDefaultTheme = (): Theme => {
 	const theme = localStorage.getItem('theme')
-	return theme && isTheme(theme) ? theme : Theme.Light
+	return theme && isTheme(theme) ? theme : 'light'
 }
 
 export const ThemeProvider: FC<PropsWithChildren> = ({children}) => {

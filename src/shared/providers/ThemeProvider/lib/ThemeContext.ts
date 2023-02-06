@@ -1,17 +1,15 @@
-import {createContext} from 'react'
+import {createContext, Dispatch, SetStateAction} from 'react'
 
-export enum Theme {
-	Light = 'light',
-	Dark = 'dark'
-}
+export const AllThemes = ['light', 'dark'] as const
+export type Theme = typeof AllThemes[number]
 
 export interface ThemeContextProps {
 	theme?: Theme
-	setTheme?: (theme: Theme) => void
+	setTheme?: Dispatch<SetStateAction<Theme>>
 }
 
 export const ThemeContext = createContext<ThemeContextProps>({
-	theme: Theme.Light,
+	theme: 'light',
 
 })
 

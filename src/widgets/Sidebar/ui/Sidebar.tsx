@@ -1,7 +1,7 @@
 import {FC, useState} from 'react'
 
-import {ThemeSwitcher} from '@widgets/ThemeSwitcher'
-import {LanguageSwitcher} from '@widgets/LanguageSwitcher'
+import {ThemeSwitcher} from '@features/ThemeSwitcher'
+import {LanguageSwitcher} from '@features/LanguageSwitcher'
 import {Button} from '@shared/ui/Button'
 import {cls} from '@shared/helpers/cls'
 
