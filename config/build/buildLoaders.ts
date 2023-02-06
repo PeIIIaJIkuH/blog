@@ -4,7 +4,7 @@ import {RuleSetRule} from 'webpack'
 import {BuildOptions} from './types/config'
 
 export function buildLoaders({isDev}: BuildOptions): RuleSetRule[] {
-	const typescriptLoader: RuleSetRule = {
+	const tsLoader: RuleSetRule = {
 		test: /\.tsx?$/,
 		use: 'ts-loader',
 		exclude: /node_modules/,
@@ -40,7 +40,7 @@ export function buildLoaders({isDev}: BuildOptions): RuleSetRule[] {
 	}
 
 	return [
-		typescriptLoader,
+		tsLoader,
 		scssLoader,
 		svgLoader,
 		fileLoader,
