@@ -1,6 +1,6 @@
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
-import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
+import {ReactRefreshPlugin} from '@pmmmwh/react-refresh-webpack-plugin'
 import webpack, {ProgressPlugin, WebpackPluginInstance} from 'webpack'
 
 import {BuildOptions} from './types/config'
@@ -19,7 +19,7 @@ export function buildPlugins({paths, isDev}: BuildOptions): WebpackPluginInstanc
 			__IS_DEV__: JSON.stringify(isDev),
 		}),
 		...(isDev && [
-			new ReactRefreshWebpackPlugin(),
+			new ReactRefreshPlugin(),
 			new webpack.HotModuleReplacementPlugin(),
 		].filter(Boolean)),
 	]
