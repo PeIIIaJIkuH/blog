@@ -1,1 +1,1 @@
-export {ERoutes, AppRoutes} from './lib/routes'
+export { ERoutes, AppRoutes } from './lib/routes'

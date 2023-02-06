@@ -1,9 +1,9 @@
-import {FC, Suspense} from 'react'
-import {Route, RouteProps, Routes} from 'react-router-dom'
+import { type FC, Suspense } from 'react'
+import { Route, type RouteProps, Routes } from 'react-router-dom'
 
-import {AboutPage} from '@pages/AboutPage'
-import {MainPage} from '@pages/MainPage'
-import {AppRoutes, ERoutes} from '@shared/config/routes'
+import { AboutPage } from '@pages/AboutPage'
+import { MainPage } from '@pages/MainPage'
+import { AppRoutes, ERoutes } from '@shared/config/routes'
 
 const routes: Record<ERoutes, RouteProps> = {
 	[ERoutes.HOME]: {
@@ -20,7 +20,7 @@ export const AppRouter: FC = () => {
 	return (
 		<Suspense fallback={<div>Loading...</div>}>
 			<Routes>
-				{Object.values(routes).map(({path, element}) => (
+				{Object.values(routes).map(({ path, element }) => (
 					<Route key={path} path={path} element={(
 						<div className='page-wrapper'>
 							{element}

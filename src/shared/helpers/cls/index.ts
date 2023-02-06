@@ -1,1 +1,1 @@
-export {cls} from './lib/cls'
+export { cls } from './lib/cls'

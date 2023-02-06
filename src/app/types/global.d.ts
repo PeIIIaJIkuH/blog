@@ -1,7 +1,5 @@
 declare module '*.module.scss' {
-	interface IClassNames {
-		[className: string]: string
-	}
+	type IClassNames = Record<string, string>
 
 	const s: IClassNames
 	export = s
@@ -12,9 +10,9 @@ declare module '*.jpeg'
 declare module '*.png'
 declare module '*.gif'
 declare module '*.svg' {
-	import React from 'react'
+	import type React from 'react'
 	const SVG: React.FC<React.SVGProps<SVGSVGElement>>
 	export default SVG
 }
 
-declare const __IS_DEV__: boolean
+declare const IS_DEV: boolean

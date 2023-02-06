@@ -1,9 +1,9 @@
 import path from 'path'
-import {ResolveOptions} from 'webpack'
+import { type ResolveOptions } from 'webpack'
 
-import {BuildOptions} from './types/config'
+import { type BuildOptions } from './types/config'
 
-export function buildResolvers({paths}: BuildOptions): ResolveOptions {
+export function buildResolvers ({ paths }: BuildOptions): ResolveOptions {
 	return {
 		extensions: ['.tsx', '.ts', '.js'],
 		preferAbsolute: true,

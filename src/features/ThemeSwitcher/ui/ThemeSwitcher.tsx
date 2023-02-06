@@ -1,8 +1,8 @@
-import {FC} from 'react'
+import { type FC } from 'react'
 
-import {useTheme} from '@shared/providers/ThemeProvider'
-import {cls} from '@shared/helpers/cls'
-import {Button} from '@shared/ui/Button'
+import { useTheme } from '@shared/providers/ThemeProvider'
+import { cls } from '@shared/helpers/cls'
+import { Button } from '@shared/ui/Button'
 
 import s from './ThemeSwitcher.module.scss'
 
@@ -13,8 +13,8 @@ interface ThemeSwitcherProps {
 	className?: string
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({className}) => {
-	const {theme, toggleTheme} = useTheme()
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
+	const { theme, toggleTheme } = useTheme()
 
 	return (
 		<Button theme='clear' onClick={toggleTheme} className={cls(s.ThemeSwitcher, className)}>

@@ -18,7 +18,8 @@
 			"@entities/*": ["./src/entities/*"],
 			"@shared/*": ["./src/shared/*"],
 			"@/*": ["./src/*"]
-		}
+		},
+		"strictNullChecks": true
 	},
 	"ts-node": {
 		"compilerOptions": {
