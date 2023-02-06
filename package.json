@@ -9,7 +9,9 @@
 		"build:prod": "webpack --env mode=production",
 		"build:dev": "webpack --env mode=development",
 		"lint:ts": "eslint --ext .ts,.tsx,.js,.jsx",
-		"lint:ts:fix": "eslint --ext .ts,.tsx,.js,.jsx --fix"
+		"lint:ts:fix": "eslint --ext .ts,.tsx,.js,.jsx --fix",
+		"lint:scss": "stylelint \"**/*.scss\"",
+		"lint:scss:fix": "stylelint \"**/*.scss\" --fix"
 	},
 	"keywords": [],
 	"author": "",
@@ -27,6 +29,7 @@
 		"css-loader": "^6.6.0",
 		"eslint": "^8.0.1",
 		"eslint-config-standard-with-typescript": "^34.0.0",
+		"eslint-plugin-i18next": "^6.0.0-6",
 		"eslint-plugin-import": "^2.25.2",
 		"eslint-plugin-n": "^15.0.0",
 		"eslint-plugin-promise": "^6.0.0",
@@ -38,6 +41,8 @@
 		"sass": "^1.49.9",
 		"sass-loader": "^13.2.0",
 		"style-loader": "^3.3.1",
+		"stylelint": "^14.16.1",
+		"stylelint-config-standard-scss": "^6.1.0",
 		"ts-loader": "^9.2.6",
 		"ts-node": "^10.5.0",
 		"typescript": "*",

@@ -17,6 +17,8 @@ module.exports = {
 	},
 	plugins: [
 		'react',
+		'@typescript-eslint',
+		'i18next',
 	],
 	rules: {
 		'no-tabs': 'off',
@@ -29,6 +31,7 @@ module.exports = {
 		'multiline-ternary': 'off',
 		'@typescript-eslint/explicit-function-return-type': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',
+		'i18next/no-literal-string': ['error', { markupOnly: true }],
 	},
 	settings: {
 		react: {
