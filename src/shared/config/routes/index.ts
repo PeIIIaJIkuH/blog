@@ -1,1 +1,1 @@
-export { AppRoutes, ERoutes } from './lib/routes'
+export { AppRoutes, type IRoutePath, RoutePath } from './lib/routes'

@@ -5,19 +5,19 @@ import { AboutPage } from '@pages/AboutPage'
 import { MainPage } from '@pages/MainPage'
 import { NotFoundPage } from '@pages/NotFoundPage'
 import { PageLoader } from '@widgets/PageLoader'
-import { AppRoutes, ERoutes } from '@shared/config/routes'
+import { AppRoutes, type IRoutePath, RoutePath } from '@shared/config/routes'
 
-const routes: Record<ERoutes, RouteProps> = {
-	[ERoutes.HOME]: {
-		path: AppRoutes[ERoutes.HOME],
+const routes: Record<IRoutePath, RouteProps> = {
+	[RoutePath.HOME]: {
+		path: AppRoutes[RoutePath.HOME],
 		element: <MainPage/>,
 	},
-	[ERoutes.ABOUT]: {
-		path: AppRoutes[ERoutes.ABOUT],
+	[RoutePath.ABOUT]: {
+		path: AppRoutes[RoutePath.ABOUT],
 		element: <AboutPage/>,
 	},
-	[ERoutes.NOT_FOUND]: {
-		path: AppRoutes[ERoutes.NOT_FOUND],
+	[RoutePath.NOT_FOUND]: {
+		path: AppRoutes[RoutePath.NOT_FOUND],
 		element: <NotFoundPage/>,
 	},
 }
