@@ -18,10 +18,10 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 		<div className={cls(s.Navbar, className)}>
 			<div>Logo</div>
 			<div className={s.links}>
-				<AppLink to={AppRoutes[RoutePath.HOME]}>
+				<AppLink to={RoutePath[AppRoutes.HOME]}>
 					{t('navbar.home')}
 				</AppLink>
-				<AppLink to={AppRoutes[RoutePath.ABOUT]}>
+				<AppLink to={RoutePath[AppRoutes.ABOUT]}>
 					{t('navbar.about')}
 				</AppLink>
 			</div>
