@@ -6,9 +6,7 @@ export const NotFoundPage: FC = () => {
 
 	return (
 		<div>
-			<h1>
-				{t('notFoundPage.title')}
-			</h1>
+			<h1>{t('notFoundPage.title')}</h1>
 		</div>
 	)
 }

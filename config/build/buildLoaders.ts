@@ -3,7 +3,7 @@ import { type RuleSetRule } from 'webpack'
 
 import { type BuildOptions } from './types/config'
 
-export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
+export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 	const tsLoader: RuleSetRule = {
 		test: /\.tsx?$/,
 		use: 'ts-loader',
@@ -19,9 +19,7 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
 				options: {
 					modules: {
 						auto: /\.module\.\w+$/i,
-						localIdentName: isDev
-							? '[path][name]__[local]--[hash:base64:5]'
-							: '[hash:base64:8]',
+						localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]',
 					},
 				},
 			},
@@ -39,10 +37,5 @@ export function buildLoaders ({ isDev }: BuildOptions): RuleSetRule[] {
 		use: ['file-loader'],
 	}
 
-	return [
-		tsLoader,
-		scssLoader,
-		svgLoader,
-		fileLoader,
-	]
+	return [tsLoader, scssLoader, svgLoader, fileLoader]
 }

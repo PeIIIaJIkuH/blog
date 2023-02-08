@@ -9,7 +9,7 @@ if (!root) throw new Error('Root element not found')
 createRoot(root).render(
 	<BrowserRouter>
 		<ThemeProvider>
-			<App/>
+			<App />
 		</ThemeProvider>
 	</BrowserRouter>,
 )

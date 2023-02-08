@@ -15,8 +15,8 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 		<div className={cls(s.Sidebar, className)}>
 			<div></div>
 			<div className={s.switchers}>
-				<ThemeSwitcher/>
-				<LanguageSwitcher/>
+				<ThemeSwitcher />
+				<LanguageSwitcher />
 			</div>
 		</div>
 	)

@@ -7,36 +7,26 @@ module.exports = {
 		es2021: true,
 	},
 	extends: [
-		'plugin:react/recommended',
 		'standard-with-typescript',
+		'plugin:react/recommended',
+		'plugin:react-hooks/recommended',
 		'plugin:react/jsx-runtime',
+		'prettier',
 	],
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
 		project: './tsconfig.json',
 	},
-	plugins: [
-		'react',
-		'@typescript-eslint',
-		'i18next',
-		'simple-import-sort',
-	],
+	plugins: ['react', '@typescript-eslint', 'i18next', 'simple-import-sort', 'prettier'],
 	rules: {
-		'no-tabs': 'off',
-		'comma-dangle': 'off',
-		'@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
-		indent: 'off',
-		'@typescript-eslint/indent': ['error', 'tab'],
-		'@typescript-eslint/prefer-nullish-coalescing': 'off',
-		'@typescript-eslint/strict-boolean-expressions': 'off',
-		'multiline-ternary': 'off',
-		'@typescript-eslint/explicit-function-return-type': 'off',
-		'@typescript-eslint/ban-ts-comment': 'off',
 		'i18next/no-literal-string': ['warn', { markupOnly: true }],
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
-		'@typescript-eslint/no-redeclare': 'off',
+		'prettier/prettier': 'error',
+		'@typescript-eslint/strict-boolean-expressions': 'off',
+		'@typescript-eslint/ban-ts-comment': 'off',
+		'@typescript-eslint/explicit-function-return-type': 'off',
 	},
 	settings: {
 		react: {
@@ -50,17 +40,27 @@ module.exports = {
 		{
 			files: ['*.js', '*.jsx', '*.ts', '*.tsx'],
 			rules: {
-				'simple-import-sort/imports': ['error', {
-					groups: [
-						['^react$', '^[a-z@]'],
-						['^@app', '^@pages', '^@widgets', '^@features', '^@entities', `^@shared(?![^ ]+(${imageExtensions}|${styleExtensions}))`],
-						['^\\.\\.(?!/?$)', '^\\.\\./?$'],
-						['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
-						['^\\u0000'],
-						[`@shared(?=[^ ]+(${styleExtensions}))`, `^.+\\.(${styleExtensions})$`],
-						[`@shared(?=[^ ]+(${imageExtensions}))`, `.(${imageExtensions})$`],
-					],
-				}],
+				'simple-import-sort/imports': [
+					'error',
+					{
+						groups: [
+							['^react$', '^[a-z@]'],
+							[
+								'^@app',
+								'^@pages',
+								'^@widgets',
+								'^@features',
+								'^@entities',
+								`^@shared(?![^ ]+(${imageExtensions}|${styleExtensions}))`,
+							],
+							['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+							['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+							['^\\u0000'],
+							[`@shared(?=[^ ]+(${styleExtensions}))`, `^.+\\.(${styleExtensions})$`],
+							[`@shared(?=[^ ]+(${imageExtensions}))`, `.(${imageExtensions})$`],
+						],
+					},
+				],
 			},
 		},
 	],

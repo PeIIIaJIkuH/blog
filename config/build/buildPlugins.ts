@@ -5,7 +5,7 @@ import webpack, { ProgressPlugin, type WebpackPluginInstance } from 'webpack'
 
 import { type BuildOptions } from './types/config'
 
-export function buildPlugins ({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
 	return [
 		new HTMLWebpackPlugin({
 			template: paths.html,
@@ -18,11 +18,6 @@ export function buildPlugins ({ paths, isDev }: BuildOptions): WebpackPluginInst
 		new webpack.DefinePlugin({
 			IS_DEV: JSON.stringify(isDev),
 		}),
-		...(isDev
-			? [
-				new ReactRefreshWebpackPlugin(),
-				new webpack.HotModuleReplacementPlugin(),
-			]
-			: []),
+		...(isDev ? [new ReactRefreshWebpackPlugin(), new webpack.HotModuleReplacementPlugin()] : []),
 	]
 }
