@@ -5,9 +5,9 @@ import { AboutPage } from '@pages/AboutPage'
 import { MainPage } from '@pages/MainPage'
 import { NotFoundPage } from '@pages/NotFoundPage'
 import { PageLoader } from '@widgets/PageLoader'
-import { AppRoutes, type IRoutePath, RoutePath } from '@shared/config/routes'
+import { AppRoutes, RoutePath } from '@shared/config/routes'
 
-const routes: Record<IRoutePath, RouteProps> = {
+const routes: Record<AppRoutes, RouteProps> = {
 	[AppRoutes.HOME]: {
 		path: RoutePath[AppRoutes.HOME],
 		element: <MainPage/>,

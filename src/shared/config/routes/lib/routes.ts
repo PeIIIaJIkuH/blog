@@ -3,10 +3,9 @@ export const AppRoutes = {
 	ABOUT: 'about',
 	NOT_FOUND: 'notFound',
 } as const
+type AppRoutes = typeof AppRoutes[keyof typeof AppRoutes]
 
-export type IRoutePath = typeof AppRoutes[keyof typeof AppRoutes]
-
-export const RoutePath: Record<IRoutePath, string> = {
+export const RoutePath: Record<AppRoutes, string> = {
 	[AppRoutes.HOME]: '/',
 	[AppRoutes.ABOUT]: '/about',
 	[AppRoutes.NOT_FOUND]: '*',

@@ -36,6 +36,7 @@ module.exports = {
 		'i18next/no-literal-string': ['warn', { markupOnly: true }],
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
+		'@typescript-eslint/no-redeclare': 'off',
 	},
 	settings: {
 		react: {
