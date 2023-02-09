@@ -1,0 +1,13 @@
+{
+	"language": {
+		"original": "English",
+		"translated": "Русский"
+	},
+	"not_found": "Page not found",
+	"logo": "Logo",
+	"navbar": {
+		"home": "Home",
+		"about": "About"
+	},
+	"loading": "Loading..."
+}

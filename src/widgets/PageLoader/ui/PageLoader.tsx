@@ -10,7 +10,7 @@ interface PageLoaderProps {
 }
 
 export const PageLoader: FC<PageLoaderProps> = ({ className }) => {
-	const { t } = useTranslation()
+	const { t } = useTranslation('main')
 
-	return <div className={cls(s.PageLoader, className)}>{t('loading')}</div>
+	return <div className={cls(s.PageLoader, className)}>{t('main:loading')}</div>
 }

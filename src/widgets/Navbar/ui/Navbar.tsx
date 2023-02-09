@@ -12,14 +12,14 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
-	const { t } = useTranslation()
+	const { t } = useTranslation('main')
 
 	return (
 		<div className={cls(s.Navbar, className)}>
-			<div>{t('logo')}</div>
+			<div>{t('main:logo')}</div>
 			<div className={s.links}>
-				<AppLink to={RoutePath[AppRoutes.HOME]}>{t('navbar.home')}</AppLink>
-				<AppLink to={RoutePath[AppRoutes.ABOUT]}>{t('navbar.about')}</AppLink>
+				<AppLink to={RoutePath[AppRoutes.HOME]}>{t('main:navbar.home')}</AppLink>
+				<AppLink to={RoutePath[AppRoutes.ABOUT]}>{t('main:navbar.about')}</AppLink>
 			</div>
 		</div>
 	)

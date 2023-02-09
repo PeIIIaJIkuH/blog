@@ -1,12 +1,12 @@
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export const MainPage: FC = () => {
-	const { t } = useTranslation('homePage')
+export const HomePage: FC = () => {
+	const { t } = useTranslation('home')
 
 	return (
 		<div>
-			<h1>{t('title')}</h1>
+			<h1>{t('home:title')}</h1>
 		</div>
 	)
 }

@@ -1,11 +1,11 @@
 import { lazy } from 'react'
 
-export const MainPageLazy = lazy(
+export const HomePageLazy = lazy(
 	async () =>
 		await new Promise((resolve) => {
 			setTimeout(() => {
 				// @ts-expect-error
-				resolve(import('./MainPage').then(({ MainPage }) => ({ default: MainPage })))
+				resolve(import('./HomePage').then(({ HomePage }) => ({ default: HomePage })))
 			}, 1500)
 		}),
 )

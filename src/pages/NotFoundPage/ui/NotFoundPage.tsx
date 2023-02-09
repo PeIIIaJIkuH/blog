@@ -2,11 +2,11 @@ import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export const NotFoundPage: FC = () => {
-	const { t } = useTranslation()
+	const { t } = useTranslation('main')
 
 	return (
 		<div>
-			<h1>{t('notFoundPage.title')}</h1>
+			<h1>{t('main:notFound.title')}</h1>
 		</div>
 	)
 }
