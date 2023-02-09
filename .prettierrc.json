@@ -8,14 +8,7 @@
 	"endOfLine": "auto",
 	"semi": false,
 	"arrowParens": "always",
-	"bracketSameLine": true,
-	"overrides": [
-		{
-			"files": "**/*.html",
-			"options": {
-				"singleQuote": true,
-				"jsxSingleQuote": true
-			}
-		}
-	]
+	"bracketSameLine": false,
+	"bracketSpacing": true,
+	"singleAttributePerLine": false
 }
