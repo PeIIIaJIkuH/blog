@@ -1,13 +1,12 @@
 import { type FC, Suspense } from 'react'
 
-import { Navbar } from '@widgets/Navbar'
-import { Sidebar } from '@widgets/Sidebar'
-import { cls } from '@shared/helpers/cls'
-import { useTheme } from '@shared/providers/ThemeProvider'
+import { cls } from 'shared/helpers/cls'
+import { useTheme } from 'shared/providers/ThemeProvider'
+import { Navbar } from 'widgets/Navbar'
+import { Sidebar } from 'widgets/Sidebar'
 
 import { AppRouter } from './providers/router'
-
-import '@shared/config/i18n'
+import 'shared/config/i18n'
 
 import './styles/index.scss'
 

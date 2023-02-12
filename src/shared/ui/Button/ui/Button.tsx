@@ -1,6 +1,6 @@
 import { type ButtonHTMLAttributes, type FC, type PropsWithChildren } from 'react'
 
-import { cls } from '@shared/helpers/cls'
+import { cls } from 'shared/helpers/cls'
 
 import s from './Button.module.scss'
 

@@ -1,8 +1,8 @@
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { cls } from '@shared/helpers/cls'
-import { Button } from '@shared/ui/Button'
+import { cls } from 'shared/helpers/cls'
+import { Button } from 'shared/ui/Button'
 
 interface LanguageSwitcherProps {
 	className?: string

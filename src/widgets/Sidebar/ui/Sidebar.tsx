@@ -1,8 +1,8 @@
 import { type FC } from 'react'
 
-import { LanguageSwitcher } from '@features/LanguageSwitcher'
-import { ThemeSwitcher } from '@features/ThemeSwitcher'
-import { cls } from '@shared/helpers/cls'
+import { LanguageSwitcher } from 'features/LanguageSwitcher'
+import { ThemeSwitcher } from 'features/ThemeSwitcher'
+import { cls } from 'shared/helpers/cls'
 
 import s from './Sidebar.module.scss'
 

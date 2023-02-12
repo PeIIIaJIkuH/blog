@@ -1,7 +1,7 @@
 import { type FC, type PropsWithChildren } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
 
-import { cls } from '@shared/helpers/cls'
+import { cls } from 'shared/helpers/cls'
 
 import s from './AppLink.module.scss'
 

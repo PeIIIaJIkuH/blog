@@ -1,9 +1,9 @@
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { AppRoutes, RoutePath } from '@shared/config/routes'
-import { cls } from '@shared/helpers/cls'
-import { AppLink } from '@shared/ui/AppLink'
+import { AppRoutes, RoutePath } from 'shared/config/routes'
+import { cls } from 'shared/helpers/cls'
+import { AppLink } from 'shared/ui/AppLink'
 
 import s from './Navbar.module.scss'
 

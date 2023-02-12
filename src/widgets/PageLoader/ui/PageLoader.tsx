@@ -1,7 +1,7 @@
 import { type FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { cls } from '@shared/helpers/cls'
+import { cls } from 'shared/helpers/cls'
 
 import s from './PageLoader.module.scss'
 
