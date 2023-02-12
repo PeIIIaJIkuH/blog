@@ -1,6 +1,6 @@
 import { screen } from '@testing-library/react'
 
-import { renderWithTranslation } from 'shared/helpers/tests/renderWithTranslation'
+import { renderWithTranslation } from 'shared/helpers/renderWithTranslation'
 
 import { Sidebar } from './Sidebar'
 
