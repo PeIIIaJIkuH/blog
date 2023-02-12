@@ -18,6 +18,6 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
 		new webpack.DefinePlugin({
 			IS_DEV: JSON.stringify(isDev),
 		}),
-		...(isDev ? [new ReactRefreshWebpackPlugin(), new webpack.HotModuleReplacementPlugin()] : []),
+		...(isDev ? [new ReactRefreshWebpackPlugin({ overlay: false }), new webpack.HotModuleReplacementPlugin()] : []),
 	]
 }

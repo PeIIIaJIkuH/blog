@@ -9,5 +9,9 @@
 		"home": "Home",
 		"about": "About"
 	},
-	"loading": "Loading..."
+	"loading": "Loading...",
+	"error": {
+		"message": "Something went wrong",
+		"refreshButton": "Refresh"
+	}
 }
