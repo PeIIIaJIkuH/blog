@@ -19,6 +19,7 @@ export const cls = (...mods: Mod[]): string => {
 				.filter((key) => mod[key])
 				.join(' ')
 		})
+		.filter(Boolean)
 		.join(' ')
 		.trim()
 }

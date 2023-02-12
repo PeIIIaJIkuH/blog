@@ -12,8 +12,8 @@ interface SidebarProps {
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
 	return (
-		<div className={cls(s.Sidebar, className)}>
-			<div></div>
+		<div className={cls(s.Sidebar, className)} data-testid='sidebar'>
+			<div />
 			<div className={s.switchers}>
 				<ThemeSwitcher />
 				<LanguageSwitcher />

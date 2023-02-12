@@ -13,7 +13,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
 	const { className, theme, children, ...rest } = props
 
 	return (
-		<button className={cls(s.Button, className, s[theme ?? ''])} {...rest}>
+		<button className={cls(s.Button, className, s[theme ?? ''])} {...rest} data-testid='button'>
 			{children}
 		</button>
 	)

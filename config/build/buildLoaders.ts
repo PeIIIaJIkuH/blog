@@ -4,6 +4,17 @@ import { type RuleSetRule } from 'webpack'
 import { type BuildOptions } from './types/config'
 
 export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
+	const babelLoader: RuleSetRule = {
+		test: /\.[jt]sx?$/,
+		exclude: /node_modules/,
+		use: {
+			loader: 'babel-loader',
+			options: {
+				presets: ['@babel/preset-env'],
+			},
+		},
+	}
+
 	const tsLoader: RuleSetRule = {
 		test: /\.tsx?$/,
 		use: 'ts-loader',
@@ -37,5 +48,5 @@ export function buildLoaders({ isDev }: BuildOptions): RuleSetRule[] {
 		use: ['file-loader'],
 	}
 
-	return [tsLoader, scssLoader, svgLoader, fileLoader]
+	return [babelLoader, tsLoader, scssLoader, svgLoader, fileLoader]
 }

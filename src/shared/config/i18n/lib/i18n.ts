@@ -5,6 +5,7 @@ import { initReactI18next } from 'react-i18next'
 
 void i18n.use(Backend).use(LanguageDetector).use(initReactI18next).init({
 	fallbackLng: 'en',
+	defaultNS: 'main',
 	debug: IS_DEV,
 })
 

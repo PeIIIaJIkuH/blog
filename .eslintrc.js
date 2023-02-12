@@ -46,6 +46,7 @@ module.exports = {
 		'@typescript-eslint/explicit-function-return-type': 'off',
 		'import/no-named-as-default': 'off',
 		'import/no-named-as-default-member': 'off',
+		'@typescript-eslint/no-misused-promises': 'off',
 		'import/order': [
 			'error',
 			{
@@ -107,5 +108,7 @@ module.exports = {
 		IS_DEV: 'readonly',
 		ANALYZE: 'readonly',
 	},
-	overrides: [{ files: ['**/*.test.*'], rules: { 'boundaries/element-types': 'off' } }],
+	overrides: [
+		{ files: ['**/*.test.*'], rules: { 'boundaries/element-types': 'off', 'i18next/no-literal-string': 'off' } },
+	],
 }

@@ -1,6 +1,6 @@
-import { cls } from './cls'
+import { cls } from 'shared/helpers/cls'
 
-describe('cls', () => {
+describe('shared/helpers/cls', () => {
 	it('should return empty string if no arguments are passed', () => {
 		expect(cls()).toBe('')
 	})
