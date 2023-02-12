@@ -2,10 +2,11 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import webpack, { ProgressPlugin, type WebpackPluginInstance } from 'webpack'
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 
 import { type BuildOptions } from './types/config'
 
-export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInstance[] {
+export function buildPlugins({ paths, isDev, analyze }: BuildOptions): WebpackPluginInstance[] {
 	return [
 		new HTMLWebpackPlugin({
 			template: paths.html,
@@ -17,7 +18,9 @@ export function buildPlugins({ paths, isDev }: BuildOptions): WebpackPluginInsta
 		}),
 		new webpack.DefinePlugin({
 			IS_DEV: JSON.stringify(isDev),
+			ANALYZE: JSON.stringify(analyze),
 		}),
 		...(isDev ? [new ReactRefreshWebpackPlugin({ overlay: false }), new webpack.HotModuleReplacementPlugin()] : []),
+		new BundleAnalyzerPlugin(),
 	]
 }

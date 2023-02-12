@@ -105,6 +105,7 @@ module.exports = {
 	},
 	globals: {
 		IS_DEV: 'readonly',
+		ANALYZE: 'readonly',
 	},
 	overrides: [{ files: ['**/*.test.*'], rules: { 'boundaries/element-types': 'off' } }],
 }

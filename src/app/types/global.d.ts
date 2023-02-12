@@ -16,3 +16,4 @@ declare module '*.svg' {
 }
 
 declare const IS_DEV: boolean
+declare const ANALYZE: boolean
