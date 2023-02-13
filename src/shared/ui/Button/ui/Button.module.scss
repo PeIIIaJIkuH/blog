@@ -4,12 +4,23 @@
 	align-items: center;
 	justify-content: center;
 	color: inherit;
+	margin: 0;
+	padding: 10px;
 }
 
 .clear {
-	margin: 0;
-	padding: 0;
 	border: none;
 	background: none;
 	outline: none;
+}
+
+.outlined {
+	border: 1px solid var(--color-dark);
+	background: none;
+}
+
+.filled {
+	border: none;
+	background: var(--color-dark);
+	color: var(--color-light);
 }
