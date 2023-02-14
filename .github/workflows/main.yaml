@@ -25,6 +25,11 @@ jobs:
         node-version: [ 16 ]
     needs: [ installing-deps ]
     steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Linting typescript
         run: yarn lint:ts
       - name: Linting scss
@@ -36,6 +41,11 @@ jobs:
         node-version: [ 16 ]
     needs: [ installing-deps ]
     steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Linting scss
         run: yarn lint:scss
   testing-unit:
@@ -45,6 +55,11 @@ jobs:
         node-version: [ 16 ]
     needs: [ installing-deps ]
     steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Unit tests
         run: yarn test:unit
   testing-ui:
@@ -54,6 +69,11 @@ jobs:
         node-version: [ 16 ]
     needs: [ installing-deps ]
     steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Build storybook
         run: yarn storybook:build
       - name: Screenshot tests
@@ -65,5 +85,10 @@ jobs:
         node-version: [ 16 ]
     needs: [ installing-deps, linting-ts, linting-scss, testing-unit, testing-ui ]
     steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
       - name: Build project in production mode
         run: yarn build:prod
