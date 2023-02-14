@@ -115,6 +115,6 @@
 				"preset": "iPhone 7"
 			}
 		},
-		"diffingEngine": "pixelmatch"
+		"diffingEngine": "looks-same"
 	}
 }
