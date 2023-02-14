@@ -5,11 +5,11 @@ on:
   pull_request:
     branches: [ main ]
 jobs:
-  pipeline:
-    runs-on: windows-latest
+  installing-deps:
+    runs-on: windows-2019
     strategy:
       matrix:
-        node-version: [16]
+        node-version: [ 16 ]
     steps:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
@@ -18,16 +18,44 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
         run: yarn --frozen-lockfile --non-interactive --silent --ignore-scripts
-      - name: Build project in production mode
-        run: yarn build:prod
+  linting-ts:
+    needs: [ installing-deps ]
+    steps:
       - name: Linting typescript
         run: yarn lint:ts
       - name: Linting scss
         run: yarn lint:scss
+  linting-scss:
+    needs: [ installing-deps ]
+    steps:
+      - name: Linting scss
+        run: yarn lint:scss
+  testing-unit:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        node-version: [ 16 ]
+    needs: [ installing-deps ]
+    steps:
       - name: Unit tests
         run: yarn test:unit
+  testing-ui:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        node-version: [ 16 ]
+    needs: [ installing-deps ]
+    steps:
       - name: Build storybook
         run: yarn storybook:build
       - name: Screenshot tests
         run: yarn test:ui:ci
-        
+  building:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        node-version: [ 16 ]
+    needs: [ installing, linting-ts, linting-scss, testing-unit, testing-ui ]
+    steps:
+      - name: Build project in production mode
+        run: yarn build:prod
