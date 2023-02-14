@@ -19,6 +19,10 @@ jobs:
       - name: Install dependencies
         run: yarn --frozen-lockfile --non-interactive --silent --ignore-scripts
   linting-ts:
+    runs-on: windows-2019
+    strategy:
+      matrix:
+        node-version: [ 16 ]
     needs: [ installing-deps ]
     steps:
       - name: Linting typescript
@@ -26,12 +30,16 @@ jobs:
       - name: Linting scss
         run: yarn lint:scss
   linting-scss:
+    runs-on: windows-2019
+    strategy:
+      matrix:
+        node-version: [ 16 ]
     needs: [ installing-deps ]
     steps:
       - name: Linting scss
         run: yarn lint:scss
   testing-unit:
-    runs-on: windows-latest
+    runs-on: windows-2019
     strategy:
       matrix:
         node-version: [ 16 ]
@@ -40,7 +48,7 @@ jobs:
       - name: Unit tests
         run: yarn test:unit
   testing-ui:
-    runs-on: windows-latest
+    runs-on: windows-2019
     strategy:
       matrix:
         node-version: [ 16 ]
@@ -51,7 +59,7 @@ jobs:
       - name: Screenshot tests
         run: yarn test:ui:ci
   building:
-    runs-on: windows-latest
+    runs-on: windows-2019
     strategy:
       matrix:
         node-version: [ 16 ]
