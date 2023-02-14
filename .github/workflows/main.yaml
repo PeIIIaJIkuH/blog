@@ -63,7 +63,7 @@ jobs:
     strategy:
       matrix:
         node-version: [ 16 ]
-    needs: [ installing, linting-ts, linting-scss, testing-unit, testing-ui ]
+    needs: [ installing-deps, linting-ts, linting-scss, testing-unit, testing-ui ]
     steps:
       - name: Build project in production mode
         run: yarn build:prod
