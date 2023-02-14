@@ -1,5 +1,4 @@
 name: Linting, testing, and building
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
     branches: [ main ]
@@ -18,11 +17,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install dependencies
-        run: npm ci
+        run: yarn install
       - name: Build project in production mode
-        run: npm run build:prod
+        run: yarn build:prod
       - name: Linting
-        run: npm run lint
+        run: yarn lint
       - name: Run tests
-        run: npm run test:unit
+        run: yarn test:unit
         
