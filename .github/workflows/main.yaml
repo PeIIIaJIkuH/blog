@@ -16,8 +16,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Cache yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Install dependencies
-        run: yarn --frozen-lockfile --non-interactive --silent
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn --frozen-lockfile --non-interactive --silent --ignore-scripts
   linting-ts:
     runs-on: windows-2019
     strategy:
@@ -30,10 +39,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Linting typescript
         run: yarn lint:ts
-      - name: Linting scss
-        run: yarn lint:scss
   linting-scss:
     runs-on: windows-2019
     strategy:
@@ -46,6 +61,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Linting scss
         run: yarn lint:scss
   testing-unit:
@@ -60,6 +83,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Unit tests
         run: yarn test:unit
   testing-ui:
@@ -74,6 +105,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Build storybook
         run: yarn storybook:build
       - name: Screenshot tests
@@ -90,5 +129,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+      - name: Restore yarn dependencies
+        uses: actions/cache@v2
+        id: yarn-cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
       - name: Build project in production mode
         run: yarn build:prod
