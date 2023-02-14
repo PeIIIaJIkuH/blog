@@ -75,6 +75,7 @@ module.exports = {
 		'import/no-named-as-default-member': 'off',
 		'@typescript-eslint/no-misused-promises': 'off',
 		'@typescript-eslint/prefer-ts-expect-error': 'off',
+		'linebreak-style': 0,
 		'import/order': [
 			'error',
 			{
