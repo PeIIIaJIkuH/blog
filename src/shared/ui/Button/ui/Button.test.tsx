@@ -10,8 +10,8 @@ describe('shared/ui/Button', () => {
 	})
 
 	it('should render with theme', () => {
-		render(<Button variant='clear'>Test</Button>)
+		render(<Button variant='outline'>Test</Button>)
 
-		expect(screen.getByTestId('button')).toHaveClass('clear')
+		expect(screen.getByTestId('button')).toHaveClass('variant-outline')
 	})
 })

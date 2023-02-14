@@ -1,7 +1,7 @@
 type Mod = string | boolean | number | null | undefined | Record<string | number, boolean | number | null | undefined>
 
-export const cls = (...mods: Mod[]): string => {
-	return mods
+export const cls = (...mods: Mod[]): string =>
+	mods
 		.map((mod) => {
 			if (typeof mod === 'string') {
 				return mod
@@ -22,4 +22,3 @@ export const cls = (...mods: Mod[]): string => {
 		.filter(Boolean)
 		.join(' ')
 		.trim()
-}

@@ -17,7 +17,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className }) => {
 	}
 
 	return (
-		<Button onClick={toggleLanguage} className={cls(className)}>
+		<Button onClick={toggleLanguage} radius='small' className={cls(className)}>
 			{t('main:language.translated')}
 		</Button>
 	)

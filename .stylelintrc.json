@@ -5,6 +5,7 @@
 		"indentation": "tab",
 		"string-quotes": "single",
 		"selector-class-pattern": "^[a-zA-Z0-9\\-]+$",
-		"prettier/prettier": true
+		"prettier/prettier": true,
+		"no-duplicate-selectors": null
 	}
 }

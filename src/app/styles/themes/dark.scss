@@ -1,7 +1,7 @@
 .app.dark {
-	--color-light: #181c22;
-	--color-accent-light: #ddb381;
-	--color-brand: #88a1bb;
-	--color-accent-dark: #998385;
-	--color-dark: #e9eeed;
+	--color-primary: #0277bd;
+	--color-secondary: #0288d1;
+	--color-tertiary: #03a9f4;
+	--color-background: var(--color-dark-gray);
+	--color-font: var(--color-off-white);
 }

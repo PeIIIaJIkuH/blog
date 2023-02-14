@@ -3,24 +3,85 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: inherit;
+	color: var(--color-font);
 	margin: 0;
-	padding: 10px;
+
+	--current-color: var(--color-font);
 }
 
-.clear {
-	border: none;
-	background: none;
-	outline: none;
+.variant-default {
+	background-color: var(--color-background);
+	border: 1px solid var(--color-medium-gray);
+	color: var(--color-font);
 }
 
-.outlined {
-	border: 1px solid var(--color-dark);
-	background: none;
+.variant-outline {
+	background-color: transparent;
+	border: 1px solid var(--current-color);
+	color: var(--current-color);
 }
 
-.filled {
-	border: none;
-	background: var(--color-dark);
-	color: var(--color-light);
+.variant-filled {
+	background-color: var(--current-color);
+	border: 1px solid var(--current-color);
+	color: var(--color-off-white);
+}
+
+.size-small {
+	padding: 0.2rem 0.6rem;
+	font-size: 0.8rem;
+}
+
+.size-medium {
+	padding: 0.6rem 1rem;
+	font-size: 1.2rem;
+}
+
+.size-large {
+	padding: 1rem 1.4rem;
+	font-size: 1.6rem;
+}
+
+.radius-small {
+	border-radius: 0.4rem;
+}
+
+.radius-medium {
+	border-radius: 0.8rem;
+}
+
+.radius-large {
+	border-radius: 1.2rem;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.color-primary {
+	--current-color: var(--color-primary);
+}
+
+.color-secondary {
+	--current-color: var(--color-secondary);
+}
+
+.color-tertiary {
+	--current-color: var(--color-tertiary);
+}
+
+.color-success {
+	--current-color: var(--color-accent-green);
+}
+
+.color-danger {
+	--current-color: var(--color-accent-red);
+}
+
+.color-warning {
+	--current-color: var(--color-accent-yellow);
+}
+
+.color-info {
+	--current-color: var(--color-light-gray);
 }
