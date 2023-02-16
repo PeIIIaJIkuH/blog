@@ -1,7 +1,13 @@
 {
 	"language": {
-		"original": "English",
-		"translated": "Русский"
+		"original": {
+			"long": "English",
+			"short": "EN"
+		},
+		"translated": {
+			"long": "Русский",
+			"short": "RU"
+		}
 	},
 	"not_found": "Page not found",
 	"logo": "Logo",

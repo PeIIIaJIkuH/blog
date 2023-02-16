@@ -1,7 +1,13 @@
 {
 	"language": {
-		"original": "Русский",
-		"translated": "English"
+		"original": {
+			"long": "Русский",
+			"short": "RU"
+		},
+		"translated": {
+			"long": "English",
+			"short": "EN"
+		}
 	},
 	"not_found": "Страница не найдена",
 	"logo": "Лого",
