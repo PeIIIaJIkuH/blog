@@ -5,13 +5,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: 2px solid var(--color-dark-gray);
+	border: 2px solid var(--current-color);
 	border-radius: 4px;
 	align-self: flex-start;
 	cursor: pointer;
 	overflow: hidden;
 
-	--current-color: var(--color-dark-gray);
+	--current-color: var(--color-font);
 	--pi: 3.1416;
 
 	.svg {
