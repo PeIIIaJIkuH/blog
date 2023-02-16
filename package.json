@@ -17,7 +17,7 @@
 		"test:unit": "jest --config ./config/jest/jest.config.ts",
 		"test:ui": "yarn loki test",
 		"test:ui:ok": "yarn loki approve",
-		"test:ui:ci": "yarn run loki --requireReference --reactUri file:./storybook-static",
+		"test:ui:ci": "yarn run storybook:build && yarn run loki --requireReference --reactUri file:./storybook-static",
 		"test:ui:json": "node scripts/generate-visual-json-report.js",
 		"test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
 		"test:ui:report": "yarn run test:ui:json && yarn run test:ui:html",
