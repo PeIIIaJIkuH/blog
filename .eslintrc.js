@@ -58,7 +58,7 @@ module.exports = {
 				pattern: 'shared/*',
 			},
 		],
-		'boundaries/ignore': ['**/*.test.*'],
+		'boundaries/ignore': ['**/*.test.*', '**/*.stories.*'],
 	},
 	rules: {
 		'i18next/no-literal-string': [

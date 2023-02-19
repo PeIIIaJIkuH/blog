@@ -5,7 +5,6 @@ import { Button } from './Button'
 const componentMeta: ComponentMeta<typeof Button> = {
 	title: 'shared/Button',
 	component: Button,
-	argTypes: {},
 }
 
 export default componentMeta

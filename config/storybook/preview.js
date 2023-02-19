@@ -1,6 +1,7 @@
 import { withRouter } from 'storybook-addon-react-router-v6'
 
 import 'app/styles/index.scss'
+import { withTheme } from './decorators/withTheme'
 import i18n from './i18n'
 
 export const parameters = {
@@ -11,19 +12,6 @@ export const parameters = {
 			date: /Date$/,
 		},
 	},
-	themes: {
-		default: 'light',
-		list: [
-			{
-				name: 'light',
-				class: ['app', 'light'],
-			},
-			{
-				name: 'dark',
-				class: ['app', 'dark'],
-			},
-		],
-	},
 	i18n,
 	locale: 'en',
 	locales: {
@@ -32,4 +20,4 @@ export const parameters = {
 	},
 }
 
-export const decorators = [withRouter]
+export const decorators = [withRouter, withTheme]

@@ -15,7 +15,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const toggle = () => {
-		setIsOpen(!isOpen)
+		setIsOpen((prev) => !prev)
 	}
 
 	return (
