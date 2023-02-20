@@ -7,6 +7,10 @@
 	margin: 0;
 
 	--current-color: var(--color-font);
+
+	&:active {
+		transform: translateY(1px);
+	}
 }
 
 .variant-default {

@@ -11,20 +11,7 @@ export default componentMeta
 
 const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />
 
-export const Primary = Template.bind({})
-Primary.args = {
-	color: 'primary',
-	children: 'AppLink',
-}
-
-export const Secondary = Template.bind({})
-Secondary.args = {
-	color: 'secondary',
-	children: 'AppLink',
-}
-
-export const Tertiary = Template.bind({})
-Tertiary.args = {
-	color: 'tertiary',
+export const Default = Template.bind({})
+Default.args = {
 	children: 'AppLink',
 }

@@ -1,20 +1,21 @@
 import { type FC, type PropsWithChildren } from 'react'
 import { Link, type LinkProps } from 'react-router-dom'
 
+import { type IAppRoutes, RoutePath } from 'shared/config/routes'
 import { cls } from 'shared/helpers/cls'
 
 import s from './AppLink.module.scss'
 
 interface AppLinkProps extends LinkProps {
 	className?: string
-	color?: 'primary' | 'secondary' | 'tertiary'
+	to: Exclude<IAppRoutes, 'notFound'>
 }
 
 export const AppLink: FC<PropsWithChildren<AppLinkProps>> = (props) => {
-	const { className, color, children, ...rest } = props
+	const { to, className, children, ...rest } = props
 
 	return (
-		<Link className={cls(s.AppLink, className, color && s[color])} {...rest}>
+		<Link to={RoutePath[to]} className={cls(s.AppLink, className)} {...rest}>
 			{children}
 		</Link>
 	)

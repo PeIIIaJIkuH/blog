@@ -21,7 +21,8 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className, short =
 
 	return (
 		<Button onClick={toggleLanguage} radius='small' className={cls(s.LanguageSwitcher, className, short && s.short)}>
-			{short ? t('main:language.translated.short') : t('main:language.translated.long')}
+			<span className={cls(short ? s.hidden : s.visible)}>{t('main:language.translated.long')}</span>
+			<span className={cls(short ? s.visible : s.hidden)}>{t('main:language.translated.short')}</span>
 		</Button>
 	)
 }

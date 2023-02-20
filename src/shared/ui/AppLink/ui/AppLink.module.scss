@@ -1,15 +1,8 @@
 .AppLink {
 	color: inherit;
-}
+	text-decoration: none;
 
-.primary {
-	color: var(--color-primary);
-}
-
-.secondary {
-	color: var(--color-secondary);
-}
-
-.tertiary {
-	color: var(--color-tertiary);
+	&:active {
+		transform: translateY(1px);
+	}
 }

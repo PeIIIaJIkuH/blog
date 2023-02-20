@@ -6,12 +6,12 @@
 *::before,
 *::after {
 	box-sizing: border-box;
+	font: var(--font-m);
+	color: var(--color-font);
 }
 
 .app {
-	font: var(--font-m);
 	background: var(--color-background);
-	color: var(--color-font);
 	min-height: 100vh;
 	display: grid;
 	grid-template-rows: auto 1fr;

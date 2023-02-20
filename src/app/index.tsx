@@ -2,7 +2,7 @@ import { type FC, Suspense } from 'react'
 
 import { cls } from 'shared/helpers/cls'
 import { useTheme } from 'shared/providers/ThemeProvider'
-import { Navbar } from 'widgets/Navbar'
+import { Header } from 'widgets/Header'
 import { Sidebar } from 'widgets/Sidebar'
 
 import { AppRouter } from './providers/router'
@@ -16,7 +16,7 @@ export const App: FC = () => {
 	return (
 		<div className={cls('app', theme)}>
 			<Suspense fallback=''>
-				<Navbar />
+				<Header />
 				<Sidebar />
 				<div className='content-page'>
 					<AppRouter />
