@@ -1,4 +1,4 @@
-import { type FC, useState } from 'react'
+import { type FC, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { BurgerButton } from 'features/BurgerButton'
@@ -19,9 +19,9 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 	const [isOpen, setIsOpen] = useState(false)
 	const { t } = useTranslation()
 
-	const toggle = () => {
+	const toggle = useCallback(() => {
 		setIsOpen((prev) => !prev)
-	}
+	}, [])
 
 	return (
 		<div className={cls(s.Sidebar, className, !isOpen && s.collapsed)} data-testid='sidebar'>

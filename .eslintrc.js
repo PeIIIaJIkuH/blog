@@ -7,6 +7,7 @@ module.exports = {
 		'standard-with-typescript',
 		'plugin:react/recommended',
 		'plugin:react/jsx-runtime',
+		'plugin:react-hooks/recommended',
 		'prettier',
 		'plugin:import/errors',
 		'plugin:import/warnings',

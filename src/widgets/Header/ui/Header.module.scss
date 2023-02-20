@@ -15,3 +15,15 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.loginButton {
+	border: none;
+	padding: 6px 10px;
+	border-radius: 4px;
+	background: transparent;
+	transition: background 0.3s ease-in-out;
+
+	&:hover {
+		background: var(--color-button-hover);
+	}
+}

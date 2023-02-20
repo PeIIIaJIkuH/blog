@@ -5,7 +5,7 @@ import { cls } from 'shared/helpers/cls'
 import { type Theme } from 'shared/providers/ThemeProvider'
 import { ThemeContext } from 'shared/providers/ThemeProvider/lib/ThemeContext'
 
-export const withTheme: DecoratorFn = (Story) => {
+export const WithTheme: DecoratorFn = (Story) => {
 	const [theme, setTheme] = useState<Theme>('light')
 
 	const defaultProps = useMemo(

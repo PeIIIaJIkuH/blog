@@ -12,7 +12,8 @@
 	"not_found": "Page not found",
 	"header": {
 		"home": "Home",
-		"about": "About"
+		"about": "About",
+		"login": "Login"
 	},
 	"loading": "Loading...",
 	"error": {
