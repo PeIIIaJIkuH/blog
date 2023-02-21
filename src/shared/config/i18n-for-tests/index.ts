@@ -6,7 +6,7 @@ void i18n.use(initReactI18next).init({
 	fallbackLng: 'en',
 	defaultNS: 'translation',
 	debug: false,
-	resources: { en: { main: {} } },
+	resources: { en: { translation: {} } },
 })
 
 export default i18n

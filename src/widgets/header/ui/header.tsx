@@ -26,7 +26,7 @@ export const Header: FC<HeaderProps> = ({ className }) => {
 	}, [])
 
 	return (
-		<div className={cls(s.header, className)}>
+		<div className={cls(s.Header, className)}>
 			<AppLink to='home' className={s.logo}>
 				<BlogIcon />
 			</AppLink>

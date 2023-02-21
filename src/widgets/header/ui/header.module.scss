@@ -1,4 +1,4 @@
-.header {
+.Header {
 	height: var(--header-height);
 	background: var(--color-background);
 	color: var(--color-font);
@@ -21,7 +21,7 @@
 	padding: 6px 10px;
 	border-radius: 4px;
 	background: transparent;
-	transition: background 0.3s ease-in-out;
+	transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 
 	&:hover {
 		background: var(--color-button-hover);

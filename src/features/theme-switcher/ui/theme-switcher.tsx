@@ -1,4 +1,5 @@
-import { type FC } from 'react'
+import { type FC, useState } from 'react'
+import { flushSync } from 'react-dom'
 
 import MoonIcon from 'shared/assets/icons/moon.svg'
 import SunIcon from 'shared/assets/icons/sun.svg'
@@ -14,10 +15,20 @@ interface ThemeSwitcherProps {
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
 	const { theme, toggleTheme } = useTheme()
+	const [newTheme, setNewTheme] = useState(theme)
+
+	const onClick = () => {
+		flushSync(() => {
+			setNewTheme(theme === 'light' ? 'dark' : 'light')
+		}, [])
+		setTimeout(() => {
+			toggleTheme()
+		})
+	}
 
 	return (
-		<Button onClick={toggleTheme} className={cls(s.themeSwitcher, className)} radius='small'>
-			{theme === 'light' ? <MoonIcon /> : <SunIcon />}
+		<Button onClick={onClick} className={cls(s.themeSwitcher, className)} radius='small'>
+			{newTheme === 'light' ? <MoonIcon /> : <SunIcon />}
 		</Button>
 	)
 }

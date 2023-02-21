@@ -28,11 +28,11 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 			<div className={s.controls}>
 				<BurgerButton isOpen={isOpen} toggle={toggle} />
 				<div className={s.links}>
-					<AppLink to='home' nav className={cls(s.link, !isOpen && s.collapsed)}>
+					<AppLink to='home' className={cls(s.link, !isOpen && s.collapsed)}>
 						<HomeIcon />
 						<span>{t('header.home')}</span>
 					</AppLink>
-					<AppLink to='about' nav className={cls(s.link, !isOpen && s.collapsed)}>
+					<AppLink to='about' className={cls(s.link, !isOpen && s.collapsed)}>
 						<NotesIcon />
 						<span>{t('header.about')}</span>
 					</AppLink>
