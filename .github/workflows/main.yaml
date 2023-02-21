@@ -1,4 +1,4 @@
-name: Linting, testing, and building
+name: Linting, Testing and Building
 on:
   push:
     branches: [main]
