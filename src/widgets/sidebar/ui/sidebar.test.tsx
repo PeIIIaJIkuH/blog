@@ -4,7 +4,7 @@ import { renderComponent } from 'shared/helpers/render-component'
 
 import { Sidebar } from './sidebar'
 
-describe('widgets/Sidebar', () => {
+describe('widgets/sidebar', () => {
 	it('should render successfully', () => {
 		renderComponent(<Sidebar />)
 
