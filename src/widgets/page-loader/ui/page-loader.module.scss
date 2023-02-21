@@ -1,0 +1,60 @@
+.pageLoader {
+	min-height: calc(100vh - var(--header-height));
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+
+	.teabag {
+		transform-origin: top center;
+		transform: rotate(3deg);
+		animation: swing 2s infinite;
+	}
+
+	.steamL {
+		stroke-dasharray: 13;
+		stroke-dashoffset: 13;
+		animation: steam-large 2s infinite;
+	}
+
+	.steamR {
+		stroke-dasharray: 9;
+		stroke-dashoffset: 9;
+		animation: steam-small 2s infinite;
+	}
+}
+
+@keyframes swing {
+	50% {
+		transform: rotate(-3deg);
+	}
+}
+
+@keyframes steam-large {
+	0% {
+		stroke-dashoffset: 13;
+		opacity: 0.6;
+	}
+
+	100% {
+		stroke-dashoffset: 39;
+		opacity: 0;
+	}
+}
+
+@keyframes steam-small {
+	10% {
+		stroke-dashoffset: 9;
+		opacity: 0.6;
+	}
+
+	80% {
+		stroke-dashoffset: 27;
+		opacity: 0;
+	}
+
+	100% {
+		stroke-dashoffset: 27;
+		opacity: 0;
+	}
+}
