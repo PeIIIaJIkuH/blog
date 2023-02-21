@@ -3,7 +3,7 @@ import { type FC, Suspense } from 'react'
 import { Routing } from 'pages'
 import { cls } from 'shared/helpers/cls'
 import { useTheme } from 'shared/providers/theme'
-import { Header } from 'widgets/Header'
+import { Header } from 'widgets/header'
 import { Sidebar } from 'widgets/sidebar'
 
 import 'shared/config/i18n'
