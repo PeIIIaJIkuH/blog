@@ -3,7 +3,7 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import Backend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 
-const ns = ['main', 'home', 'about']
+const ns = ['translation', 'home', 'about']
 const supportedLngs = ['en', 'ru']
 const resources = ns.reduce((acc, n) => {
 	supportedLngs.forEach((lng) => {
@@ -26,7 +26,7 @@ void i18n
 	.init({
 		lng: 'en',
 		fallbackLng: 'en',
-		defaultNS: 'common',
+		defaultNS: 'translation',
 		ns,
 		interpolation: { escapeValue: false },
 		react: { useSuspense: false },

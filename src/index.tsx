@@ -1,19 +1,21 @@
 import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
 
-import { ErrorBoundary } from 'app/providers/ErrorBoundary'
-import { ThemeProvider } from 'shared/providers/ThemeProvider'
-
-import { App } from './app'
+import { App } from 'app'
+import { ErrorBoundary } from 'app/providers/error-boundary'
+import { RouterProvider } from 'app/providers/router'
+import { StoreProvider } from 'app/providers/store'
+import { ThemeProvider } from 'shared/providers/theme'
 
 const root = document.getElementById('root')
 if (!root) throw new Error('Root element not found')
 createRoot(root).render(
-	<BrowserRouter>
-		<ErrorBoundary>
-			<ThemeProvider>
-				<App />
-			</ThemeProvider>
-		</ErrorBoundary>
-	</BrowserRouter>,
+	<ErrorBoundary>
+		<StoreProvider>
+			<RouterProvider>
+				<ThemeProvider>
+					<App />
+				</ThemeProvider>
+			</RouterProvider>
+		</StoreProvider>
+	</ErrorBoundary>,
 )

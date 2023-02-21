@@ -1,0 +1,12 @@
+.appLink {
+	color: inherit;
+	text-decoration: none;
+
+	&:active {
+		transform: translateY(1px);
+	}
+
+	&.active {
+		background: var(--color-button-hover);
+	}
+}

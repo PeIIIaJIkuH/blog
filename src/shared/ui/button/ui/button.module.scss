@@ -1,0 +1,94 @@
+.button {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-font);
+	margin: 0;
+
+	--current-color: var(--color-font);
+
+	&:active {
+		transform: translateY(1px);
+	}
+}
+
+.variant-default {
+	background-color: var(--color-background);
+	border: 1px solid var(--color-medium-gray);
+	color: var(--color-font);
+}
+
+.variant-outline {
+	background-color: transparent;
+	border: 1px solid var(--current-color);
+	color: var(--current-color);
+}
+
+.variant-filled {
+	background-color: var(--current-color);
+	border: 1px solid var(--current-color);
+	color: var(--color-off-white);
+}
+
+.size-small {
+	padding: 4px 8px;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.size-medium {
+	padding: 8px 12px;
+	font-size: 16px;
+	line-height: 20px;
+}
+
+.size-large {
+	padding: 12px 16px;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.radius-small {
+	border-radius: 8px;
+}
+
+.radius-medium {
+	border-radius: 12px;
+}
+
+.radius-large {
+	border-radius: 16px;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.color-primary {
+	--current-color: var(--color-primary);
+}
+
+.color-secondary {
+	--current-color: var(--color-secondary);
+}
+
+.color-tertiary {
+	--current-color: var(--color-tertiary);
+}
+
+.color-success {
+	--current-color: var(--color-accent-green);
+}
+
+.color-danger {
+	--current-color: var(--color-accent-red);
+}
+
+.color-warning {
+	--current-color: var(--color-accent-yellow);
+}
+
+.color-info {
+	--current-color: var(--color-light-gray);
+}
