@@ -9,7 +9,6 @@ import {
 } from 'react'
 
 import { cls } from 'shared/helpers/cls'
-import { useTheme } from 'shared/providers/theme'
 import { Portal } from 'shared/ui/portal'
 
 import s from './modal.module.scss'
@@ -21,7 +20,6 @@ interface ModalProps {
 }
 
 export const Modal: FC<PropsWithChildren<ModalProps>> = ({ className, isOpen, onClose, children }) => {
-	const { theme } = useTheme()
 	const [isClosing, setIsClosing] = useState(false)
 	const timerRef = useRef<number>()
 
@@ -66,7 +64,7 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = ({ className, isOpen, on
 
 	return (
 		<Portal wrapperId='modal-portal-wrapper'>
-			<div className={cls(s.modal, className, s[theme], isClosing && s.closing)} onClick={onOverlayClick}>
+			<div className={cls(s.modal, className, isClosing && s.closing)} onClick={onOverlayClick}>
 				<div className={s.content}>{children}</div>
 			</div>
 		</Portal>

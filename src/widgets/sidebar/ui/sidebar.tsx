@@ -9,6 +9,8 @@ import NotesIcon from 'shared/assets/icons/notes.svg'
 import { cls } from 'shared/helpers/cls'
 import { AppLink } from 'shared/ui/app-link'
 
+import { LOCAL_STORAGE_SIDEBAR_KEY } from '../lib'
+
 import s from './sidebar.module.scss'
 
 interface SidebarProps {
@@ -16,11 +18,15 @@ interface SidebarProps {
 }
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
-	const [isOpen, setIsOpen] = useState(false)
+	const [isOpen, setIsOpen] = useState(localStorage.getItem(LOCAL_STORAGE_SIDEBAR_KEY) !== 'false' ?? false)
 	const { t } = useTranslation()
 
 	const toggle = useCallback(() => {
-		setIsOpen((prev) => !prev)
+		setIsOpen((prev) => {
+			const next = !prev
+			localStorage.setItem(LOCAL_STORAGE_SIDEBAR_KEY, next.toString())
+			return next
+		})
 	}, [])
 
 	return (

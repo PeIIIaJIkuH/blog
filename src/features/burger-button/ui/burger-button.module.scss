@@ -18,7 +18,7 @@
 	}
 
 	.line {
-		stroke-dasharray: 60 calc(10 * var(--pi)) 60 calc(90 + 20 * var(--pi));
+		stroke-dasharray: 60 calc(10 * var(--pi)) 59 calc(200 + 20 * var(--pi));
 		stroke-dashoffset: calc(-58 - 5 * var(--pi));
 		transition: stroke-dasharray 0.3s ease-in-out, stroke-dashoffset 0.3s ease-in-out;
 	}

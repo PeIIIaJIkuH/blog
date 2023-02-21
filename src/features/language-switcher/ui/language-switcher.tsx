@@ -13,6 +13,7 @@ interface LanguageSwitcherProps {
 
 export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ className, short = false }) => {
 	const { i18n, t } = useTranslation()
+	document.documentElement.lang = i18n.language
 
 	const toggleLanguage = async () => {
 		const language = i18n.language === 'en' ? 'ru' : 'en'
