@@ -78,6 +78,7 @@ module.exports = {
 		'@typescript-eslint/prefer-ts-expect-error': 'off',
 		'linebreak-style': 0,
 		'react/display-name': 'off',
+		'react/prop-types': 'off',
 		'import/order': [
 			'error',
 			{

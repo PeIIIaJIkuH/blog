@@ -1,6 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit'
 
-export const store = configureStore({
-	reducer: {},
+import { userReducer, type UserState } from 'entities/user'
+
+interface RootState {
+	user: UserState
+}
+
+const rootReducers: ReducersMapObject<RootState> = {
+	user: userReducer,
+}
+
+export const store = configureStore<RootState>({
+	reducer: rootReducers,
 	devTools: IS_DEV,
 })
