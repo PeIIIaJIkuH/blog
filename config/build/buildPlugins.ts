@@ -10,6 +10,7 @@ export function buildPlugins({ paths, isDev, analyze }: BuildOptions): WebpackPl
 	return [
 		new HTMLWebpackPlugin({
 			template: paths.html,
+			favicon: paths.favicon,
 		}),
 		new ProgressPlugin(),
 		new MiniCssExtractPlugin({

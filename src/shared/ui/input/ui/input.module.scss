@@ -20,6 +20,20 @@
 		border: 1px solid var(--color-primary);
 	}
 
+	&:-webkit-autofill,
+	&:-webkit-autofill:hover,
+	&:-webkit-autofill:focus {
+		font-family: inherit;
+		font-size: 100%;
+		line-height: 1.15;
+		margin: 0;
+		color: var(--color-font) !important;
+		border: 1px solid var(--color-primary);
+		-webkit-text-fill-color: var(--color-font);
+		-webkit-box-shadow: 0 0 0 1000px transparent inset;
+		transition: background-color 5000s ease-in-out 0s;
+	}
+
 	&.withRightPadding {
 		padding-right: 36px;
 	}

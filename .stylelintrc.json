@@ -6,6 +6,7 @@
 		"string-quotes": "single",
 		"selector-class-pattern": "^[a-zA-Z0-9\\-]+$",
 		"prettier/prettier": true,
-		"no-duplicate-selectors": null
+		"no-duplicate-selectors": null,
+		"property-no-vendor-prefix": null
 	}
 }
