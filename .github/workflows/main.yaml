@@ -6,7 +6,7 @@ on:
     branches: [main]
 jobs:
   installing-deps:
-    runs-on: macos-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         node-version: [16.x]
@@ -28,7 +28,7 @@ jobs:
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn --frozen-lockfile --non-interactive --silent --ignore-scripts
   linting-ts:
-    runs-on: macos-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         node-version: [16.x]
@@ -50,7 +50,7 @@ jobs:
       - name: Linting typescript
         run: yarn lint:ts
   linting-scss:
-    runs-on: macos-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         node-version: [16.x]
@@ -72,7 +72,7 @@ jobs:
       - name: Linting scss
         run: yarn lint:scss
   testing-unit:
-    runs-on: macos-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         node-version: [16.x]
@@ -94,7 +94,7 @@ jobs:
       - name: Unit tests
         run: yarn test:unit
   testing-ui:
-    runs-on: macos-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         node-version: [16.x]
@@ -116,7 +116,7 @@ jobs:
       - name: Screenshot tests
         run: yarn test:ui:ci
   building:
-    runs-on: macos-latest
+    runs-on: windows-latest
     strategy:
       matrix:
         node-version: [16.x]
