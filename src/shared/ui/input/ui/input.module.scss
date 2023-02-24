@@ -1,0 +1,79 @@
+.wrapper {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: fit-content;
+}
+
+.input {
+	border-radius: 8px;
+	border: 1px solid var(--color-font);
+	outline: none;
+	color: var(--color-font);
+	background: var(--color-background);
+	padding: 8px;
+	display: inline-block;
+	width: 250px;
+
+	&:focus {
+		border: 1px solid var(--color-primary);
+	}
+
+	&.withRightPadding {
+		padding-right: 36px;
+	}
+}
+
+.clearButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	background: none;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	position: absolute;
+	right: 5px;
+	top: 50%;
+	transform: translateY(-50%) scale(0.8);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.2s ease-in-out;
+
+	&.withRight {
+		right: 40px;
+	}
+}
+
+.input:focus ~ .clearButton,
+.wrapper:hover .clearButton {
+	opacity: 1;
+	pointer-events: all;
+}
+
+.showPassword {
+	position: absolute;
+	right: 0;
+	width: 36px;
+	height: 100%;
+	border-radius: 0 8px 8px 0;
+	border: none;
+	border-left: 1px solid var(--color-font);
+	background: transparent;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+
+	svg {
+		transform: scale(0.8);
+		stroke-width: 1;
+	}
+}
+
+.input:focus ~ .showPassword {
+	border-left: 1px solid var(--color-primary);
+}

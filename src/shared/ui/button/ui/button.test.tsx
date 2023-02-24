@@ -6,7 +6,7 @@ describe('shared/button', () => {
 	it('should render', () => {
 		render(<Button>Test</Button>)
 
-		expect(screen.getByTestId('button')).toBeTruthy()
+		expect(screen.getByTestId('button')).toBeInTheDocument()
 	})
 
 	it('should render with theme', () => {
