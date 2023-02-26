@@ -3,13 +3,23 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: var(--color-font);
 	margin: 0;
+	position: relative;
 
 	--current-color: var(--color-font);
 
 	&:active {
 		transform: translateY(1px);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+
+		--current-color: var(--color-medium-gray);
+	}
+
+	&:disabled:active {
+		transform: none;
 	}
 }
 
@@ -69,14 +79,6 @@
 	--current-color: var(--color-primary);
 }
 
-.color-secondary {
-	--current-color: var(--color-secondary);
-}
-
-.color-tertiary {
-	--current-color: var(--color-tertiary);
-}
-
 .color-success {
 	--current-color: var(--color-accent-green);
 }
@@ -90,5 +92,56 @@
 }
 
 .color-info {
-	--current-color: var(--color-light-gray);
+	--current-color: var(--color-accent-gray);
+}
+
+.loading {
+	color: transparent;
+}
+
+.loaderWrapper {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	--size: 30px;
+
+	.loader {
+		position: relative;
+		display: inline-block;
+		width: var(--size);
+		height: var(--size);
+
+		&::after,
+		&::before {
+			content: '';
+			width: var(--size);
+			height: var(--size);
+			border-radius: 50%;
+			background: var(--color-background);
+			position: absolute;
+			left: 0;
+			top: 0;
+			opacity: 0;
+			animation: loader 2s linear infinite;
+		}
+
+		&::after {
+			animation-delay: 1s;
+		}
+	}
+}
+
+@keyframes loader {
+	from {
+		transform: scale(0);
+		opacity: 1;
+	}
+
+	to {
+		transform: scale(1);
+		opacity: 0;
+	}
 }

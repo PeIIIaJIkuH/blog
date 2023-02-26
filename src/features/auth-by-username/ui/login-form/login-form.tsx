@@ -1,32 +1,83 @@
-import { type FC, type FormEventHandler, useState } from 'react'
+import { type FC, type FormEventHandler, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { useAppDispatch, useAppSelector } from 'app/store/hooks'
 import { cls } from 'shared/helpers/cls'
 import { Button } from 'shared/ui/button'
 import { Input } from 'shared/ui/input'
+
+import { loginActions } from '../../model/login-slice'
+import { getError, getPassword, getStatus, getUsername } from '../../model/selectors'
+import { loginByUsername } from '../../model/services'
 
 import s from './login-form.module.scss'
 
 interface LoginFormProps {
 	className?: string
+	onSubmit?: () => void
 }
 
-export const LoginForm: FC<LoginFormProps> = ({ className }) => {
+export const LoginForm: FC<LoginFormProps> = memo(({ className, onSubmit }) => {
 	const { t } = useTranslation()
-	const [username, setUsername] = useState('')
-	const [password, setPassword] = useState('')
+	const username = useAppSelector(getUsername)
+	const password = useAppSelector(getPassword)
+	const status = useAppSelector(getStatus)
+	const error = useAppSelector(getError)
+	const dispatch = useAppDispatch()
 
-	const handleSubmit: FormEventHandler<HTMLFormElement> = (e) => {
-		e.preventDefault()
-	}
+	const handleUsernameChange = useCallback(
+		(value: string) => {
+			dispatch(loginActions.setUsername(value))
+		},
+		[dispatch],
+	)
+
+	const handlePasswordChange = useCallback(
+		(value: string) => {
+			dispatch(loginActions.setPassword(value))
+		},
+		[dispatch],
+	)
+
+	const handleSubmit: FormEventHandler<HTMLFormElement> = useCallback(
+		async (e) => {
+			e.preventDefault()
+			const { payload } = await dispatch(loginByUsername({ username, password }))
+			if (payload !== 'error') {
+				onSubmit?.()
+			}
+		},
+		[dispatch, onSubmit, password, username],
+	)
 
 	return (
 		<form className={cls(s.loginForm, className)} onSubmit={handleSubmit}>
-			<Input autoFocus placeholder='Username' clearable value={username} onChange={setUsername} />
-			<Input type='password' placeholder='Password' clearable value={password} onChange={setPassword} />
-			<Button radius='small' variant='filled' color='primary' className={s.submitButton}>
+			<Input
+				autoFocus
+				placeholder={t('login_form.username') ?? 'Username'}
+				clearable
+				value={username}
+				onChange={handleUsernameChange}
+			/>
+			<Input
+				type='password'
+				placeholder={t('login_form.password') ?? 'Password'}
+				clearable
+				value={password}
+				onChange={handlePasswordChange}
+			/>
+			{error && <p className={s.error}>{error}</p>}
+			<Button
+				radius='small'
+				variant='filled'
+				color='primary'
+				type='submit'
+				className={s.submitButton}
+				disabled={status === 'loading'}
+				loading={status === 'loading'}
+			>
 				{t('header.login')}
 			</Button>
 		</form>
 	)
-}
+})

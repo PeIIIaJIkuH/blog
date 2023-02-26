@@ -19,8 +19,8 @@ export const PageError: FC<PageErrorProps> = ({ className }) => {
 
 	return (
 		<div className={cls(s.pageError, className)}>
-			<p>{t('error.message')}</p>
-			<Button onClick={refreshPage}>{t('error.refreshButton')}</Button>
+			<p>{t('page_error.message')}</p>
+			<Button onClick={refreshPage}>{t('page_error.refreshButton')}</Button>
 		</div>
 	)
 }

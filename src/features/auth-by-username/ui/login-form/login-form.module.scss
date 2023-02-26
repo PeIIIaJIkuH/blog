@@ -6,6 +6,12 @@
 	gap: 24px;
 }
 
+.error {
+	font-size: 14px;
+	color: var(--color-accent-red);
+	margin: -15px 0;
+}
+
 .submitButton {
 	width: 40%;
 	padding: 6px 16px;

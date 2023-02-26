@@ -71,20 +71,6 @@ PrimaryColor.args = {
 	variant: 'outline',
 }
 
-export const SecondaryColor = Template.bind({})
-SecondaryColor.args = {
-	children: 'Button',
-	color: 'secondary',
-	variant: 'outline',
-}
-
-export const TertiaryColor = Template.bind({})
-TertiaryColor.args = {
-	children: 'Button',
-	color: 'tertiary',
-	variant: 'outline',
-}
-
 export const SuccessColor = Template.bind({})
 SuccessColor.args = {
 	children: 'Button',
@@ -111,4 +97,16 @@ InfoColor.args = {
 	children: 'Button',
 	color: 'info',
 	variant: 'outline',
+}
+
+export const Uppercase = Template.bind({})
+Uppercase.args = {
+	children: 'Button',
+	uppercase: true,
+}
+
+export const Disabled = Template.bind({})
+Disabled.args = {
+	children: 'Button',
+	disabled: true,
 }

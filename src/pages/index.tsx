@@ -3,7 +3,7 @@ import { Route, type RouteProps, Routes } from 'react-router-dom'
 
 import { About } from 'pages/about'
 import { Home } from 'pages/home'
-import { NotFoundPage } from 'pages/not-found'
+import { NotFound } from 'pages/not-found'
 import { AppRoutes, type IAppRoutes, RoutePath } from 'shared/config/routes'
 import { PageLoader } from 'widgets/page-loader'
 
@@ -18,7 +18,7 @@ const routes: Record<IAppRoutes, RouteProps> = {
 	},
 	[AppRoutes.NOT_FOUND]: {
 		path: RoutePath[AppRoutes.NOT_FOUND],
-		element: <NotFoundPage />,
+		element: <NotFound />,
 	},
 }
 

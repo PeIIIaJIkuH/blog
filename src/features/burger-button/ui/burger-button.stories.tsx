@@ -1,3 +1,4 @@
+import { useState } from '@storybook/addons'
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import { BurgerButton } from './burger-button'
@@ -5,10 +6,16 @@ import { BurgerButton } from './burger-button'
 const componentMeta: ComponentMeta<typeof BurgerButton> = {
 	title: 'features/burger-button',
 	component: BurgerButton,
-	args: {
-		isOpen: false,
-		toggle: () => {},
-	},
+	decorators: [
+		(Story, { args }) => {
+			const [isOpen, setIsOpen] = useState<boolean>(args.isOpen)
+			const toggle = () => {
+				setIsOpen((prev) => !prev)
+			}
+
+			return <Story args={{ isOpen, toggle }} />
+		},
+	],
 }
 
 export default componentMeta

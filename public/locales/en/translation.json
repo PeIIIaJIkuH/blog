@@ -9,15 +9,28 @@
 			"short": "RU"
 		}
 	},
-	"not_found": "Page not found",
+	"not_found_page": {
+		"title": "Page not found"
+	},
 	"header": {
+		"login": "Login",
+		"logout": "Logout"
+	},
+	"login_form": {
+		"username": "Username",
+		"password": "Password",
+		"error": "Incorrect login or password"
+	},
+	"sidebar": {
 		"home": "Home",
-		"about": "About",
-		"login": "Login"
+		"about": "About"
 	},
 	"loading": "Loading...",
-	"error": {
+	"page_error": {
 		"message": "Something went wrong",
 		"refreshButton": "Refresh"
+	},
+	"error": {
+		"general": "Something went wrong"
 	}
 }

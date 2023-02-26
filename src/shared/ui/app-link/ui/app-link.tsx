@@ -12,8 +12,7 @@ interface AppLinkProps extends LinkProps {
 	nav?: boolean
 }
 
-export const AppLink: FC<PropsWithChildren<AppLinkProps>> = (props) => {
-	const { to, className, nav, children, ...rest } = props
+export const AppLink: FC<PropsWithChildren<AppLinkProps>> = ({ to, className, nav, children, ...rest }) => {
 	const link = useMemo(() => {
 		return RoutePath[to]
 	}, [to])

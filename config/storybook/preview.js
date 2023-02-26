@@ -1,5 +1,7 @@
 import { withRouter } from 'storybook-addon-react-router-v6'
 
+import { withStore } from 'shared/config/storybook'
+
 import 'app/styles/index.scss'
 import { withTheme } from './decorators/with-theme'
 import i18n from './i18n'
@@ -20,4 +22,4 @@ export const parameters = {
 	},
 }
 
-export const decorators = [withRouter, withTheme]
+export const decorators = [withStore(), withRouter, withTheme]

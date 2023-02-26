@@ -9,22 +9,22 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: 'default' | 'outline' | 'filled'
 	size?: 'small' | 'medium' | 'large'
 	radius?: 'small' | 'medium' | 'large'
-	color?: 'primary' | 'secondary' | 'tertiary' | 'success' | 'danger' | 'warning' | 'info'
+	color?: 'primary' | 'success' | 'danger' | 'warning' | 'info'
 	uppercase?: boolean
+	loading?: boolean
 }
 
-export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
-	const {
-		className,
-		variant = 'default',
-		size = 'medium',
-		radius = 'medium',
-		color = 'primary',
-		uppercase = false,
-		children,
-		...rest
-	} = props
-
+export const Button: FC<PropsWithChildren<ButtonProps>> = ({
+	className,
+	variant = 'default',
+	size = 'medium',
+	radius = 'medium',
+	color = 'primary',
+	uppercase = false,
+	loading = false,
+	children,
+	...rest
+}) => {
 	return (
 		<button
 			className={cls(
@@ -35,11 +35,17 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = (props) => {
 				s[`radius-${radius}`],
 				s[`color-${color}`],
 				uppercase && s.uppercase,
+				loading && s.loading,
 			)}
 			data-testid='button'
 			{...rest}
 		>
 			{children}
+			{loading && (
+				<div className={s.loaderWrapper} data-testid='loader'>
+					<span className={s.loader} />
+				</div>
+			)}
 		</button>
 	)
 }

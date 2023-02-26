@@ -9,15 +9,28 @@
 			"short": "EN"
 		}
 	},
-	"not_found": "Страница не найдена",
+	"not_found_page": {
+		"title": "Страница не найдена"
+	},
 	"header": {
+		"login": "Войти",
+		"logout": "Выйти"
+	},
+	"login_form": {
+		"username": "Логин",
+		"password": "Пароль",
+		"error": "Неправильный логин или пароль"
+	},
+	"sidebar": {
 		"home": "Главная",
-		"about": "О нас",
-		"login": "Войти"
+		"about": "О нас"
 	},
 	"loading": "Загрузка...",
-	"error": {
+	"page_error": {
 		"message": "Произошла ошибка",
 		"refreshButton": "Обновить страницу"
+	},
+	"error": {
+		"general": "Что-то пошло не так"
 	}
 }

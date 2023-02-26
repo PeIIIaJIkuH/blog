@@ -23,14 +23,31 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = ({ className, isOpen, on
 	const [isClosing, setIsClosing] = useState(false)
 	const timerRef = useRef<number>()
 
+	const close = useCallback(() => {
+		setIsClosing(true)
+		timerRef.current = window.setTimeout(() => {
+			onClose?.()
+			setIsClosing(false)
+		}, 200)
+	}, [onClose])
+
 	const closeOnEscape = useCallback(
 		(e: KeyboardEvent) => {
 			if (e.key === 'Escape') {
-				onClose?.()
-				setIsClosing(false)
+				close()
 			}
 		},
-		[onClose],
+		[close],
+	)
+
+	const onOverlayClick: MouseEventHandler<HTMLDivElement> = useCallback(
+		(e) => {
+			if (e.target === e.currentTarget) {
+				if (isClosing) return
+				close()
+			}
+		},
+		[close, isClosing],
 	)
 
 	useEffect(() => {
@@ -51,20 +68,9 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = ({ className, isOpen, on
 
 	if (!isOpen) return null
 
-	const onOverlayClick: MouseEventHandler<HTMLDivElement> = (e) => {
-		if (e.target === e.currentTarget) {
-			if (isClosing) return
-			setIsClosing(true)
-			timerRef.current = window.setTimeout(() => {
-				onClose?.()
-				setIsClosing(false)
-			}, 200)
-		}
-	}
-
 	return (
 		<Portal wrapperId='modal-portal-wrapper'>
-			<div className={cls(s.modal, className, isClosing && s.closing)} onClick={onOverlayClick}>
+			<div className={cls(s.modal, className, isClosing && s.closing)} onClick={onOverlayClick} data-testid='wrapper'>
 				<div className={s.content}>{children}</div>
 			</div>
 		</Portal>
