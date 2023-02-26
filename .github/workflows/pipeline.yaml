@@ -118,7 +118,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Publish to Chromatic
-        run: yarn test:ui:ci --project-token="${{ secrets.CHROMATIC_PROJECT_TOKEN }}"
+        uses: chromaui/action@v1
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: storybook:build
+          exitZeroOnChanges: true
+          exitOnceUploaded: true
   building:
     runs-on: ubuntu-latest
     strategy:
