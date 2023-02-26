@@ -1,4 +1,4 @@
-import { type FC, useCallback, useState } from 'react'
+import { type FC, memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { BurgerButton } from 'features/burger-button'
@@ -17,7 +17,7 @@ interface SidebarProps {
 	className?: string
 }
 
-export const Sidebar: FC<SidebarProps> = ({ className }) => {
+export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
 	const [isOpen, setIsOpen] = useState(localStorage.getItem(LOCAL_STORAGE_SIDEBAR_KEY) !== 'false' ?? false)
 	const { t } = useTranslation()
 
@@ -50,4 +50,4 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 			</div>
 		</div>
 	)
-}
+})

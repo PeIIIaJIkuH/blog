@@ -1,4 +1,4 @@
-import { type FC, type PropsWithChildren, useMemo } from 'react'
+import { type FC, memo, type PropsWithChildren, useMemo } from 'react'
 import { Link, type LinkProps, useLocation } from 'react-router-dom'
 
 import { type IAppRoutes, RoutePath } from 'shared/config/routes'
@@ -12,7 +12,7 @@ interface AppLinkProps extends LinkProps {
 	nav?: boolean
 }
 
-export const AppLink: FC<PropsWithChildren<AppLinkProps>> = ({ to, className, nav, children, ...rest }) => {
+export const AppLink: FC<PropsWithChildren<AppLinkProps>> = memo(({ to, className, nav, children, ...rest }) => {
 	const link = useMemo(() => {
 		return RoutePath[to]
 	}, [to])
@@ -26,4 +26,4 @@ export const AppLink: FC<PropsWithChildren<AppLinkProps>> = ({ to, className, na
 			{children}
 		</Link>
 	)
-}
+})

@@ -1,4 +1,4 @@
-import { type FC, useState } from 'react'
+import { type FC, memo, useCallback, useState } from 'react'
 import { flushSync } from 'react-dom'
 
 import MoonIcon from 'shared/assets/icons/moon.svg'
@@ -13,22 +13,22 @@ interface ThemeSwitcherProps {
 	className?: string
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
 	const { theme, toggleTheme } = useTheme()
 	const [newTheme, setNewTheme] = useState(theme)
 
-	const onClick = () => {
+	const onClick = useCallback(() => {
 		flushSync(() => {
 			setNewTheme(theme === 'light' ? 'dark' : 'light')
 		}, [])
 		setTimeout(() => {
 			toggleTheme()
 		})
-	}
+	}, [theme, toggleTheme])
 
 	return (
 		<Button onClick={onClick} className={cls(s.themeSwitcher, className)} radius='small'>
 			{newTheme === 'light' ? <MoonIcon /> : <SunIcon />}
 		</Button>
 	)
-}
+})

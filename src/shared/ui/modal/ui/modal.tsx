@@ -1,5 +1,6 @@
 import {
 	type FC,
+	memo,
 	type MouseEventHandler,
 	type PropsWithChildren,
 	useCallback,
@@ -19,7 +20,7 @@ interface ModalProps {
 	onClose?: () => void
 }
 
-export const Modal: FC<PropsWithChildren<ModalProps>> = ({ className, isOpen, onClose, children }) => {
+export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpen, onClose, children }) => {
 	const [isClosing, setIsClosing] = useState(false)
 	const timerRef = useRef<number>()
 
@@ -75,4 +76,4 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = ({ className, isOpen, on
 			</div>
 		</Portal>
 	)
-}
+})

@@ -1,4 +1,4 @@
-import { type FC, useCallback, useState } from 'react'
+import { type FC, memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store/hooks'
@@ -16,7 +16,7 @@ interface HeaderProps {
 	className?: string
 }
 
-export const Header: FC<HeaderProps> = ({ className }) => {
+export const Header: FC<HeaderProps> = memo(({ className }) => {
 	const { t } = useTranslation()
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const auth = useAppSelector(getAuth)
@@ -53,4 +53,4 @@ export const Header: FC<HeaderProps> = ({ className }) => {
 			)}
 		</div>
 	)
-}
+})

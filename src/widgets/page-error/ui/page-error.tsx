@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { type FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { cls } from 'shared/helpers/cls'
@@ -10,12 +10,12 @@ interface PageErrorProps {
 	className?: string
 }
 
-export const PageError: FC<PageErrorProps> = ({ className }) => {
+export const PageError: FC<PageErrorProps> = memo(({ className }) => {
 	const { t } = useTranslation()
 
-	const refreshPage = () => {
+	const refreshPage = useCallback(() => {
 		window.location.reload()
-	}
+	}, [])
 
 	return (
 		<div className={cls(s.pageError, className)}>
@@ -23,4 +23,4 @@ export const PageError: FC<PageErrorProps> = ({ className }) => {
 			<Button onClick={refreshPage}>{t('page_error.refreshButton')}</Button>
 		</div>
 	)
-}
+})
