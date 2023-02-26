@@ -95,6 +95,8 @@ jobs:
         run: yarn test:unit:ci
   testing-ui:
     runs-on: ubuntu-latest
+    environment:
+      name: development
     strategy:
       matrix:
         node-version: [16.x]
@@ -114,9 +116,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Screenshot tests
-        with:
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-        run: yarn test:ui:ci
+        run: yarn test:ui:ci --project-token="${{ secrets.CHROMATIC_PROJECT_TOKEN }}"
   building:
     runs-on: ubuntu-latest
     strategy:
