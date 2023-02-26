@@ -7,8 +7,6 @@ on:
 jobs:
   installing-deps:
     runs-on: ubuntu-latest
-    environment:
-      name: development
     strategy:
       matrix:
         node-version: [16.x]
@@ -97,6 +95,8 @@ jobs:
         run: yarn test:unit:ci
   testing-ui:
     runs-on: ubuntu-latest
+    environment:
+      name: development
     strategy:
       matrix:
         node-version: [16.x]
