@@ -7,6 +7,8 @@ on:
 jobs:
   installing-deps:
     runs-on: ubuntu-latest
+    environment:
+      name: development
     strategy:
       matrix:
         node-version: [16.x]
@@ -95,14 +97,14 @@ jobs:
         run: yarn test:unit:ci
   testing-ui:
     runs-on: ubuntu-latest
-    environment:
-      name: development
     strategy:
       matrix:
         node-version: [16.x]
     needs: [installing-deps]
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
@@ -115,7 +117,7 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-      - name: Screenshot tests
+      - name: Publish to Chromatic
         run: yarn test:ui:ci --project-token="${{ secrets.CHROMATIC_PROJECT_TOKEN }}"
   building:
     runs-on: ubuntu-latest
