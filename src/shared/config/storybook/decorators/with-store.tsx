@@ -1,14 +1,21 @@
-import { type DeepPartial } from '@reduxjs/toolkit'
+import { type ReducersMapObject } from '@reduxjs/toolkit'
 import { type DecoratorFn } from '@storybook/react'
 import { Provider } from 'react-redux'
 
-import { createStoreForStorybook, type RootState } from 'app/store'
+import { createStoreForStorybook, type RootState, store } from 'app/store'
+import { type DeepPartialObject } from 'shared/helpers/types'
 
-export const withStore = (initialState?: DeepPartial<RootState>) => {
-	const initialStore = createStoreForStorybook((initialState ?? {}) as RootState)
+export const withStore = (
+	initialState?: DeepPartialObject<RootState>,
+	lazyReducers?: DeepPartialObject<ReducersMapObject<RootState>>,
+) => {
+	const initialStore = createStoreForStorybook(
+		(initialState ?? {}) as RootState,
+		lazyReducers as ReducersMapObject<RootState>,
+	)
 
 	const decorator: DecoratorFn = (Story) => (
-		<Provider store={initialStore}>
+		<Provider store={{ ...store, ...initialStore }}>
 			<Story />
 		</Provider>
 	)

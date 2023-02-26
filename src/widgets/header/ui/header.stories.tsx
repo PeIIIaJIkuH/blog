@@ -27,7 +27,6 @@ LoggedIn.decorators = [
 	withStore({
 		user: {
 			auth: {
-				id: 'id',
 				username: 'username',
 			},
 		},

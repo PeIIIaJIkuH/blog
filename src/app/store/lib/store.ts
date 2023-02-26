@@ -3,8 +3,8 @@ import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import storage from 'redux-persist/lib/storage'
 
 import { userReducer } from 'entities/user'
-import { loginReducer } from 'features/auth-by-username'
 
+import { createReducerManager } from './reducer-manager'
 import { type RootState } from './types'
 
 export const rootReducers: ReducersMapObject<RootState> = {
@@ -16,11 +16,12 @@ export const rootReducers: ReducersMapObject<RootState> = {
 		},
 		userReducer,
 	),
-	login: loginReducer,
 }
 
+const reducerManager = createReducerManager(rootReducers)
+
 export const store = configureStore({
-	reducer: rootReducers,
+	reducer: reducerManager.reduce,
 	devTools: IS_DEV,
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware({
@@ -31,3 +32,6 @@ export const store = configureStore({
 })
 
 export const persistor = persistStore(store)
+
+// @ts-ignore
+store.reducerManager = reducerManager

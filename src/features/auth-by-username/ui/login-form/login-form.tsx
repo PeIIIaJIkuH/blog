@@ -3,16 +3,21 @@ import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { cls } from 'shared/helpers/cls'
+import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
 import { Button } from 'shared/ui/button'
 import { Input } from 'shared/ui/input'
 
-import { loginActions } from '../../model/login-slice'
+import { loginActions, loginReducer } from '../../model/login-slice'
 import { getError, getPassword, getStatus, getUsername } from '../../model/selectors'
 import { loginByUsername } from '../../model/services'
 
 import s from './login-form.module.scss'
 
-interface LoginFormProps {
+const reducerMap: ReducerMap = {
+	login: loginReducer,
+}
+
+export interface LoginFormProps {
 	className?: string
 	onSubmit?: () => void
 }
@@ -24,6 +29,8 @@ export const LoginForm: FC<LoginFormProps> = memo(({ className, onSubmit }) => {
 	const status = useAppSelector(getStatus)
 	const error = useAppSelector(getError)
 	const dispatch = useAppDispatch()
+
+	useLazyModuleLoading(reducerMap)
 
 	const handleUsernameChange = useCallback(
 		(value: string) => {

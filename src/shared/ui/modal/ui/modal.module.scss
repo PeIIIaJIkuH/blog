@@ -18,6 +18,10 @@
 		color: var(--color-font);
 		cursor: auto;
 		max-width: 70%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
 	}
 
 	&.closing {

@@ -18,7 +18,7 @@
 		"lint:fix": "yarn run lint:ts:fix & yarn run lint:scss:fix",
 		"test:unit": "jest --config ./config/jest/jest.config.ts",
 		"test:unit:ci": "yarn test:unit --ci",
-		"test:ui": "npx chromatic -b=storybook:build",
+		"chromatic": "npx chromatic -b=storybook:build",
 		"prettier": "prettier --check .",
 		"prettier:fix": "prettier --write .",
 		"storybook": "start-storybook -p 6006 -c ./config/storybook",

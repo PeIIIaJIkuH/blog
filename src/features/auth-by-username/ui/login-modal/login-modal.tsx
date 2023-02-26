@@ -1,11 +1,12 @@
-import { type FC, useEffect } from 'react'
+import { type FC, Suspense, useEffect } from 'react'
 
 import { useAppDispatch } from 'app/store'
 import { cls } from 'shared/helpers/cls'
+import { Loader } from 'shared/ui/loader'
 import { Modal } from 'shared/ui/modal'
 
 import { loginActions } from '../../model/login-slice'
-import { LoginForm } from '../login-form/login-form'
+import { LoginFormLazy } from '../login-form/login-form.lazy'
 
 interface LoginModalProps {
 	className?: string
@@ -24,7 +25,9 @@ export const LoginModal: FC<LoginModalProps> = ({ className, isOpen, onClose }) 
 
 	return (
 		<Modal className={cls(className)} isOpen={isOpen} onClose={onClose}>
-			<LoginForm onSubmit={onClose} />
+			<Suspense fallback={<Loader />}>
+				<LoginFormLazy onSubmit={onClose} />
+			</Suspense>
 		</Modal>
 	)
 }
