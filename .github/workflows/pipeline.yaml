@@ -114,7 +114,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Screenshot tests
-        run: yarn test:ui:ci --project-token="${{ secrets.CHROMATIC_PROJECT_TOKEN }}"
+        run: yarn test:ui:ci
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
   building:
     runs-on: ubuntu-latest
     strategy:
