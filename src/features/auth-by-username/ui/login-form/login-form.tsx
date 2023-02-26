@@ -1,7 +1,7 @@
 import { type FC, type FormEventHandler, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { useAppDispatch, useAppSelector } from 'app/store/hooks'
+import { useAppDispatch, useAppSelector } from 'app/store'
 import { cls } from 'shared/helpers/cls'
 import { Button } from 'shared/ui/button'
 import { Input } from 'shared/ui/input'

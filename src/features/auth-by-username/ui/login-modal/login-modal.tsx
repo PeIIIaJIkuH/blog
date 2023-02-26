@@ -1,10 +1,10 @@
 import { type FC, useEffect } from 'react'
 
-import { useAppDispatch } from 'app/store/hooks'
-import { loginActions } from 'features/auth-by-username/model/login-slice'
+import { useAppDispatch } from 'app/store'
 import { cls } from 'shared/helpers/cls'
 import { Modal } from 'shared/ui/modal'
 
+import { loginActions } from '../../model/login-slice'
 import { LoginForm } from '../login-form/login-form'
 
 interface LoginModalProps {

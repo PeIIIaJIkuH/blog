@@ -1,7 +1,7 @@
 import { type FC, memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { useAppDispatch, useAppSelector } from 'app/store/hooks'
+import { useAppDispatch, useAppSelector } from 'app/store'
 import { userActions } from 'entities/user'
 import { getAuth } from 'entities/user/model/selectors'
 import { LoginModal } from 'features/auth-by-username'

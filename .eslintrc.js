@@ -79,6 +79,7 @@ module.exports = {
 		'linebreak-style': 0,
 		'react/display-name': 'off',
 		'react/prop-types': 'off',
+		'@typescript-eslint/no-dynamic-delete': 'off',
 		'import/order': [
 			'error',
 			{
