@@ -114,7 +114,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
       - name: Publish to Chromatic
-        uses: chromaui/action@v2
+        uses: chromaui/action@v1
         with:
           projectToken: ${{ vars.CHROMATIC_PROJECT_TOKEN }}
   building:
