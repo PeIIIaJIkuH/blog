@@ -54,8 +54,6 @@ describe('shared/ui/modal', () => {
 	})
 
 	it('should call onClose on escape', async () => {
-		const onClose = jest.fn()
-
 		render(
 			<Modal isOpen onClose={onClose}>
 				Test
