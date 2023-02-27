@@ -15,10 +15,10 @@ export const renderComponent = (component: ReactNode, options: RenderComponentOp
 	const { route = '/' } = options
 
 	return render(
-		<Provider store={store}>
-			<MemoryRouter initialEntries={[route]}>
+		<MemoryRouter initialEntries={[route]}>
+			<Provider store={store}>
 				<I18nextProvider i18n={i18nForTests}>{component}</I18nextProvider>
-			</MemoryRouter>
-		</Provider>,
+			</Provider>
+		</MemoryRouter>,
 	)
 }

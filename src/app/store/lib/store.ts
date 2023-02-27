@@ -3,6 +3,7 @@ import { persistReducer, persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import storage from 'redux-persist/lib/storage'
 
 import { userReducer } from 'entities/user'
+import { api } from 'shared/api'
 
 import { createReducerManager } from './reducer-manager'
 import { type RootState } from './types'
@@ -27,6 +28,11 @@ export const store = configureStore({
 		getDefaultMiddleware({
 			serializableCheck: {
 				ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+			},
+			thunk: {
+				extraArgument: {
+					api,
+				},
 			},
 		}),
 })

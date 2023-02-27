@@ -6,16 +6,14 @@ import { RouterProvider } from 'app/providers/router'
 import { StoreProvider } from 'app/providers/store'
 import { ThemeProvider } from 'shared/providers/theme'
 
-const root = document.getElementById('root')
-if (!root) throw new Error('Root element not found')
-createRoot(root).render(
+createRoot(document.getElementById('root') as HTMLElement).render(
 	<ErrorBoundary>
-		<StoreProvider>
-			<RouterProvider>
+		<RouterProvider>
+			<StoreProvider>
 				<ThemeProvider>
 					<App />
 				</ThemeProvider>
-			</RouterProvider>
-		</StoreProvider>
+			</StoreProvider>
+		</RouterProvider>
 	</ErrorBoundary>,
 )

@@ -52,6 +52,7 @@ export const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => 
 			const { payload } = await dispatch(loginByUsername({ username, password }))
 			if (payload !== 'error') {
 				onSuccess?.()
+				// TODO: Add closing animation
 			}
 		},
 		[dispatch, onSuccess, password, username],

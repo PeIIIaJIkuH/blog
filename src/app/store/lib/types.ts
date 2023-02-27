@@ -5,6 +5,7 @@ import {
 	type Reducer,
 	type ReducersMapObject,
 } from '@reduxjs/toolkit'
+import { type AxiosInstance } from 'axios'
 
 import { type ProfileState } from 'entities/profile'
 import { type UserState } from 'entities/user'
@@ -31,4 +32,13 @@ export interface ReducerManager {
 
 export interface StoreWithReducerManager extends EnhancedStore<RootState> {
 	reducerManager: ReducerManager
+}
+
+export interface StoreThunkExtra {
+	api: AxiosInstance
+}
+
+export interface StoreThunkConfig<T> {
+	rejectValue: T
+	extra: StoreThunkExtra
 }

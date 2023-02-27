@@ -22,4 +22,4 @@ export const parameters = {
 	},
 }
 
-export const decorators = [withStore(), withRouter, withTheme]
+export const decorators = [withRouter, withStore(), withTheme]
