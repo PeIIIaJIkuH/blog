@@ -21,9 +21,17 @@
 		align-items: center;
 		justify-content: center;
 	}
+
+	&.opening {
+		animation: fadeIn 0.2s ease-in-out forwards;
+	}
+
+	&.closing {
+		animation: fadeOut 0.2s ease-in-out forwards;
+	}
 }
 
-@keyframes fade-in {
+@keyframes fadeIn {
 	from {
 		opacity: 0;
 	}
@@ -33,7 +41,7 @@
 	}
 }
 
-@keyframes fade-out {
+@keyframes fadeOut {
 	from {
 		opacity: 1;
 	}
