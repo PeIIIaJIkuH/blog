@@ -3,7 +3,6 @@ import { type ReactNode } from 'react'
 import HomeIcon from 'shared/assets/icons/home.svg'
 import NotesIcon from 'shared/assets/icons/notes.svg'
 import UserIcon from 'shared/assets/icons/user.svg'
-import i18n from 'shared/config/i18n'
 import { type IAppRoutes } from 'shared/config/routes'
 
 export const LOCAL_STORAGE_SIDEBAR_KEY = 'sidebar'
@@ -18,16 +17,16 @@ export const SIDEBAR_LINKS: SidebarLinkItem[] = [
 	{
 		path: 'home',
 		icon: <HomeIcon />,
-		text: i18n.t('sidebar.home'),
+		text: 'sidebar.home',
 	},
 	{
 		path: 'about',
 		icon: <NotesIcon />,
-		text: i18n.t('sidebar.about'),
+		text: 'sidebar.about',
 	},
 	{
 		path: 'profile',
 		icon: <UserIcon />,
-		text: i18n.t('sidebar.profile'),
+		text: 'sidebar.profile',
 	},
 ]

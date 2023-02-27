@@ -3,21 +3,23 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import Backend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 
-const ns = ['translation', 'home', 'about']
-const supportedLngs = ['en', 'ru']
-const resources = ns.reduce((acc, n) => {
-	supportedLngs.forEach((lng) => {
-		// @ts-ignore
-		if (!acc[lng]) acc[lng] = {}
-		// @ts-ignore
-		acc[lng] = {
-			// @ts-ignore
-			...acc[lng],
-			[n]: require(`../../public/locales/${lng}/${n}.json`),
+type Namespace = 'translation' | 'home' | 'about' | 'profile'
+type Language = 'en' | 'ru'
+
+const namespaces: Namespace[] = ['translation', 'home', 'about', 'profile']
+const languages: Language[] = ['en', 'ru']
+
+const resources: Partial<Record<Language, Partial<Record<Namespace, object>>>> = {}
+
+for (const language of languages) {
+	for (const namespace of namespaces) {
+		if (!resources[language]) {
+			resources[language] = {}
 		}
-	})
-	return acc
-}, {})
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+		resources[language]![namespace] = require(`../../public/locales/${language}/${namespace}.json`)
+	}
+}
 
 void i18n
 	.use(initReactI18next)
@@ -27,10 +29,10 @@ void i18n
 		lng: 'en',
 		fallbackLng: 'en',
 		defaultNS: 'translation',
-		ns,
+		ns: namespaces,
 		interpolation: { escapeValue: false },
 		react: { useSuspense: false },
-		supportedLngs,
+		supportedLngs: languages,
 		resources,
 	})
 
