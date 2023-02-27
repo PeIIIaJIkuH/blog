@@ -5,27 +5,39 @@ import { Modal } from './modal'
 let root: HTMLDivElement
 
 describe('shared/ui/modal', () => {
+	const onClose = jest.fn()
+
 	beforeEach(() => {
 		root = document.createElement('div')
 		root.setAttribute('id', 'root')
 		document.body.appendChild(root)
 	})
 
+	afterEach(() => {
+		jest.clearAllTimers()
+	})
+
 	it('should render', () => {
-		render(<Modal isOpen>Test</Modal>)
+		render(
+			<Modal isOpen onClose={onClose}>
+				Test
+			</Modal>,
+		)
 
 		expect(screen.getByTestId('wrapper')).toBeInTheDocument()
 	})
 
 	it('should not render', () => {
-		render(<Modal isOpen={false}>Test</Modal>)
+		render(
+			<Modal isOpen={false} onClose={onClose}>
+				Test
+			</Modal>,
+		)
 
 		expect(screen.queryByTestId('wrapper')).not.toBeInTheDocument()
 	})
 
 	it('should call onClose', async () => {
-		const onClose = jest.fn()
-
 		render(
 			<Modal isOpen onClose={onClose}>
 				Test
