@@ -4,6 +4,7 @@ import { Route, type RouteProps, Routes } from 'react-router-dom'
 import { About } from 'pages/about'
 import { Home } from 'pages/home'
 import { NotFound } from 'pages/not-found'
+import { Profile } from 'pages/profile'
 import { AppRoutes, type IAppRoutes, RoutePath } from 'shared/config/routes'
 import { PageLoader } from 'widgets/page-loader'
 
@@ -15,6 +16,10 @@ const routes: Record<IAppRoutes, RouteProps> = {
 	[AppRoutes.ABOUT]: {
 		path: RoutePath[AppRoutes.ABOUT],
 		element: <About />,
+	},
+	[AppRoutes.PROFILE]: {
+		path: RoutePath[AppRoutes.PROFILE],
+		element: <Profile />,
 	},
 	[AppRoutes.NOT_FOUND]: {
 		path: RoutePath[AppRoutes.NOT_FOUND],

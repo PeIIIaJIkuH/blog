@@ -16,6 +16,11 @@ Default.args = {
 	children: 'Button',
 }
 
+export const Text = Template.bind({})
+Text.args = {
+	text: 'Button',
+}
+
 export const Outline = Template.bind({})
 Outline.args = {
 	children: 'Button',

@@ -23,7 +23,8 @@
 	},
 	"sidebar": {
 		"home": "Home",
-		"about": "About"
+		"about": "About",
+		"profile": "Profile"
 	},
 	"loading": "Loading...",
 	"page_error": {

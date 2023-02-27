@@ -5,10 +5,10 @@ import { useAppDispatch, useAppSelector } from 'app/store'
 import { userActions } from 'entities/user'
 import { getAuth } from 'entities/user/model/selectors'
 import { LoginModal } from 'features/auth-by-username'
-import BlogIcon from 'shared/assets/icons/blog.svg'
 import { cls } from 'shared/helpers/cls'
-import { AppLink } from 'shared/ui/app-link'
 import { Button } from 'shared/ui/button'
+
+import { Logo } from '../logo/logo'
 
 import s from './header.module.scss'
 
@@ -36,19 +36,13 @@ export const Header: FC<HeaderProps> = memo(({ className }) => {
 
 	return (
 		<div className={cls(s.Header, className)}>
-			<AppLink to='home' className={s.logo}>
-				<BlogIcon />
-			</AppLink>
+			<Logo />
 			{auth ? (
-				<Button onClick={onLogout} className={s.button}>
-					{t('header.logout')}
-				</Button>
+				<Button onClick={onLogout} className={s.button} text={t('header.logout')} />
 			) : (
 				<>
 					<LoginModal isOpen={isModalOpen} onClose={closeModal} />
-					<Button onClick={openModal} className={s.button}>
-						{t('header.login')}
-					</Button>
+					<Button onClick={openModal} className={s.button} text={t('header.login')} />
 				</>
 			)}
 		</div>

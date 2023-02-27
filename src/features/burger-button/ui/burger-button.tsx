@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { type FC, memo } from 'react'
 
 import { cls } from 'shared/helpers/cls'
 import { Button } from 'shared/ui/button'
@@ -11,7 +11,7 @@ interface BurgerButtonProps {
 	toggle: () => void
 }
 
-export const BurgerButton: FC<BurgerButtonProps> = ({ className, isOpen, toggle }) => {
+export const BurgerButton: FC<BurgerButtonProps> = memo(({ className, isOpen, toggle }) => {
 	return (
 		<Button className={cls(s.burgerButton, className, isOpen && s.open)} onClick={toggle}>
 			<svg className={s.svg} stroke='var(--current-color)' fill='none' viewBox='0 0 120 120' width={36}>
@@ -25,4 +25,4 @@ export const BurgerButton: FC<BurgerButtonProps> = ({ className, isOpen, toggle 
 			</svg>
 		</Button>
 	)
-}
+})

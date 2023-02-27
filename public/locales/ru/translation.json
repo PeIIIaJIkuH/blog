@@ -23,7 +23,8 @@
 	},
 	"sidebar": {
 		"home": "Главная",
-		"about": "О нас"
+		"about": "О нас",
+		"profile": "Профиль"
 	},
 	"loading": "Загрузка...",
 	"page_error": {

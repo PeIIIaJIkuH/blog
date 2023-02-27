@@ -6,7 +6,7 @@ export const Home: FC = () => {
 
 	return (
 		<div>
-			<h1>{t('home:title')}</h1>
+			<h1>{t('title')}</h1>
 		</div>
 	)
 }

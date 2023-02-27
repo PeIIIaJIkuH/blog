@@ -16,7 +16,7 @@ const componentMeta: ComponentMeta<typeof LoginForm> = {
 	decorators: [
 		(Story) => {
 			return (
-				<div style={{ width: 400, margin: 'auto' }}>
+				<div style={{ width: 'fit-content', margin: 'auto' }}>
 					<Story />
 				</div>
 			)

@@ -1,13 +1,4 @@
-import {
-	type FC,
-	memo,
-	type MouseEventHandler,
-	type PropsWithChildren,
-	useCallback,
-	useEffect,
-	useRef,
-	useState,
-} from 'react'
+import { type FC, memo, type PropsWithChildren, useCallback, useEffect, useRef, useState } from 'react'
 
 import { cls } from 'shared/helpers/cls'
 import { Portal } from 'shared/ui/portal'
@@ -23,6 +14,9 @@ interface ModalProps {
 export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpen, onClose, children }) => {
 	const [isClosing, setIsClosing] = useState(false)
 	const timerRef = useRef<number>()
+	const startTarget = useRef<EventTarget | null>(null)
+	const endTarget = useRef<EventTarget | null>(null)
+	const overlayRef = useRef<HTMLDivElement>(null)
 
 	const close = useCallback(() => {
 		setIsClosing(true)
@@ -41,9 +35,15 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpe
 		[close],
 	)
 
-	const onOverlayClick: MouseEventHandler<HTMLDivElement> = useCallback(
-		(e) => {
-			if (e.target === e.currentTarget) {
+	const onPointerDown = useCallback((e: MouseEvent) => {
+		startTarget.current = e.target
+		endTarget.current = null
+	}, [])
+
+	const onPointerUp = useCallback(
+		(e: MouseEvent) => {
+			endTarget.current = e.target
+			if (endTarget.current === startTarget.current && endTarget.current === overlayRef.current) {
 				if (isClosing) return
 				close()
 			}
@@ -53,11 +53,15 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpe
 
 	useEffect(() => {
 		document.addEventListener('keydown', closeOnEscape)
+		document.addEventListener('pointerdown', onPointerDown)
+		document.addEventListener('pointerup', onPointerUp)
 
 		return () => {
 			document.removeEventListener('keydown', closeOnEscape)
+			document.removeEventListener('pointerdown', onPointerDown)
+			document.removeEventListener('pointerup', onPointerUp)
 		}
-	}, [closeOnEscape])
+	}, [closeOnEscape, onPointerDown, onPointerUp])
 
 	useEffect(() => {
 		return () => {
@@ -71,7 +75,7 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpe
 
 	return (
 		<Portal wrapperId='modal-portal-wrapper'>
-			<div className={cls(s.modal, className, isClosing && s.closing)} onClick={onOverlayClick} data-testid='wrapper'>
+			<div className={cls(s.modal, className, isClosing && s.closing)} data-testid='wrapper' ref={overlayRef}>
 				<div className={s.content}>{children}</div>
 			</div>
 		</Portal>

@@ -20,7 +20,7 @@ export const PageError: FC<PageErrorProps> = memo(({ className }) => {
 	return (
 		<div className={cls(s.pageError, className)}>
 			<p>{t('page_error.message')}</p>
-			<Button onClick={refreshPage}>{t('page_error.refreshButton')}</Button>
+			<Button onClick={refreshPage} text={t('page_error.refreshButton')} />
 		</div>
 	)
 })

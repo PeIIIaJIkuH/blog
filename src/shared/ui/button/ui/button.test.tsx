@@ -7,12 +7,25 @@ describe('shared/ui/button', () => {
 		render(<Button>Test</Button>)
 
 		expect(screen.getByTestId('button')).toBeInTheDocument()
+		expect(screen.getByTestId('button')).toHaveTextContent('Test')
 		expect(screen.getByTestId('button')).toHaveClass('variant-default')
 		expect(screen.getByTestId('button')).toHaveClass('size-medium')
 		expect(screen.getByTestId('button')).toHaveClass('radius-medium')
 		expect(screen.getByTestId('button')).toHaveClass('color-primary')
 		expect(screen.getByTestId('button')).not.toHaveClass('uppercase')
 		expect(screen.getByTestId('button')).not.toHaveClass('loading')
+	})
+
+	it('should render with text', () => {
+		render(<Button text='Test' />)
+
+		expect(screen.getByTestId('button')).toHaveTextContent('Test')
+	})
+
+	it('should prioritize text over children', () => {
+		render(<Button text='text'>children</Button>)
+
+		expect(screen.getByTestId('button')).toHaveTextContent('text')
 	})
 
 	it('should render with variant default', () => {

@@ -1,15 +1,12 @@
 import { type FC, memo, useCallback, useState } from 'react'
-import { useTranslation } from 'react-i18next'
 
 import { BurgerButton } from 'features/burger-button'
 import { LanguageSwitcher } from 'features/language-switcher'
 import { ThemeSwitcher } from 'features/theme-switcher'
-import HomeIcon from 'shared/assets/icons/home.svg'
-import NotesIcon from 'shared/assets/icons/notes.svg'
 import { cls } from 'shared/helpers/cls'
-import { AppLink } from 'shared/ui/app-link'
+import { SidebarLink } from 'widgets/sidebar/ui/sidebar-link/sidebar-link'
 
-import { LOCAL_STORAGE_SIDEBAR_KEY } from '../lib'
+import { LOCAL_STORAGE_SIDEBAR_KEY, SIDEBAR_LINKS } from '../../lib'
 
 import s from './sidebar.module.scss'
 
@@ -19,7 +16,6 @@ interface SidebarProps {
 
 export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
 	const [isOpen, setIsOpen] = useState(localStorage.getItem(LOCAL_STORAGE_SIDEBAR_KEY) !== 'false' ?? false)
-	const { t } = useTranslation()
 
 	const toggle = useCallback(() => {
 		setIsOpen((prev) => {
@@ -34,14 +30,9 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
 			<div className={s.controls}>
 				<BurgerButton isOpen={isOpen} toggle={toggle} />
 				<div className={s.links}>
-					<AppLink to='home' nav className={cls(s.link, !isOpen && s.collapsed)}>
-						<HomeIcon />
-						<span>{t('sidebar.home')}</span>
-					</AppLink>
-					<AppLink to='about' nav className={cls(s.link, !isOpen && s.collapsed)}>
-						<NotesIcon />
-						<span>{t('sidebar.about')}</span>
-					</AppLink>
+					{SIDEBAR_LINKS.map((item) => (
+						<SidebarLink item={item} key={item.path} collapsed={!isOpen} />
+					))}
 				</div>
 			</div>
 			<div className={s.switchers}>

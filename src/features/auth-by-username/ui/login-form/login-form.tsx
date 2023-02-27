@@ -82,9 +82,8 @@ export const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => 
 				className={s.submitButton}
 				disabled={status === 'loading'}
 				loading={status === 'loading'}
-			>
-				{t('header.login')}
-			</Button>
+				text={t('header.login')}
+			/>
 		</form>
 	)
 })

@@ -34,7 +34,8 @@ describe('shared/ui/modal', () => {
 
 		expect(onClose).not.toHaveBeenCalled()
 
-		fireEvent.click(screen.getByTestId('wrapper'))
+		fireEvent.pointerDown(screen.getByTestId('wrapper'))
+		fireEvent.pointerUp(screen.getByTestId('wrapper'))
 
 		expect(screen.getByTestId('wrapper')).toHaveClass('closing')
 		await waitFor(() => {

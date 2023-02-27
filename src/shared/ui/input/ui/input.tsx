@@ -5,6 +5,7 @@ import {
 	memo,
 	useCallback,
 	useEffect,
+	useMemo,
 	useRef,
 	useState,
 } from 'react'
@@ -51,6 +52,21 @@ export const Input: FC<InputProps> = memo(
 			setNewType((prev) => (prev === 'password' ? 'text' : 'password'))
 		}, [])
 
+		const showPasswordButton = useMemo(
+			() => (
+				<button
+					className={s.showPassword}
+					onClick={handleShowPassword}
+					data-testid='show-password-button'
+					type='button'
+					tabIndex={-1}
+				>
+					{newType === 'password' ? <IconEye /> : <IconEyeOff />}
+				</button>
+			),
+			[handleShowPassword, newType],
+		)
+
 		return (
 			<div className={cls(s.wrapper, className)} data-testid='wrapper'>
 				<input
@@ -76,17 +92,7 @@ export const Input: FC<InputProps> = memo(
 						</button>
 					)}
 				</div>
-				{(type === 'password' || newType === 'password') && (
-					<button
-						className={s.showPassword}
-						onClick={handleShowPassword}
-						data-testid='show-password-button'
-						type='button'
-						tabIndex={-1}
-					>
-						{newType === 'password' ? <IconEye /> : <IconEyeOff />}
-					</button>
-				)}
+				{(type === 'password' || newType === 'password') && showPasswordButton}
 			</div>
 		)
 	},
