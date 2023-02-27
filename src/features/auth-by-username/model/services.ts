@@ -14,7 +14,7 @@ export const loginByUsername = createAsyncThunk<User, LoginPayload, StoreThunkCo
 	`${sliceName}/loginByUsername`,
 	async (payload, thunkAPI) => {
 		try {
-			const response = await thunkAPI.extra.api.post<User>('http://localhost:8000/login', {
+			const response = await thunkAPI.extra.api.post<User>('/login', {
 				username: payload.username,
 				password: payload.password,
 			})
