@@ -19,10 +19,10 @@ const reducerMap: ReducerMap = {
 
 export interface LoginFormProps {
 	className?: string
-	onSubmit?: () => void
+	onSuccess?: () => void
 }
 
-export const LoginForm: FC<LoginFormProps> = memo(({ className, onSubmit }) => {
+export const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
 	const { t } = useTranslation()
 	const username = useAppSelector(getUsername)
 	const password = useAppSelector(getPassword)
@@ -51,10 +51,10 @@ export const LoginForm: FC<LoginFormProps> = memo(({ className, onSubmit }) => {
 			e.preventDefault()
 			const { payload } = await dispatch(loginByUsername({ username, password }))
 			if (payload !== 'error') {
-				onSubmit?.()
+				onSuccess?.()
 			}
 		},
-		[dispatch, onSubmit, password, username],
+		[dispatch, onSuccess, password, username],
 	)
 
 	return (
