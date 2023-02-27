@@ -17,7 +17,7 @@ export const LoggedOut = Template.bind({})
 LoggedOut.decorators = [
 	withStore({
 		user: {
-			auth: null,
+			user: null,
 		},
 	}),
 ]
@@ -26,7 +26,7 @@ export const LoggedIn = Template.bind({})
 LoggedIn.decorators = [
 	withStore({
 		user: {
-			auth: {
+			user: {
 				username: 'username',
 			},
 		},

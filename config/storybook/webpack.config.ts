@@ -16,7 +16,7 @@ export default ({ config }: { config: Configuration }) => {
 	config.module?.rules?.push(buildCssLoaders(true))
 
 	if (config.module?.rules) {
-		config.module.rules = config.module?.rules?.map((rule: RuleSetRule) => {
+		config.module.rules = (config.module?.rules as RuleSetRule[]).map((rule: RuleSetRule) => {
 			if ((rule.test?.toString() ?? '').includes('svg')) {
 				return {
 					...rule,

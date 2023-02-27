@@ -1,2 +1,5 @@
 export type { Profile, ProfileState } from './model/types'
 export { profileReducer, profileActions, profileSlice } from './model/profile-slice'
+export { fetchProfile } from './model/services'
+export { ProfileCard } from './ui/profile-card/profile-card'
+export * from './model/selectors'

@@ -13,7 +13,7 @@ export interface Profile {
 }
 
 export interface ProfileState {
-	data: Profile | null
+	profile: Profile | null
 	status: 'idle' | 'loading' | 'success' | 'error'
 	error: string | null
 	readOnly: boolean

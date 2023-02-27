@@ -4,5 +4,5 @@ export interface User {
 }
 
 export interface UserState {
-	auth: User | null
+	user: User | null
 }

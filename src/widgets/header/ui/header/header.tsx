@@ -2,8 +2,7 @@ import { type FC, memo, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
-import { userActions } from 'entities/user'
-import { getAuth } from 'entities/user/model/selectors'
+import { getUser, userActions } from 'entities/user'
 import { LoginModal } from 'features/auth-by-username'
 import { cls } from 'shared/helpers/cls'
 import { Button } from 'shared/ui/button'
@@ -19,7 +18,7 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = memo(({ className }) => {
 	const { t } = useTranslation()
 	const [isModalOpen, setIsModalOpen] = useState(false)
-	const auth = useAppSelector(getAuth)
+	const auth = useAppSelector(getUser)
 	const dispatch = useAppDispatch()
 
 	const openModal = useCallback(() => {

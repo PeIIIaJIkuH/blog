@@ -3,10 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type StoreThunkConfig } from 'app/store'
 import { type User, userActions } from 'entities/user'
 
-interface LoginPayload {
-	username: string
-	password: string
-}
+import { type LoginPayload } from './types'
 
 const sliceName = 'login'
 

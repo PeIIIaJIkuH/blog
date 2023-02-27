@@ -1,11 +1,11 @@
 import { type RootState } from 'app/store'
 import { type DeepPartialObject } from 'shared/types'
 
-import { getAuth } from '../selectors'
+import { getUser } from '../selectors'
 
 const state: DeepPartialObject<RootState> = {
 	user: {
-		auth: {
+		user: {
 			id: 'test-id',
 			username: 'test-username',
 		},
@@ -14,7 +14,7 @@ const state: DeepPartialObject<RootState> = {
 
 describe('entities/user/model/selectors', () => {
 	it('should return the auth', () => {
-		expect(getAuth(state as RootState)).toEqual({
+		expect(getUser(state as RootState)).toEqual({
 			id: 'test-id',
 			username: 'test-username',
 		})

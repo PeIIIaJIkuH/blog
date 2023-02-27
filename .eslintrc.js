@@ -80,6 +80,7 @@ module.exports = {
 		'react/display-name': 'off',
 		'react/prop-types': 'off',
 		'@typescript-eslint/no-dynamic-delete': 'off',
+		'@typescript-eslint/no-invalid-void-type': 'off',
 		'import/order': [
 			'error',
 			{

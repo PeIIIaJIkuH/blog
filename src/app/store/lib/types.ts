@@ -13,8 +13,15 @@ import { type LoginState } from 'features/auth-by-username'
 
 import { type store } from './store'
 
+interface PersistPartial {
+	_persist: {
+		version: number
+		rehydrated: boolean
+	}
+}
+
 export interface RootState {
-	user: UserState
+	user: UserState & PersistPartial
 	login?: LoginState
 	profile?: ProfileState
 }

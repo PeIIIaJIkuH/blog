@@ -1,15 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
+import { type LoginState } from 'features/auth-by-username/model/types'
 import i18n from 'shared/config/i18n'
 
 import { loginByUsername } from './services'
-
-export interface LoginState {
-	username: string
-	password: string
-	status: 'idle' | 'loading' | 'success' | 'error'
-	error: string | null
-}
 
 const initialState: LoginState = {
 	username: '',

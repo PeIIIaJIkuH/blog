@@ -34,9 +34,7 @@ server.post('/login', (req, res) => {
 })
 
 server.use((req, res, next) => {
-	console.log('req.headers', req.headers)
 	if (!req.headers.authorization) {
-		console.log('no authorization header')
 		return res.status(401).json({ message: 'Unauthorized' })
 	}
 

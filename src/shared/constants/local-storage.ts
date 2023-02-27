@@ -1,3 +1,3 @@
 export const LS_KEYS = {
-	USER: 'user',
+	USER: 'persist:user',
 }
