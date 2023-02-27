@@ -3,7 +3,7 @@ import { type DecoratorFn } from '@storybook/react'
 import { Provider } from 'react-redux'
 
 import { createStoreForStorybook, type RootState, store } from 'app/store'
-import { type DeepPartialObject } from 'shared/helpers/types'
+import { type DeepPartialObject } from 'shared/types'
 
 export const withStore = (
 	initialState?: DeepPartialObject<RootState>,

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import { Loader } from './loader'
 
-describe('shared/loader', () => {
+describe('shared/ui/loader', () => {
 	it('should render', () => {
 		render(<Loader />)
 

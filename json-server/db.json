@@ -1,24 +1,24 @@
 {
 	"posts": [
 		{
-			"id": 1,
+			"id": "1",
 			"title": "json-server",
-			"userId": 1
+			"userId": "1"
 		},
 		{
-			"id": 2,
+			"id": "2",
 			"title": "json-server",
-			"userId": 2
+			"userId": "2"
 		}
 	],
 	"users": [
 		{
-			"id": 1,
+			"id": "1",
 			"username": "admin",
 			"password": "admin"
 		},
 		{
-			"id": 2,
+			"id": "2",
 			"username": "user",
 			"password": "user"
 		}

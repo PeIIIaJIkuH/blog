@@ -4,7 +4,7 @@ import { Modal } from './modal'
 
 let root: HTMLDivElement
 
-describe('shared/modal', () => {
+describe('shared/ui/modal', () => {
 	beforeEach(() => {
 		root = document.createElement('div')
 		root.setAttribute('id', 'root')

@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react'
 
 import { Input } from './input'
 
-describe('shared/input', () => {
+describe('shared/ui/input', () => {
 	it('should render', () => {
 		render(<Input />)
 

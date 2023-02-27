@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import { Button } from './button'
 
-describe('shared/button', () => {
+describe('shared/ui/button', () => {
 	it('should render', () => {
 		render(<Button>Test</Button>)
 
