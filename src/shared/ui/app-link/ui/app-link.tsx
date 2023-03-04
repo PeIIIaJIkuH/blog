@@ -1,14 +1,14 @@
 import { type FC, type PropsWithChildren, useMemo } from 'react'
 import { Link, type LinkProps, useLocation } from 'react-router-dom'
 
-import { type IAppRoutes, RoutePath } from 'shared/config/routes'
+import { type AppRoute, RoutePath } from 'shared/config/routes'
 import { cls } from 'shared/helpers/cls'
 
 import s from './app-link.module.scss'
 
 interface AppLinkProps extends LinkProps {
 	className?: string
-	to: Exclude<IAppRoutes, 'notFound'>
+	to: AppRoute
 	nav?: boolean
 }
 

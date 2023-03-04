@@ -3,29 +3,29 @@ import { type ReactNode } from 'react'
 import HomeIcon from 'shared/assets/icons/home.svg'
 import NotesIcon from 'shared/assets/icons/notes.svg'
 import UserIcon from 'shared/assets/icons/user.svg'
-import { type IAppRoutes } from 'shared/config/routes'
+import { AppRoute } from 'shared/config/routes'
 
 export const LOCAL_STORAGE_SIDEBAR_KEY = 'sidebar'
 
 export interface SidebarLinkItem {
-	path: Exclude<IAppRoutes, 'notFound'>
+	path: AppRoute
 	icon: ReactNode
 	text: string
 }
 
 export const SIDEBAR_LINKS: SidebarLinkItem[] = [
 	{
-		path: 'home',
+		path: AppRoute.HOME,
 		icon: <HomeIcon />,
 		text: 'sidebar.home',
 	},
 	{
-		path: 'about',
+		path: AppRoute.ABOUT,
 		icon: <NotesIcon />,
 		text: 'sidebar.about',
 	},
 	{
-		path: 'profile',
+		path: AppRoute.PROFILE,
 		icon: <UserIcon />,
 		text: 'sidebar.profile',
 	},

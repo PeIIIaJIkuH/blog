@@ -5,24 +5,24 @@ import { About } from 'pages/about'
 import { Home } from 'pages/home'
 import { NotFound } from 'pages/not-found'
 import { Profile } from 'pages/profile'
-import { AppRoutes, type IAppRoutes, RoutePath } from 'shared/config/routes'
+import { AppRoute, RoutePath } from 'shared/config/routes'
 import { PageLoader } from 'widgets/page-loader'
 
-const routes: Record<IAppRoutes, RouteProps> = {
-	[AppRoutes.HOME]: {
-		path: RoutePath[AppRoutes.HOME],
+const routes: Record<AppRoute, RouteProps> = {
+	[AppRoute.HOME]: {
+		path: RoutePath[AppRoute.HOME],
 		element: <Home />,
 	},
-	[AppRoutes.ABOUT]: {
-		path: RoutePath[AppRoutes.ABOUT],
+	[AppRoute.ABOUT]: {
+		path: RoutePath[AppRoute.ABOUT],
 		element: <About />,
 	},
-	[AppRoutes.PROFILE]: {
-		path: RoutePath[AppRoutes.PROFILE],
+	[AppRoute.PROFILE]: {
+		path: RoutePath[AppRoute.PROFILE],
 		element: <Profile />,
 	},
-	[AppRoutes.NOT_FOUND]: {
-		path: RoutePath[AppRoutes.NOT_FOUND],
+	[AppRoute.NOT_FOUND]: {
+		path: RoutePath[AppRoute.NOT_FOUND],
 		element: <NotFound />,
 	},
 }

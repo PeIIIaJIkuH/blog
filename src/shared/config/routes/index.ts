@@ -1,14 +1,13 @@
-export const AppRoutes = {
-	HOME: 'home',
-	ABOUT: 'about',
-	PROFILE: 'profile',
-	NOT_FOUND: 'notFound',
-} as const
-export type IAppRoutes = (typeof AppRoutes)[keyof typeof AppRoutes]
+export enum AppRoute {
+	HOME = 'home',
+	ABOUT = 'about',
+	PROFILE = 'profile',
+	NOT_FOUND = 'notFound',
+}
 
-export const RoutePath: Record<IAppRoutes, string> = {
-	[AppRoutes.HOME]: '/',
-	[AppRoutes.ABOUT]: '/about',
-	[AppRoutes.PROFILE]: '/profile',
-	[AppRoutes.NOT_FOUND]: '*',
+export const RoutePath: Record<AppRoute, string> = {
+	[AppRoute.HOME]: '/',
+	[AppRoute.ABOUT]: '/about',
+	[AppRoute.PROFILE]: '/profile',
+	[AppRoute.NOT_FOUND]: '*',
 }

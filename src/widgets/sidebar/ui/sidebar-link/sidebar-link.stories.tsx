@@ -3,6 +3,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import HomeIcon from 'shared/assets/icons/home.svg'
 import NotesIcon from 'shared/assets/icons/notes.svg'
 import UserIcon from 'shared/assets/icons/user.svg'
+import { AppRoute } from 'shared/config/routes'
 
 import { SidebarLink } from './sidebar-link'
 
@@ -25,7 +26,7 @@ const Template: ComponentStory<typeof SidebarLink> = (args) => <SidebarLink {...
 export const Home = Template.bind({})
 Home.args = {
 	item: {
-		path: 'home',
+		path: AppRoute.HOME,
 		text: 'sidebar.home',
 		icon: <HomeIcon />,
 	},
@@ -34,7 +35,7 @@ Home.args = {
 export const About = Template.bind({})
 About.args = {
 	item: {
-		path: 'about',
+		path: AppRoute.ABOUT,
 		text: 'sidebar.about',
 		icon: <NotesIcon />,
 	},
@@ -43,7 +44,7 @@ About.args = {
 export const Profile = Template.bind({})
 Profile.args = {
 	item: {
-		path: 'profile',
+		path: AppRoute.PROFILE,
 		text: 'sidebar.profile',
 		icon: <UserIcon />,
 	},
@@ -52,7 +53,7 @@ Profile.args = {
 export const Collapsed = Template.bind({})
 Collapsed.args = {
 	item: {
-		path: 'home',
+		path: AppRoute.HOME,
 		text: 'sidebar.home',
 		icon: <HomeIcon />,
 	},
