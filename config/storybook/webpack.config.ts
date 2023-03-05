@@ -31,7 +31,7 @@ export default ({ config }: { config: Configuration }) => {
 	config.plugins?.push(
 		new DefinePlugin({
 			IS_DEV: true,
-			API_URL: '',
+			API_URL: '""',
 		}),
 	)
 
