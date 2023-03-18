@@ -50,6 +50,10 @@ describe('shared/ui/modal', () => {
 		fireEvent.pointerUp(screen.getByTestId('wrapper'))
 
 		void waitFor(() => {
+			expect(screen.getByTestId('wrapper')).toHaveClass('closing')
+		})
+
+		void waitFor(() => {
 			expect(onClose).toHaveBeenCalled()
 			expect(screen.getByTestId('wrapper')).not.toBeInTheDocument()
 		})
@@ -65,6 +69,10 @@ describe('shared/ui/modal', () => {
 		expect(onClose).not.toHaveBeenCalled()
 
 		fireEvent.keyDown(document, { key: 'Escape' })
+
+		void waitFor(() => {
+			expect(screen.getByTestId('wrapper')).toHaveClass('closing')
+		})
 
 		void waitFor(() => {
 			expect(onClose).toHaveBeenCalled()
