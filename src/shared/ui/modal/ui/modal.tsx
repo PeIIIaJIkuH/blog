@@ -6,10 +6,13 @@ import {
 	useCallback,
 	useEffect,
 	useRef,
+	useState,
 } from 'react'
 
 import { cls } from 'shared/helpers/cls'
 import { Portal } from 'shared/ui/portal'
+
+import { type Status } from '../lib/types'
 
 import s from './modal.module.scss'
 
@@ -20,6 +23,7 @@ interface ModalProps {
 }
 
 export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpen, onClose, children }) => {
+	const [status, setStatus] = useState<Status>('closed')
 	const pointerStartTarget = useRef<EventTarget | null>(null)
 	const pointerEndTarget = useRef<EventTarget | null>(null)
 	const overlayRef = useRef<HTMLDivElement>(null)
@@ -48,14 +52,22 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpe
 		[onClose],
 	)
 
-	const onAnimationEnd: AnimationEventHandler<HTMLDivElement> = useCallback(
-		(e) => {
-			if (e.animationName === s.fadeOut) {
-				onClose()
-			}
-		},
-		[onClose],
-	)
+	const onAnimationEnd: AnimationEventHandler = useCallback((e) => {
+		if (e.animationName === s.fadeIn) {
+			setStatus('open')
+		} else if (e.animationName === s.fadeOut) {
+			setStatus('closed')
+		}
+	}, [])
+
+	useEffect(() => {
+		if (isOpen && status === 'closed') {
+			setStatus('opening')
+		}
+		if (!isOpen && status === 'open') {
+			setStatus('closing')
+		}
+	}, [isOpen, status])
 
 	useEffect(() => {
 		document.addEventListener('keydown', closeOnEscape)
@@ -69,11 +81,22 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpe
 		}
 	}, [closeOnEscape, onPointerDown, onPointerUp])
 
-	if (!isOpen) return null
+	if (status === 'closed') {
+		return null
+	}
 
 	return (
 		<Portal wrapperId='modal-portal-wrapper'>
-			<div className={cls(s.modal, className)} data-testid='wrapper' ref={overlayRef} onAnimationEnd={onAnimationEnd}>
+			<div
+				className={cls(s.modal, className, {
+					[s.opening]: status === 'opening',
+					[s.open]: status === 'open',
+					[s.closing]: status === 'closing',
+				})}
+				data-testid='wrapper'
+				ref={overlayRef}
+				onAnimationEnd={onAnimationEnd}
+			>
 				<div className={s.content}>{children}</div>
 			</div>
 		</Portal>

@@ -29,7 +29,7 @@ export const Header: FC<HeaderProps> = memo(({ className }) => {
 		setIsModalOpen(false)
 	}, [])
 
-	const onLogout = useCallback(() => {
+	const logout = useCallback(() => {
 		dispatch(userActions.setUser(null))
 	}, [dispatch])
 
@@ -37,13 +37,11 @@ export const Header: FC<HeaderProps> = memo(({ className }) => {
 		<div className={cls(s.Header, className)}>
 			<Logo />
 			{auth ? (
-				<Button onClick={onLogout} className={s.button} text={t('header.logout')} />
+				<Button onClick={logout} className={s.button} text={t('header.logout')} />
 			) : (
-				<>
-					<LoginModal isOpen={isModalOpen} onClose={closeModal} />
-					<Button onClick={openModal} className={s.button} text={t('header.login')} />
-				</>
+				<Button onClick={openModal} className={s.button} text={t('header.login')} />
 			)}
+			<LoginModal isOpen={isModalOpen} onClose={closeModal} />
 		</div>
 	)
 })
