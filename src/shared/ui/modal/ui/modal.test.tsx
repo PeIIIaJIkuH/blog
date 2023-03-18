@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 
 import { Modal } from './modal'
 
@@ -49,8 +49,10 @@ describe('shared/ui/modal', () => {
 		fireEvent.pointerDown(screen.getByTestId('wrapper'))
 		fireEvent.pointerUp(screen.getByTestId('wrapper'))
 
-		expect(screen.getByTestId('wrapper')).toHaveClass('closing')
-		// TODO: Add onClose call check
+		void waitFor(() => {
+			expect(onClose).toHaveBeenCalled()
+			expect(screen.getByTestId('wrapper')).not.toBeInTheDocument()
+		})
 	})
 
 	it('should call onClose on escape', async () => {
@@ -64,7 +66,9 @@ describe('shared/ui/modal', () => {
 
 		fireEvent.keyDown(document, { key: 'Escape' })
 
-		expect(screen.getByTestId('wrapper')).toHaveClass('closing')
-		// TODO: Add onClose call check
+		void waitFor(() => {
+			expect(onClose).toHaveBeenCalled()
+			expect(screen.getByTestId('wrapper')).not.toBeInTheDocument()
+		})
 	})
 })
