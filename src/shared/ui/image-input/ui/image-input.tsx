@@ -3,7 +3,6 @@ import { type ChangeEventHandler, type FC, useCallback, useMemo, useRef } from '
 import PencilIcon from 'shared/assets/icons/pencil.svg'
 import { cls } from 'shared/helpers/cls'
 import { fileToBase64 } from 'shared/helpers/file-to-base64'
-import { generateRandomColor } from 'shared/helpers/generate-random-color'
 
 import s from './image-input.module.scss'
 
@@ -33,7 +32,7 @@ export const ImageInput: FC<ImageInputProps> = ({ className, image, updateImage,
 
 	const style = useMemo(
 		() => ({
-			background: image ? `url(${image}) no-repeat center / cover` : generateRandomColor(),
+			background: image ? `url(${image}) no-repeat center / cover` : '#aaaaaa',
 		}),
 		[image],
 	)
