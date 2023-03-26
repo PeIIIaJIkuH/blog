@@ -11,6 +11,7 @@ export interface SidebarLinkItem {
 	path: AppRoute
 	icon: ReactNode
 	text: string
+	auth?: boolean
 }
 
 export const SIDEBAR_LINKS: SidebarLinkItem[] = [
@@ -28,5 +29,6 @@ export const SIDEBAR_LINKS: SidebarLinkItem[] = [
 		path: AppRoute.PROFILE,
 		icon: <UserIcon />,
 		text: 'sidebar.profile',
+		auth: true,
 	},
 ]

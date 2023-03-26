@@ -6,9 +6,15 @@ import { Home } from 'pages/home'
 import { NotFound } from 'pages/not-found'
 import { Profile } from 'pages/profile'
 import { AppRoute, RoutePath } from 'shared/config/routes'
-import { PageLoader } from 'widgets/page-loader'
+import { PageLoader } from 'shared/ui/page-loader'
 
-const routes: Record<AppRoute, RouteProps> = {
+import { AuthRoute } from './auth-route'
+
+type AppRouteProps = RouteProps & {
+	auth?: boolean
+}
+
+const routes: Record<AppRoute, AppRouteProps> = {
 	[AppRoute.HOME]: {
 		path: RoutePath[AppRoute.HOME],
 		element: <Home />,
@@ -20,6 +26,7 @@ const routes: Record<AppRoute, RouteProps> = {
 	[AppRoute.PROFILE]: {
 		path: RoutePath[AppRoute.PROFILE],
 		element: <Profile />,
+		auth: true,
 	},
 	[AppRoute.NOT_FOUND]: {
 		path: RoutePath[AppRoute.NOT_FOUND],
@@ -31,8 +38,12 @@ export const Routing: FC = () => {
 	return (
 		<Suspense fallback={<PageLoader />}>
 			<Routes>
-				{Object.values(routes).map(({ path, element }) => (
-					<Route key={path} path={path} element={<div className='page-wrapper'>{element}</div>} />
+				{Object.values(routes).map(({ path, element, auth }) => (
+					<Route
+						key={path}
+						path={path}
+						element={<div className='page-wrapper'>{auth ? <AuthRoute>{element}</AuthRoute> : element}</div>}
+					/>
 				))}
 			</Routes>
 		</Suspense>

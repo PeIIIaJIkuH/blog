@@ -29,6 +29,12 @@ describe('shared/ui/input', () => {
 		expect(screen.getByTestId('input')).toHaveAttribute('type', 'password')
 	})
 
+	it('should render with type number', () => {
+		render(<Input type='number' />)
+
+		expect(screen.getByTestId('input')).toHaveAttribute('type', 'number')
+	})
+
 	it('should not render clear button with no value', () => {
 		render(<Input clearable />)
 

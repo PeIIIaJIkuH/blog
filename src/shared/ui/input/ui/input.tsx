@@ -5,7 +5,6 @@ import {
 	memo,
 	useCallback,
 	useEffect,
-	useMemo,
 	useRef,
 	useState,
 } from 'react'
@@ -23,7 +22,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'
 	onChange?: (value: string) => void
 	autoFocus?: boolean
 	clearable?: boolean
-	type?: 'text' | 'password'
+	type?: 'text' | 'password' | 'number'
 }
 
 export const Input: FC<InputProps> = memo(
@@ -36,6 +35,12 @@ export const Input: FC<InputProps> = memo(
 				ref.current?.focus()
 			}
 		}, [autoFocus])
+
+		useEffect(() => {
+			if (rest.readOnly) {
+				ref.current?.blur()
+			}
+		}, [rest.readOnly])
 
 		const handleChange = useCallback(
 			(e: ChangeEvent<HTMLInputElement>) => {
@@ -52,7 +57,7 @@ export const Input: FC<InputProps> = memo(
 			setNewType((prev) => (prev === 'password' ? 'text' : 'password'))
 		}, [])
 
-		const showPasswordButton = useMemo(
+		const ShowPasswordButton = useCallback(
 			() => (
 				<button
 					className={s.showPassword}
@@ -70,10 +75,11 @@ export const Input: FC<InputProps> = memo(
 		return (
 			<div className={cls(s.wrapper, className)} data-testid='wrapper'>
 				<input
-					className={cls(s.input, type === 'password' && s.withRightPadding)}
+					className={cls(s.input)}
 					value={value}
 					onChange={handleChange}
 					type={newType}
+					inputMode={type === 'number' ? 'numeric' : undefined}
 					ref={ref}
 					autoComplete='do-not-autofill'
 					data-testid='input'
@@ -92,7 +98,7 @@ export const Input: FC<InputProps> = memo(
 						</button>
 					)}
 				</div>
-				{(type === 'password' || newType === 'password') && showPasswordButton}
+				{(type === 'password' || newType === 'password') && <ShowPasswordButton />}
 			</div>
 		)
 	},

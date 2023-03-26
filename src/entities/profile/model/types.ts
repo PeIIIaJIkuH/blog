@@ -4,17 +4,12 @@ export interface Profile {
 	birthDate: string
 	email: string
 	username: string
-	location: {
-		country: string
-		city: string
-	}
-	avatar: string
+	country: string
+	city: string
+	avatarImage: string | null
+	backgroundImage: string | null
 	currency: string
+	balance: number
 }
 
-export interface ProfileState {
-	profile: Profile | null
-	status: 'idle' | 'loading' | 'success' | 'error'
-	error: string | null
-	readOnly: boolean
-}
+export type ProfileStatus = 'idle' | 'loading' | 'success' | 'error'

@@ -1,28 +1,11 @@
-import { type FC, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
+import { type FC } from 'react'
 
-import { useAppDispatch } from 'app/store'
-import { fetchProfile, ProfileCard, profileReducer } from 'entities/profile'
-import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
-
-const reducerMap: ReducerMap = {
-	profile: profileReducer,
-}
+import { ViewAndEditProfile } from 'features/view-and-edit-profile'
 
 export const Profile: FC = () => {
-	const { t } = useTranslation('profile')
-	const dispatch = useAppDispatch()
-
-	useLazyModuleLoading(reducerMap)
-
-	useEffect(() => {
-		void dispatch(fetchProfile())
-	}, [dispatch])
-
 	return (
 		<div>
-			<h1>{t('title')}</h1>
-			<ProfileCard />
+			<ViewAndEditProfile />
 		</div>
 	)
 }

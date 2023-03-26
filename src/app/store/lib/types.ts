@@ -7,9 +7,9 @@ import {
 } from '@reduxjs/toolkit'
 import { type AxiosInstance } from 'axios'
 
-import { type ProfileState } from 'entities/profile'
 import { type UserState } from 'entities/user'
 import { type LoginState } from 'features/auth-by-username'
+import { type ProfileState } from 'features/view-and-edit-profile'
 
 import { type store } from './store'
 

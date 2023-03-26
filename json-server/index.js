@@ -15,7 +15,6 @@ server.use(async (req, res, next) => {
 })
 
 server.post('/login', (req, res) => {
-	console.log('body', req.body)
 	const { username, password } = req.body
 	const db = JSON.parse(
 		fs.readFileSync(path.resolve(__dirname, 'db.json'), {

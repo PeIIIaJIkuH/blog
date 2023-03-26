@@ -1,0 +1,42 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+
+	.label {
+		font-size: 16px;
+		color: var(--color-text-secondary);
+		margin-left: 10px;
+		width: fit-content;
+		border-bottom: 1px solid var(--color-font);
+		margin-bottom: 5px;
+	}
+
+	.editableInput {
+		input {
+			text-overflow: ellipsis;
+
+			&[readonly] {
+				border-color: transparent;
+				cursor: pointer;
+			}
+
+			&[data-updating='true'] {
+				animation: border-loading 1s infinite;
+			}
+		}
+	}
+}
+
+@keyframes border-loading {
+	0% {
+		border-color: var(--color-primary);
+	}
+
+	50% {
+		border-color: transparent;
+	}
+
+	100% {
+		border-color: var(--color-primary);
+	}
+}

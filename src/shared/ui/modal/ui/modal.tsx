@@ -102,5 +102,3 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpe
 		</Portal>
 	)
 })
-
-// TODO: add closing animation on modal: it should react to the isOpen prop change and apply the needed animations
