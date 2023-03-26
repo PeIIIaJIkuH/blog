@@ -18,7 +18,7 @@ describe('shared/ui/image-input', () => {
 	it('should render with image', () => {
 		render(<ImageInput image='test' variant='changeButton' />)
 
-		expect(screen.getByTestId('wrapper')).toHaveStyle('background-image: url(test)')
+		expect(screen.getByTestId('wrapper')).toHaveStyle('background: url(test) no-repeat center / cover')
 	})
 
 	it('should call updateImage', () => {
