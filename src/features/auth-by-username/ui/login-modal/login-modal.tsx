@@ -1,4 +1,4 @@
-import { type FC, Suspense, useEffect } from 'react'
+import { type FC, memo, Suspense, useEffect } from 'react'
 
 import { useAppDispatch } from 'app/store'
 import { Loader } from 'shared/ui/loader'
@@ -13,7 +13,7 @@ interface LoginModalProps {
 	onClose: () => void
 }
 
-export const LoginModal: FC<LoginModalProps> = ({ className, isOpen, onClose }) => {
+export const LoginModal: FC<LoginModalProps> = memo(({ className, isOpen, onClose }) => {
 	const dispatch = useAppDispatch()
 
 	useEffect(() => {
@@ -29,4 +29,4 @@ export const LoginModal: FC<LoginModalProps> = ({ className, isOpen, onClose }) 
 			</Suspense>
 		</Modal>
 	)
-}
+})

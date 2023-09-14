@@ -1,4 +1,4 @@
-import { type FC, type KeyboardEventHandler, useCallback, useEffect, useState } from 'react'
+import { type FC, type KeyboardEventHandler, memo, useCallback, useEffect, useState } from 'react'
 
 import { cls } from 'shared/helpers/cls'
 import { Input } from 'shared/ui/input'
@@ -12,7 +12,7 @@ interface EditableInputProps {
 	label?: string
 }
 
-export const EditableInput: FC<EditableInputProps> = ({ className, initialValue, onUpdate, label }) => {
+export const EditableInput: FC<EditableInputProps> = memo(({ className, initialValue, onUpdate, label }) => {
 	const [value, setValue] = useState(initialValue ?? '')
 	const [isEditing, setIsEditing] = useState(false)
 	const [isUpdating, setIsUpdating] = useState(false)
@@ -64,4 +64,4 @@ export const EditableInput: FC<EditableInputProps> = ({ className, initialValue,
 			/>
 		</div>
 	)
-}
+})

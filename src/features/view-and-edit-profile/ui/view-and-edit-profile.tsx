@@ -1,4 +1,4 @@
-import { type FC, useCallback, useEffect } from 'react'
+import { type FC, memo, useCallback, useEffect } from 'react'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { type Profile, ProfileCard } from 'entities/profile'
@@ -16,7 +16,7 @@ const reducerMap: ReducerMap = {
 	profile: profileReducer,
 }
 
-export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = ({ className }) => {
+export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className }) => {
 	const profile = useAppSelector(getProfile)
 	const status = useAppSelector(getStatus)
 	const error = useAppSelector(getError)
@@ -40,4 +40,4 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = ({ className }) =
 			<ProfileCard profile={profile} status={status} error={error} updateProfile={update} />
 		</div>
 	)
-}
+})

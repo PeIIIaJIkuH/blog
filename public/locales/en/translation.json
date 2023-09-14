@@ -24,7 +24,8 @@
 	"sidebar": {
 		"home": "Home",
 		"about": "About",
-		"profile": "Profile"
+		"profile": "Profile",
+		"articles": "Articles"
 	},
 	"loading": "Loading...",
 	"page_error": {

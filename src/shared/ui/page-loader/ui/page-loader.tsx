@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { type FC, memo } from 'react'
 
 import { cls } from 'shared/helpers/cls'
 
@@ -8,7 +8,7 @@ interface PageLoaderProps {
 	className?: string
 }
 
-export const PageLoader: FC<PageLoaderProps> = ({ className }) => (
+export const PageLoader: FC<PageLoaderProps> = memo(({ className }) => (
 	<div className={cls(s.pageLoader, className)}>
 		<svg width='37' height='48' viewBox='0 0 37 48' fill='none' xmlns='http://www.w3.org/2000/svg'>
 			<path
@@ -46,4 +46,4 @@ export const PageLoader: FC<PageLoaderProps> = ({ className }) => (
 			/>
 		</svg>
 	</div>
-)
+))

@@ -1,7 +1,8 @@
 import { type ReactNode } from 'react'
 
+import ArticleIcon from 'shared/assets/icons/article.svg'
 import HomeIcon from 'shared/assets/icons/home.svg'
-import NotesIcon from 'shared/assets/icons/notes.svg'
+import InfoCircleIcon from 'shared/assets/icons/info-circle.svg'
 import UserIcon from 'shared/assets/icons/user.svg'
 import { AppRoute } from 'shared/config/routes'
 
@@ -22,13 +23,19 @@ export const SIDEBAR_LINKS: SidebarLinkItem[] = [
 	},
 	{
 		path: AppRoute.ABOUT,
-		icon: <NotesIcon />,
+		icon: <InfoCircleIcon />,
 		text: 'sidebar.about',
 	},
 	{
 		path: AppRoute.PROFILE,
 		icon: <UserIcon />,
 		text: 'sidebar.profile',
+		auth: true,
+	},
+	{
+		path: AppRoute.ARTICLES,
+		icon: <ArticleIcon />,
+		text: 'sidebar.articles',
 		auth: true,
 	},
 ]

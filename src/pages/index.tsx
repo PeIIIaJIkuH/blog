@@ -2,6 +2,8 @@ import { type FC, Suspense } from 'react'
 import { Route, type RouteProps, Routes } from 'react-router-dom'
 
 import { About } from 'pages/about'
+import { ArticleDetails } from 'pages/article-details'
+import { Articles } from 'pages/articles'
 import { Home } from 'pages/home'
 import { NotFound } from 'pages/not-found'
 import { Profile } from 'pages/profile'
@@ -26,6 +28,16 @@ const routes: Record<AppRoute, AppRouteProps> = {
 	[AppRoute.PROFILE]: {
 		path: RoutePath[AppRoute.PROFILE],
 		element: <Profile />,
+		auth: true,
+	},
+	[AppRoute.ARTICLES]: {
+		path: RoutePath[AppRoute.ARTICLES],
+		element: <Articles />,
+		auth: true,
+	},
+	[AppRoute.ARTICLE_DETAILS]: {
+		path: RoutePath[AppRoute.ARTICLE_DETAILS],
+		element: <ArticleDetails />,
 		auth: true,
 	},
 	[AppRoute.NOT_FOUND]: {

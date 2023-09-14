@@ -1,11 +1,11 @@
-import { type FC } from 'react'
+import { type FC, memo } from 'react'
 
 import { ViewAndEditProfile } from 'features/view-and-edit-profile'
 
-export const Profile: FC = () => {
+export const Profile: FC = memo(() => {
 	return (
 		<div>
 			<ViewAndEditProfile />
 		</div>
 	)
-}
+})

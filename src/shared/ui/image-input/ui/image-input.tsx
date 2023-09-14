@@ -1,4 +1,4 @@
-import { type ChangeEventHandler, type FC, useCallback, useMemo, useRef } from 'react'
+import { type ChangeEventHandler, type FC, memo, useCallback, useMemo, useRef } from 'react'
 
 import PencilIcon from 'shared/assets/icons/pencil.svg'
 import { cls } from 'shared/helpers/cls'
@@ -13,7 +13,7 @@ interface ImageInputProps {
 	variant: 'changeButton' | 'overlay'
 }
 
-export const ImageInput: FC<ImageInputProps> = ({ className, image, updateImage, variant }) => {
+export const ImageInput: FC<ImageInputProps> = memo(({ className, image, updateImage, variant }) => {
 	const ref = useRef<HTMLInputElement>(null)
 
 	const onEditClick = useCallback(() => {
@@ -54,4 +54,4 @@ export const ImageInput: FC<ImageInputProps> = ({ className, image, updateImage,
 			<input type='file' className={s.input} accept='image/*' onChange={onChange} ref={ref} data-testid='file-input' />
 		</div>
 	)
-}
+})

@@ -24,7 +24,8 @@
 	"sidebar": {
 		"home": "Главная",
 		"about": "О нас",
-		"profile": "Профиль"
+		"profile": "Профиль",
+		"articles": "Статьи"
 	},
 	"loading": "Загрузка...",
 	"page_error": {

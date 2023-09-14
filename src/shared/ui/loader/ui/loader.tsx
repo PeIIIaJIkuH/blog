@@ -1,4 +1,4 @@
-import { type FC } from 'react'
+import { type FC, memo } from 'react'
 
 import { cls } from 'shared/helpers/cls'
 
@@ -9,6 +9,6 @@ interface LoaderProps {
 	size?: 'small' | 'medium' | 'large'
 }
 
-export const Loader: FC<LoaderProps> = ({ className, size = 'medium' }) => {
+export const Loader: FC<LoaderProps> = memo(({ className, size = 'medium' }) => {
 	return <span className={cls(s.loader, className, s[`size-${size}`])} data-testid='loader' />
-}
+})

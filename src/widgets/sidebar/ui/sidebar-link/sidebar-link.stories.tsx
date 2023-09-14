@@ -1,7 +1,7 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
 import HomeIcon from 'shared/assets/icons/home.svg'
-import NotesIcon from 'shared/assets/icons/notes.svg'
+import InfoCircleIcon from 'shared/assets/icons/info-circle.svg'
 import UserIcon from 'shared/assets/icons/user.svg'
 import { AppRoute } from 'shared/config/routes'
 
@@ -37,7 +37,7 @@ About.args = {
 	item: {
 		path: AppRoute.ABOUT,
 		text: 'sidebar.about',
-		icon: <NotesIcon />,
+		icon: <InfoCircleIcon />,
 	},
 }
 

@@ -1,7 +1,7 @@
-import { type FC } from 'react'
+import { type FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-export const About: FC = () => {
+export const About: FC = memo(() => {
 	const { t } = useTranslation('about')
 
 	return (
@@ -9,4 +9,4 @@ export const About: FC = () => {
 			<h1>{t('title')}</h1>
 		</div>
 	)
-}
+})
