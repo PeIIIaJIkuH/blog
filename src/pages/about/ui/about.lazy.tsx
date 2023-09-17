@@ -5,6 +5,6 @@ export const AboutLazy = lazy<FC>(
 		await new Promise((resolve) => {
 			setTimeout(() => {
 				resolve(import('./about').then(({ About }) => ({ default: About })))
-			}, 1500)
+			}, 0)
 		}),
 )

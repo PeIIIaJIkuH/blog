@@ -7,6 +7,6 @@ export const LoginFormLazy = lazy<FC<LoginFormProps>>(
 		await new Promise((resolve) => {
 			setTimeout(() => {
 				resolve(import('./login-form').then(({ LoginForm }) => ({ default: LoginForm })))
-			}, 1500)
+			}, 0)
 		}),
 )

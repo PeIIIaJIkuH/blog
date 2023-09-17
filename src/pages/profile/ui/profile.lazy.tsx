@@ -5,6 +5,6 @@ export const ProfileLazy = lazy<FC>(
 		await new Promise((resolve) => {
 			setTimeout(() => {
 				resolve(import('./profile').then(({ Profile }) => ({ default: Profile })))
-			}, 1500)
+			}, 0)
 		}),
 )
