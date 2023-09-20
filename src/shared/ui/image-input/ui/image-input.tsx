@@ -14,7 +14,6 @@ interface ImageInputProps {
 
 export const ImageInput: FC<ImageInputProps> = memo(({ className, image, updateImage, variant }) => {
 	const ref = useRef<HTMLInputElement>(null)
-	console.log('image', image)
 
 	const onEditClick = useCallback(() => {
 		ref.current?.click()
