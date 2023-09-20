@@ -9,11 +9,6 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'))
 server.use(jsonServer.defaults())
 server.use(jsonServer.bodyParser)
 
-server.use(async (req, res, next) => {
-	await new Promise((resolve) => setTimeout(resolve, 1000))
-	next()
-})
-
 server.post('/login', (req, res) => {
 	const { username, password } = req.body
 	const db = JSON.parse(
