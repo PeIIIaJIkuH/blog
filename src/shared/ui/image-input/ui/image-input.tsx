@@ -2,14 +2,13 @@ import { type ChangeEventHandler, type FC, memo, useCallback, useMemo, useRef } 
 
 import PencilIcon from 'shared/assets/icons/pencil.svg'
 import { cls } from 'shared/helpers/cls'
-import { fileToBase64 } from 'shared/helpers/file-to-base64'
 
 import s from './image-input.module.scss'
 
 interface ImageInputProps {
 	className?: string
 	image?: string | null
-	updateImage?: (url: string) => void
+	updateImage?: (file: File) => void
 	variant: 'changeButton' | 'overlay'
 }
 
@@ -21,10 +20,10 @@ export const ImageInput: FC<ImageInputProps> = memo(({ className, image, updateI
 	}, [])
 
 	const onChange: ChangeEventHandler<HTMLInputElement> = useCallback(
-		async (e) => {
+		(e) => {
 			const file = e.target.files?.[0]
 			if (file) {
-				updateImage?.(await fileToBase64(file))
+				updateImage?.(file)
 			}
 		},
 		[updateImage],

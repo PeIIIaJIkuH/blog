@@ -6,10 +6,15 @@ export interface Profile {
 	username: string
 	country: string
 	city: string
-	avatarImage: string | null
-	backgroundImage: string | null
+	avatarUrl: string | null
+	backgroundUrl: string | null
 	currency: string
 	balance: number
 }
 
 export type ProfileStatus = 'idle' | 'loading' | 'success' | 'error'
+
+export interface ImagePayload {
+	image: File
+	type: 'avatar' | 'background'
+}
