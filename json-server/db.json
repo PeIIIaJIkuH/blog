@@ -21,7 +21,7 @@
     "city": "Astana",
     "currency": "KZT",
     "balance": "2000",
-    "backgroundUrl": null,
-    "avatarUrl": null
+    "backgroundUrl": "http://localhost:8000/uploads/image-1695175713438.jpg",
+    "avatarUrl": "http://localhost:8000/uploads/image-1695175702646.jpg"
   }
 }
