@@ -1,7 +1,6 @@
 import { type FC, Suspense } from 'react'
 
 import { Routing } from 'pages'
-import { cls } from 'shared/helpers/cls'
 import { Header } from 'widgets/header'
 import { Sidebar } from 'widgets/sidebar'
 
@@ -11,7 +10,7 @@ import './styles/index.scss'
 
 export const App: FC = () => {
 	return (
-		<div className={cls('app')}>
+		<div className='app'>
 			<Suspense fallback=''>
 				<Header />
 				<Sidebar />

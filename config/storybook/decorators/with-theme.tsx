@@ -4,6 +4,8 @@ import { ThemeProvider } from 'shared/providers/theme'
 
 export const withTheme: DecoratorFn = (Story) => (
 	<ThemeProvider>
-		<Story />
+		<div className='storybook-app'>
+			<Story />
+		</div>
 	</ThemeProvider>
 )

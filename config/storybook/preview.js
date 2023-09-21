@@ -20,6 +20,7 @@ export const parameters = {
 		en: 'English',
 		ru: 'Русский',
 	},
+	layout: 'fullscreen',
 }
 
 export const decorators = [withRouter, withStore(), withTheme]

@@ -20,6 +20,12 @@
 	grid-template-columns: auto 1fr;
 }
 
+.storybook-app {
+	background: var(--color-background);
+	min-height: 100vh;
+	padding: 20px;
+}
+
 .content-page {
 	display: flex;
 }
