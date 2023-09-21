@@ -1,4 +1,5 @@
 import { type FC, memo, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { cls } from 'shared/helpers/cls'
 import { EditableInput } from 'shared/ui/editable-input'
@@ -20,6 +21,8 @@ interface ProfileCardProps {
 
 export const ProfileCard: FC<ProfileCardProps> = memo(
 	({ className, profile, status, error, updateProfileData, updateProfileImage }) => {
+		const { t } = useTranslation('profile')
+
 		const updateData = useCallback(
 			(key: keyof Profile) => async (value: string) => {
 				await updateProfileData?.({ [key]: value })
@@ -63,24 +66,35 @@ export const ProfileCard: FC<ProfileCardProps> = memo(
 						initialValue={profile?.username}
 						className={s.username}
 						onUpdate={updateData('username')}
-						label='Username'
+						label={t('username')}
 					/>
 					<div className={s.group}>
-						<EditableInput initialValue={profile?.firstName} label='First name' onUpdate={updateData('firstName')} />
-						<EditableInput initialValue={profile?.lastName} label='Last name' onUpdate={updateData('lastName')} />
+						<EditableInput
+							initialValue={profile?.firstName}
+							label={t('firstName')}
+							onUpdate={updateData('firstName')}
+						/>
+						<EditableInput initialValue={profile?.lastName} label={t('lastName')} onUpdate={updateData('lastName')} />
 					</div>
-					<EditableInput initialValue={profile?.birthDate} label='Birth date' onUpdate={updateData('birthDate')} />
 					<div className={s.group}>
-						<EditableInput initialValue={profile?.country} label='Country' onUpdate={updateData('country')} />
-						<EditableInput initialValue={profile?.city} label='City' onUpdate={updateData('city')} />
+						<EditableInput initialValue={profile?.email} label={t('email')} onUpdate={updateData('email')} />
+						<EditableInput
+							initialValue={profile?.birthDate}
+							label={t('birthDate')}
+							onUpdate={updateData('birthDate')}
+						/>
+					</div>
+					<div className={s.group}>
+						<EditableInput initialValue={profile?.country} label={t('country')} onUpdate={updateData('country')} />
+						<EditableInput initialValue={profile?.city} label={t('city')} onUpdate={updateData('city')} />
 					</div>
 					<div className={s.group}>
 						<EditableInput
-							initialValue={profile?.balance ? profile.balance.toString() : ''}
-							label='Balance'
+							initialValue={profile?.balance !== undefined ? profile.balance.toString() : ''}
+							label={t('balance')}
 							onUpdate={updateData('balance')}
 						/>
-						<EditableInput initialValue={profile?.currency} label='Currency' onUpdate={updateData('currency')} />
+						<EditableInput initialValue={profile?.currency} label={t('currency')} onUpdate={updateData('currency')} />
 					</div>
 				</div>
 			</div>

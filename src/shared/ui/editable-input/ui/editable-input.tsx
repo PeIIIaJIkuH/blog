@@ -9,7 +9,7 @@ interface EditableInputProps {
 	className?: string
 	initialValue?: string
 	onUpdate?: (value: string) => Promise<void>
-	label?: string
+	label?: string | null
 }
 
 export const EditableInput: FC<EditableInputProps> = memo(({ className, initialValue, onUpdate, label }) => {
