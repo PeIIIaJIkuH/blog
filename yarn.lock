@@ -13019,6 +13019,11 @@ storybook-addon-react-router-v6@^0.2.1:
   dependencies:
     react-inspector "^5.1.1"
 
+storybook-addon-theme-changer@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/storybook-addon-theme-changer/-/storybook-addon-theme-changer-0.1.2.tgz#18f2f402544e2737ac960a4ac96889d61fbc1c06"
+  integrity sha512-moN3hHg91W7Y4Gux8IsPuA0NUvqEliV3RBXCJ9Au6T7Gc5ME4fDy89eZVVSRs+1DTemQG1pYCikXtAR2p4dFfA==
+
 storybook-i18n@^1.1.2:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/storybook-i18n/-/storybook-i18n-1.1.4.tgz#f463287fa7d8c79c8283c4e7157c8557ebaf408f"

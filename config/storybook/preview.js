@@ -24,3 +24,9 @@ export const parameters = {
 }
 
 export const decorators = [withRouter, withStore(), withTheme]
+
+export const globalTypes = {
+	themes: {
+		defaultValue: ['light', 'dark'],
+	},
+}
