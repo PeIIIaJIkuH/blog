@@ -3,10 +3,10 @@ import LanguageDetector from 'i18next-browser-languagedetector'
 import Backend from 'i18next-http-backend'
 import { initReactI18next } from 'react-i18next'
 
-type Namespace = 'translation' | 'home' | 'about' | 'profile'
+type Namespace = 'translation' | 'home' | 'about' | 'profile' | 'articles' | 'article-details'
 type Language = 'en' | 'ru'
 
-const namespaces: Namespace[] = ['translation', 'home', 'about', 'profile']
+const namespaces: Namespace[] = ['translation', 'home', 'about', 'profile', 'articles', 'article-details']
 const languages: Language[] = ['en', 'ru']
 
 const resources: Partial<Record<Language, Partial<Record<Namespace, object>>>> = {}

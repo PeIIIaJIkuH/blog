@@ -12,7 +12,7 @@ import {
 import { cls } from 'shared/helpers/cls'
 import { Portal } from 'shared/ui/portal'
 
-import { type Status } from '../lib/types'
+import { type Status } from '../model/types'
 
 import s from './modal.module.scss'
 
