@@ -1,0 +1,59 @@
+.skeleton {
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		position: absolute;
+		content: '';
+		inset: 0;
+		z-index: 5;
+		background: var(--color-background);
+	}
+
+	&::after {
+		position: absolute;
+		content: '';
+		inset: 0;
+		z-index: 6;
+		background: var(--color-skeleton);
+	}
+
+	&[data-animate] {
+		animation: skeleton-fade 1.5s linear infinite;
+	}
+}
+
+.radius-xs {
+	border-radius: var(--radius-xs);
+}
+
+.radius-sm {
+	border-radius: var(--radius-sm);
+}
+
+.radius-md {
+	border-radius: var(--radius-md);
+}
+
+.radius-lg {
+	border-radius: var(--radius-lg);
+}
+
+.radius-xl {
+	border-radius: var(--radius-xl);
+}
+
+.radius-none {
+	border-radius: 0;
+}
+
+@keyframes skeleton-fade {
+	0%,
+	100% {
+		opacity: 0.4;
+	}
+
+	50% {
+		opacity: 1;
+	}
+}

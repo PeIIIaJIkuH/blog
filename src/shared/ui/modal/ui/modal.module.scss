@@ -11,7 +11,7 @@
 
 	.content {
 		padding: 20px;
-		border-radius: 8px;
+		border-radius: var(--radius-sm);
 		background: var(--color-background);
 		color: var(--color-font);
 		cursor: auto;

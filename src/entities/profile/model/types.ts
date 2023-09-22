@@ -12,8 +12,6 @@ export interface Profile {
 	balance: number
 }
 
-export type ProfileStatus = 'idle' | 'loading' | 'success' | 'error'
-
 export interface ImagePayload {
 	image: File
 	type: 'avatar' | 'background'

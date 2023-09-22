@@ -6,7 +6,7 @@
 	justify-content: flex-start;
 	gap: 10px;
 	padding: 8px;
-	border-radius: 4px;
+	border-radius: var(--radius-xs);
 	transition: background 0.3s ease-out, gap 0.3s ease-out;
 	overflow: hidden;
 

@@ -9,8 +9,8 @@ describe('shared/ui/button', () => {
 		expect(screen.getByTestId('button')).toBeInTheDocument()
 		expect(screen.getByTestId('button')).toHaveTextContent('Test')
 		expect(screen.getByTestId('button')).toHaveClass('variant-default')
-		expect(screen.getByTestId('button')).toHaveClass('size-medium')
-		expect(screen.getByTestId('button')).toHaveClass('radius-medium')
+		expect(screen.getByTestId('button')).toHaveClass('size-md')
+		expect(screen.getByTestId('button')).toHaveClass('radius-md')
 		expect(screen.getByTestId('button')).toHaveClass('color-primary')
 		expect(screen.getByTestId('button')).not.toHaveClass('uppercase')
 		expect(screen.getByTestId('button')).not.toHaveClass('loading')
@@ -46,40 +46,70 @@ describe('shared/ui/button', () => {
 		expect(screen.getByTestId('button')).toHaveClass('variant-filled')
 	})
 
-	it('should render with size small', () => {
-		render(<Button size='small'>Test</Button>)
+	it('should render with size xs', () => {
+		render(<Button size='xs'>Test</Button>)
 
-		expect(screen.getByTestId('button')).toHaveClass('size-small')
+		expect(screen.getByTestId('button')).toHaveClass('size-xs')
 	})
 
-	it('should render with size medium', () => {
-		render(<Button size='medium'>Test</Button>)
+	it('should render with size sm', () => {
+		render(<Button size='sm'>Test</Button>)
 
-		expect(screen.getByTestId('button')).toHaveClass('size-medium')
+		expect(screen.getByTestId('button')).toHaveClass('size-sm')
 	})
 
-	it('should render with size large', () => {
-		render(<Button size='large'>Test</Button>)
+	it('should render with size md', () => {
+		render(<Button size='md'>Test</Button>)
 
-		expect(screen.getByTestId('button')).toHaveClass('size-large')
+		expect(screen.getByTestId('button')).toHaveClass('size-md')
 	})
 
-	it('should render with radius small', () => {
-		render(<Button radius='small'>Test</Button>)
+	it('should render with size lg', () => {
+		render(<Button size='lg'>Test</Button>)
 
-		expect(screen.getByTestId('button')).toHaveClass('radius-small')
+		expect(screen.getByTestId('button')).toHaveClass('size-lg')
 	})
 
-	it('should render with radius medium', () => {
-		render(<Button radius='medium'>Test</Button>)
+	it('should render with size xl', () => {
+		render(<Button size='xl'>Test</Button>)
 
-		expect(screen.getByTestId('button')).toHaveClass('radius-medium')
+		expect(screen.getByTestId('button')).toHaveClass('size-xl')
+	})
+
+	it('should render with radius xs', () => {
+		render(<Button radius='xs'>Test</Button>)
+
+		expect(screen.getByTestId('button')).toHaveClass('radius-xs')
+	})
+
+	it('should render with radius sm', () => {
+		render(<Button radius='sm'>Test</Button>)
+
+		expect(screen.getByTestId('button')).toHaveClass('radius-sm')
+	})
+
+	it('should render with radius md', () => {
+		render(<Button radius='md'>Test</Button>)
+
+		expect(screen.getByTestId('button')).toHaveClass('radius-md')
 	})
 
 	it('should render with radius large', () => {
-		render(<Button radius='large'>Test</Button>)
+		render(<Button radius='lg'>Test</Button>)
 
-		expect(screen.getByTestId('button')).toHaveClass('radius-large')
+		expect(screen.getByTestId('button')).toHaveClass('radius-lg')
+	})
+
+	it('should render with radius xl', () => {
+		render(<Button radius='xl'>Test</Button>)
+
+		expect(screen.getByTestId('button')).toHaveClass('radius-xl')
+	})
+
+	it('should render with radius none', () => {
+		render(<Button radius='none'>Test</Button>)
+
+		expect(screen.getByTestId('button')).toHaveClass('radius-none')
 	})
 
 	it('should render with color primary', () => {

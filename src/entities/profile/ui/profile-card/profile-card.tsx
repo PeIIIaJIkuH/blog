@@ -4,23 +4,20 @@ import { useTranslation } from 'react-i18next'
 import { cls } from 'shared/helpers/cls'
 import { EditableInput } from 'shared/ui/editable-input'
 import { ImageInput } from 'shared/ui/image-input'
-import { PageLoader } from 'shared/ui/page-loader'
 
-import { type ImagePayload, type Profile, type ProfileStatus } from '../../model/types'
+import { type ImagePayload, type Profile } from '../../model/types'
 
 import s from './profile-card.module.scss'
 
 interface ProfileCardProps {
 	className?: string
 	profile?: Profile | null
-	status?: ProfileStatus
-	error?: string | null
 	updateProfileData?: (profile: Partial<Profile>) => Promise<void>
 	updateProfileImage?: (payload: ImagePayload) => Promise<void>
 }
 
 export const ProfileCard: FC<ProfileCardProps> = memo(
-	({ className, profile, status, error, updateProfileData, updateProfileImage }) => {
+	({ className, profile, updateProfileData, updateProfileImage }) => {
 		const { t } = useTranslation('profile')
 
 		const updateData = useCallback(
@@ -36,14 +33,6 @@ export const ProfileCard: FC<ProfileCardProps> = memo(
 			},
 			[updateProfileImage],
 		)
-
-		if (status === 'loading') {
-			return <PageLoader />
-		}
-
-		if (status === 'error') {
-			return <div>{error}</div>
-		}
 
 		return (
 			<div className={cls(s.profileCard, className)}>

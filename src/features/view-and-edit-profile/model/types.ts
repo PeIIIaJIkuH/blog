@@ -1,8 +1,8 @@
 import { type Profile } from 'entities/profile'
-import { type ProfileStatus } from 'entities/profile/model/types'
+import { type Status } from 'shared/types'
 
 export interface ProfileState {
 	profile: Profile | null
-	status: ProfileStatus
+	status: Status
 	error: string | null
 }

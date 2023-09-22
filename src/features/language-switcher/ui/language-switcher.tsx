@@ -21,7 +21,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = memo(({ className, sh
 	}, [i18n])
 
 	return (
-		<Button onClick={toggleLanguage} radius='small' className={cls(s.languageSwitcher, className, short && s.short)}>
+		<Button onClick={toggleLanguage} radius='sm' className={cls(s.languageSwitcher, className, short && s.short)}>
 			<span className={cls(short ? s.hidden : s.visible)}>{t('language.translated.long')}</span>
 			<span className={cls(short ? s.visible : s.hidden)}>{t('language.translated.short')}</span>
 		</Button>

@@ -75,7 +75,7 @@ export const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => 
 			/>
 			{error && <p className={s.error}>{error}</p>}
 			<Button
-				radius='small'
+				radius='sm'
 				variant='filled'
 				color='primary'
 				type='submit'

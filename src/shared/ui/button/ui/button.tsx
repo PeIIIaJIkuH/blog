@@ -8,8 +8,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string
 	text?: string | null
 	variant?: 'default' | 'outline' | 'filled'
-	size?: 'small' | 'medium' | 'large'
-	radius?: 'small' | 'medium' | 'large'
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+	radius?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none'
 	color?: 'primary' | 'success' | 'danger' | 'warning' | 'info'
 	uppercase?: boolean
 	loading?: boolean
@@ -20,8 +20,8 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = memo(
 		className,
 		text,
 		variant = 'default',
-		size = 'medium',
-		radius = 'medium',
+		size = 'md',
+		radius = 'md',
 		color = 'primary',
 		uppercase = false,
 		loading = false,

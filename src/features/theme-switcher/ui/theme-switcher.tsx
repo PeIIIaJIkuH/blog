@@ -27,7 +27,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(({ className }) => {
 	}, [theme, toggleTheme])
 
 	return (
-		<Button onClick={onClick} className={cls(s.themeSwitcher, className)} radius='small'>
+		<Button onClick={onClick} className={cls(s.themeSwitcher, className)} radius='sm'>
 			{newTheme === 'light' ? <MoonIcon /> : <SunIcon />}
 		</Button>
 	)

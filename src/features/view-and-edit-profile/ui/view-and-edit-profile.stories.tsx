@@ -21,7 +21,6 @@ export default componentMeta
 const Template: ComponentStory<typeof ViewAndEditProfile> = (args) => <ViewAndEditProfile {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
 Default.decorators = [
 	withStore(
 		{
@@ -39,7 +38,31 @@ Default.decorators = [
 					city: 'city',
 					birthDate: 'birthDate',
 				},
-				status: 'success',
+			},
+		},
+		reducerMap,
+	),
+]
+
+export const Loading = Template.bind({})
+Loading.decorators = [
+	withStore(
+		{
+			profile: {
+				status: 'loading',
+			},
+		},
+		reducerMap,
+	),
+]
+
+export const Error = Template.bind({})
+Error.decorators = [
+	withStore(
+		{
+			profile: {
+				status: 'error',
+				error: 'error',
 			},
 		},
 		reducerMap,

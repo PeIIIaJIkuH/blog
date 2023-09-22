@@ -3,12 +3,10 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type StoreThunkConfig } from 'app/store'
 import { type ImagePayload, type Profile } from 'entities/profile'
 
-import { profileActions } from './profile-slice'
-
-const sliceName = 'profile'
+import { profileActions, profileSliceName } from './profile-slice'
 
 export const fetchProfile = createAsyncThunk<Profile, void, StoreThunkConfig<string>>(
-	`${sliceName}/fetchProfile`,
+	`${profileSliceName}/fetchProfile`,
 	async (payload, thunkAPI) => {
 		try {
 			const response = await thunkAPI.extra.api.get<Profile>('/profile')
@@ -25,7 +23,7 @@ export const fetchProfile = createAsyncThunk<Profile, void, StoreThunkConfig<str
 )
 
 export const updateProfile = createAsyncThunk<Profile, Partial<Profile>, StoreThunkConfig<string>>(
-	`${sliceName}/updateProfile`,
+	`${profileSliceName}/updateProfile`,
 	async (payload, thunkAPI) => {
 		try {
 			const response = await thunkAPI.extra.api.patch<Profile>('/profile', payload)
@@ -42,7 +40,7 @@ export const updateProfile = createAsyncThunk<Profile, Partial<Profile>, StoreTh
 )
 
 export const updateProfileImage = createAsyncThunk<Profile, ImagePayload, StoreThunkConfig<string>>(
-	`${sliceName}/updateProfileImage`,
+	`${profileSliceName}/updateProfileImage`,
 	async (payload, thunkAPI) => {
 		try {
 			const formData = new FormData()

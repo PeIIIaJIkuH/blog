@@ -12,8 +12,10 @@ const initialState: ProfileState = {
 	error: null,
 }
 
+export const profileSliceName = 'profile'
+
 export const profileSlice = createSlice({
-	name: 'profile',
+	name: profileSliceName,
 	initialState,
 	reducers: {
 		setProfile: (state, action: PayloadAction<Profile>) => {

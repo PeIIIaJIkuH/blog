@@ -33,40 +33,64 @@ Filled.args = {
 	variant: 'filled',
 }
 
-export const Small = Template.bind({})
-Small.args = {
+export const Xs = Template.bind({})
+Xs.args = {
 	children: 'Button',
-	size: 'small',
+	size: 'xs',
 }
 
-export const Medium = Template.bind({})
-Medium.args = {
+export const Sm = Template.bind({})
+Sm.args = {
 	children: 'Button',
-	size: 'medium',
+	size: 'sm',
 }
 
-export const Large = Template.bind({})
-Large.args = {
+export const Md = Template.bind({})
+Md.args = {
 	children: 'Button',
-	size: 'large',
+	size: 'md',
 }
 
-export const SmallRadius = Template.bind({})
-SmallRadius.args = {
+export const Lg = Template.bind({})
+Lg.args = {
 	children: 'Button',
-	radius: 'small',
+	size: 'lg',
 }
 
-export const MediumRadius = Template.bind({})
-MediumRadius.args = {
+export const Xl = Template.bind({})
+Xl.args = {
 	children: 'Button',
-	radius: 'medium',
+	size: 'xl',
 }
 
-export const LargeRadius = Template.bind({})
-LargeRadius.args = {
+export const RadiusXs = Template.bind({})
+RadiusXs.args = {
 	children: 'Button',
-	radius: 'large',
+	radius: 'xs',
+}
+
+export const RadiusSm = Template.bind({})
+RadiusSm.args = {
+	children: 'Button',
+	radius: 'sm',
+}
+
+export const RadiusMd = Template.bind({})
+RadiusMd.args = {
+	children: 'Button',
+	radius: 'md',
+}
+
+export const RadiusLg = Template.bind({})
+RadiusLg.args = {
+	children: 'Button',
+	radius: 'lg',
+}
+
+export const RadiusXl = Template.bind({})
+RadiusXl.args = {
+	children: 'Button',
+	radius: 'xl',
 }
 
 export const PrimaryColor = Template.bind({})

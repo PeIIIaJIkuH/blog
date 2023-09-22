@@ -3,12 +3,11 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type StoreThunkConfig } from 'app/store'
 import { type User, userActions } from 'entities/user'
 
+import { loginSliceName } from './login-slice'
 import { type LoginPayload } from './types'
 
-const sliceName = 'login'
-
 export const loginByUsername = createAsyncThunk<User, LoginPayload, StoreThunkConfig<string>>(
-	`${sliceName}/loginByUsername`,
+	`${loginSliceName}/loginByUsername`,
 	async (payload, thunkAPI) => {
 		try {
 			const response = await thunkAPI.extra.api.post<User>('/login', {

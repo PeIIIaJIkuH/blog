@@ -1,18 +1,22 @@
 import { type FC, memo } from 'react'
-import { useTranslation } from 'react-i18next'
+import { useParams } from 'react-router-dom'
 
-import { cls } from 'shared/helpers/cls'
+import { ViewArticleDetails } from 'features/view-article-details'
 
 interface ArticleDetailsProps {
 	className?: string
 }
 
 export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className }) => {
-	const { t } = useTranslation('article-details')
+	const { id } = useParams<{ id: string }>()
+
+	if (!id) {
+		return <div>not found</div>
+	}
 
 	return (
-		<div className={cls(className)}>
-			<h1>{t('title')}</h1>
+		<div className={className}>
+			<ViewArticleDetails articleId={id} />
 		</div>
 	)
 })

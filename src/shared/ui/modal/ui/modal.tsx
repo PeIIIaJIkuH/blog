@@ -1,7 +1,6 @@
 import {
 	type AnimationEventHandler,
 	type FC,
-	memo,
 	type PropsWithChildren,
 	useCallback,
 	useEffect,
@@ -22,7 +21,7 @@ interface ModalProps {
 	onClose: () => void
 }
 
-export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpen, onClose, children }) => {
+export const Modal: FC<PropsWithChildren<ModalProps>> = ({ className, isOpen, onClose, children }) => {
 	const [status, setStatus] = useState<Status>('closed')
 	const pointerStartTarget = useRef<EventTarget | null>(null)
 	const pointerEndTarget = useRef<EventTarget | null>(null)
@@ -101,4 +100,4 @@ export const Modal: FC<PropsWithChildren<ModalProps>> = memo(({ className, isOpe
 			</div>
 		</Portal>
 	)
-})
+}

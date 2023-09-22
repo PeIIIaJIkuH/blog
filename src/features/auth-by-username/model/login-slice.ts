@@ -12,8 +12,10 @@ const initialState: LoginState = {
 	error: null,
 }
 
+export const loginSliceName = 'login'
+
 export const loginSlice = createSlice({
-	name: 'login',
+	name: loginSliceName,
 	initialState,
 	reducers: {
 		setUsername: (state, action: PayloadAction<string>) => {

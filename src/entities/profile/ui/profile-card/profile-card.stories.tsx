@@ -27,16 +27,3 @@ Default.args = {
 		birthDate: 'birthDate',
 	},
 }
-
-export const Loading = Template.bind({})
-Loading.args = {
-	...Default.args,
-	status: 'loading',
-}
-
-export const Error = Template.bind({})
-Error.args = {
-	...Default.args,
-	status: 'error',
-	error: 'error',
-}

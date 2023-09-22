@@ -3,12 +3,14 @@
     {
       "id": "1",
       "username": "admin",
-      "password": "admin"
+      "password": "admin",
+      "role": "admin"
     },
     {
       "id": "2",
       "username": "user",
-      "password": "user"
+      "password": "user",
+      "role": "user"
     }
   ],
   "profile": {
@@ -23,5 +25,70 @@
     "balance": "2000",
     "backgroundUrl": "http://localhost:8000/uploads/image-1695175713438.jpg",
     "avatarUrl": "http://localhost:8000/uploads/image-1695175702646.jpg"
-  }
+  },
+  "articles": [
+    {
+      "id": "1",
+      "title": "First article",
+      "subtitle": "First article subtitle",
+      "imgUrl": null,
+      "views": 0,
+      "createdAt": "2021-02-23",
+      "tags": ["tag1", "tag2"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "text",
+          "data": {
+            "title": "First article title",
+            "content": [
+              "First article content paragraph 1",
+              "First article content paragraph 2"
+            ]
+          }
+        },
+        {
+          "id": "2",
+          "type": "code",
+          "data": {
+            "language": "javascript",
+            "code": "First article code\nSecond line\nThird line"
+          }
+        },
+        {
+          "id": "3",
+          "type": "text",
+          "data": {
+            "title": "Third article title",
+            "content": [
+              "First article content paragraph 1",
+              "First article content paragraph 2"
+            ]
+          }
+        },
+        {
+          "id": "4",
+          "type": "image",
+          "data": {
+            "url": "http://localhost:8000/uploads/image-1695175713438.jpg",
+            "caption": "First article image caption"
+          }
+        }
+      ]
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "articleId": "1",
+      "userId": "1",
+      "content": "First comment content"
+    },
+    {
+      "id": "2",
+      "articleId": "1",
+      "userId": "2",
+      "content": "Second comment content"
+    }
+  ]
 }
