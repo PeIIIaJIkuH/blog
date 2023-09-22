@@ -2,3 +2,4 @@
 .idea
 .vscode
 /storybook-static
+/json-server/db.json
