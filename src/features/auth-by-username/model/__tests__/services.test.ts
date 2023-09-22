@@ -1,4 +1,4 @@
-import { userActions } from 'entities/user'
+import { type User, userActions } from 'entities/user'
 import { AsyncThunkWrapper } from 'shared/helpers/async-thunk-wrapper'
 
 import { loginByUsername } from '../services'
@@ -11,9 +11,10 @@ const data = {
 describe('features/auth-by-username/model/services', () => {
 	it('should login by username', async () => {
 		const userRequest = { ...data }
-		const userResponse = {
+		const userResponse: User = {
 			id: 'test-id',
 			username: 'test-username',
+			role: 'user',
 		}
 
 		const thunkWrapper = new AsyncThunkWrapper(loginByUsername)
