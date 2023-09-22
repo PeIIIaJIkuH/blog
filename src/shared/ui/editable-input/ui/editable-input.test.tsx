@@ -28,7 +28,7 @@ describe('shared/ui/editable-input', () => {
 
 		expect(screen.getByTestId('input')).toHaveTextContent('')
 
-		act(() => {
+		await act(async () => {
 			fireEvent.focus(screen.getByTestId('input'))
 			fireEvent.change(screen.getByTestId('input'), { target: { value: 'test' } })
 			fireEvent.keyDown(screen.getByTestId('input'), { key: 'Enter', code: 'Enter' })
