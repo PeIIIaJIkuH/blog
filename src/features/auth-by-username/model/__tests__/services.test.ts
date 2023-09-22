@@ -3,12 +3,14 @@ import { AsyncThunkWrapper } from 'shared/helpers/async-thunk-wrapper'
 
 import { loginByUsername } from '../services'
 
+const data = {
+	username: 'test-username',
+	password: 'test-password',
+}
+
 describe('features/auth-by-username/model/services', () => {
-	it('', async () => {
-		const userRequest = {
-			username: 'test-username',
-			password: 'test-password',
-		}
+	it('should login by username', async () => {
+		const userRequest = { ...data }
 		const userResponse = {
 			id: 'test-id',
 			username: 'test-username',
@@ -25,11 +27,8 @@ describe('features/auth-by-username/model/services', () => {
 		expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(3)
 	})
 
-	it('', async () => {
-		const userRequest = {
-			username: 'test-username',
-			password: 'test-password',
-		}
+	it('should return error if status is not 200 on login by username', async () => {
+		const userRequest = { ...data }
 		const userResponse = 'error'
 
 		const thunkWrapper = new AsyncThunkWrapper(loginByUsername)

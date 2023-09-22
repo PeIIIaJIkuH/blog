@@ -5,5 +5,4 @@ export interface ProfileState {
 	profile: Profile | null
 	status: ProfileStatus
 	error: string | null
-	readOnly: boolean
 }

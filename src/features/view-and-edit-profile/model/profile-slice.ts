@@ -10,7 +10,6 @@ const initialState: ProfileState = {
 	profile: null,
 	status: 'idle',
 	error: null,
-	readOnly: false,
 }
 
 export const profileSlice = createSlice({

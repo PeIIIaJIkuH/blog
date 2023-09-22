@@ -1,4 +1,4 @@
-import { type AsyncThunkAction } from '@reduxjs/toolkit'
+import { type DeepPartial, type AsyncThunkAction } from '@reduxjs/toolkit'
 import axios, { type AxiosStatic } from 'axios'
 
 import { type RootState } from 'app/store'
@@ -13,9 +13,9 @@ export class AsyncThunkWrapper<Return, Arg, RejectValue> {
 	actionCreator: ActionCreator<Return, Arg, RejectValue>
 	api: jest.Mocked<AxiosStatic>
 
-	constructor(actionCreator: ActionCreator<Return, Arg, RejectValue>) {
+	constructor(actionCreator: ActionCreator<Return, Arg, RejectValue>, state?: DeepPartial<RootState>) {
 		this.actionCreator = actionCreator
-		this.getState = jest.fn()
+		this.getState = jest.fn(() => state as RootState)
 		this.dispatch = jest.fn()
 		this.api = axios as jest.Mocked<typeof axios>
 	}
