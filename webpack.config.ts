@@ -26,5 +26,6 @@ export default (env: BuildEnv) => {
 		port,
 		analyze,
 		apiUrl,
+		project: 'webpack',
 	})
 }

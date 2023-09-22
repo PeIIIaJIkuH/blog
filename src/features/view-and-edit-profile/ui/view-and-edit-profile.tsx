@@ -25,7 +25,9 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className
 	useLazyModuleLoading(reducerMap)
 
 	useEffect(() => {
-		void dispatch(fetchProfile())
+		if (PROJECT !== 'storybook') {
+			void dispatch(fetchProfile())
+		}
 	}, [dispatch])
 
 	const updateData = useCallback(

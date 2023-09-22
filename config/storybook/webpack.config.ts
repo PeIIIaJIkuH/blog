@@ -30,8 +30,9 @@ export default ({ config }: { config: Configuration }) => {
 
 	config.plugins?.push(
 		new DefinePlugin({
-			IS_DEV: true,
-			API_URL: '""',
+			IS_DEV: JSON.stringify(true),
+			API_URL: JSON.stringify(''),
+			PROJECT: JSON.stringify('storybook'),
 		}),
 	)
 

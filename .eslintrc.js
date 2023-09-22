@@ -228,6 +228,7 @@ module.exports = {
 	globals: {
 		IS_DEV: 'readonly',
 		API_URL: 'readonly',
+		PROJECT: 'readonly',
 	},
 	overrides: [
 		{
