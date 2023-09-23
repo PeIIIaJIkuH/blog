@@ -2,21 +2,14 @@ import { type FC, memo } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { ViewArticleDetails } from 'features/view-article-details'
+import { PageError } from 'shared/ui/page-error'
 
-interface ArticleDetailsProps {
-	className?: string
-}
-
-export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className }) => {
+export const ArticleDetails: FC = memo(() => {
 	const { id } = useParams<{ id: string }>()
 
 	if (!id) {
-		return <div>not found</div>
+		return <PageError message='No article id' />
 	}
 
-	return (
-		<div className={className}>
-			<ViewArticleDetails articleId={id} />
-		</div>
-	)
+	return <ViewArticleDetails articleId={id} />
 })

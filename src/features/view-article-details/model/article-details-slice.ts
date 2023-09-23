@@ -1,7 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 import { type Article } from 'entities/article'
-import i18n from 'shared/config/i18n'
 
 import { fetchArticle } from './services'
 import { type ArticleDetailsState } from './types'
@@ -33,7 +32,7 @@ export const articleDetailsSlice = createSlice({
 		})
 		builder.addCase(fetchArticle.rejected, (state) => {
 			state.status = 'error'
-			state.error = i18n.t('error', { ns: 'article-details' }) ?? 'error'
+			state.error = 'errors.no_article'
 		})
 	},
 })

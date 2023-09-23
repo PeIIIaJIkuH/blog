@@ -30,7 +30,7 @@
 	"loading": "Loading...",
 	"page_error": {
 		"message": "Something went wrong",
-		"refreshButton": "Refresh"
+		"refresh_utton": "Refresh"
 	},
 	"error": {
 		"general": "Something went wrong"

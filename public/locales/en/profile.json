@@ -1,5 +1,7 @@
 {
-	"error": "Error loading profile",
+	"errors": {
+		"no_profile": "Error getting profile data"
+	},
 	"username": "Username",
 	"firstName": "First Name",
 	"lastName": "Last Name",

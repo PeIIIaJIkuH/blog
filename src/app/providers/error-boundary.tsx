@@ -1,6 +1,13 @@
-import { Component, type ErrorInfo, type ReactNode, Suspense } from 'react'
+import { Component, type ErrorInfo, type ReactNode, Suspense, type FC } from 'react'
+import { useTranslation } from 'react-i18next'
 
-import { PageError } from 'widgets/page-error'
+import { PageError } from 'shared/ui/page-error'
+
+const Error: FC = () => {
+	const { t } = useTranslation()
+
+	return <PageError message={t('page_error.message')} fullHeight />
+}
 
 interface ErrorBoundaryProps {
 	children: ReactNode
@@ -31,7 +38,7 @@ export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundarySt
 		if (hasError) {
 			return (
 				<Suspense fallback=''>
-					<PageError />
+					<Error />
 				</Suspense>
 			)
 		}

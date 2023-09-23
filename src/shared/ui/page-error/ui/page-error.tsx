@@ -8,9 +8,12 @@ import s from './page-error.module.scss'
 
 interface PageErrorProps {
 	className?: string
+	message: string | null
+	withRefreshButton?: boolean
+	fullHeight?: boolean
 }
 
-export const PageError: FC<PageErrorProps> = memo(({ className }) => {
+export const PageError: FC<PageErrorProps> = memo(({ className, message, withRefreshButton, fullHeight }) => {
 	const { t } = useTranslation()
 
 	const refreshPage = useCallback(() => {
@@ -18,9 +21,9 @@ export const PageError: FC<PageErrorProps> = memo(({ className }) => {
 	}, [])
 
 	return (
-		<div className={cls(s.pageError, className)}>
-			<p>{t('page_error.message')}</p>
-			<Button onClick={refreshPage} text={t('page_error.refreshButton')} />
+		<div className={cls(s.pageError, className, fullHeight && s.fullHeight)}>
+			<p>{message}</p>
+			{withRefreshButton && <Button onClick={refreshPage} text={t('page_error.refresh_button')} />}
 		</div>
 	)
 })

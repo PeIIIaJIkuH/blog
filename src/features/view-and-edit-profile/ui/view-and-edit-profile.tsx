@@ -1,9 +1,11 @@
 import { type FC, memo, useCallback, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { type Profile, ProfileCard, type ImagePayload } from 'entities/profile'
 import { cls } from 'shared/helpers/cls'
 import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
+import { PageError } from 'shared/ui/page-error'
 import { PageLoader } from 'shared/ui/page-loader'
 
 import { profileReducer } from '../model/profile-slice'
@@ -25,6 +27,8 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className
 	const status = useAppSelector(getStatus)
 	const error = useAppSelector(getError)
 	const dispatch = useAppDispatch()
+
+	const { t } = useTranslation(['translation', 'profile'])
 
 	useLazyModuleLoading(reducerMap)
 
@@ -53,7 +57,7 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className
 	}
 
 	if (status === 'error') {
-		return <div>{error}</div>
+		return <PageError message={error ? t(error, { ns: 'profile' }) : t('errors.general')} />
 	}
 
 	return (

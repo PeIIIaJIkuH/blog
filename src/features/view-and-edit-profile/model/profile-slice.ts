@@ -1,7 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 import { type Profile } from 'entities/profile'
-import i18n from 'shared/config/i18n'
 
 import { fetchProfile, updateProfile } from './services'
 import { type ProfileState } from './types'
@@ -33,7 +32,7 @@ export const profileSlice = createSlice({
 		})
 		builder.addCase(fetchProfile.rejected, (state) => {
 			state.status = 'error'
-			state.error = i18n.t('error', { ns: 'profile' }) ?? 'error'
+			state.error = 'errors.no_profile'
 		})
 		builder.addCase(updateProfile.fulfilled, (state, action: PayloadAction<Profile>) => {
 			state.profile = { ...state.profile, ...action.payload }

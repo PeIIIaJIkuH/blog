@@ -1,3 +1,6 @@
 {
-	"title": "Article Details"
+	"title": "Article Details",
+	"errors": {
+		"no_article": "No article found"
+	}
 }

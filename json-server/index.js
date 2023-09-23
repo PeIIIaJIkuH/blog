@@ -81,6 +81,12 @@ server.use((req, res, next) => {
 	next()
 })
 
+server.use((req, res, next) => {
+	setTimeout(() => {
+		next()
+	}, 1000)
+})
+
 server.use(router)
 
 server.listen(8000, () => {

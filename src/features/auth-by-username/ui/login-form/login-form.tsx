@@ -23,12 +23,13 @@ export interface LoginFormProps {
 }
 
 export const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => {
-	const { t } = useTranslation()
 	const username = useAppSelector(getUsername)
 	const password = useAppSelector(getPassword)
 	const status = useAppSelector(getStatus)
 	const error = useAppSelector(getError)
 	const dispatch = useAppDispatch()
+
+	const { t } = useTranslation()
 
 	useLazyModuleLoading(reducerMap)
 
@@ -73,7 +74,7 @@ export const LoginForm: FC<LoginFormProps> = memo(({ className, onSuccess }) => 
 				value={password}
 				onChange={handlePasswordChange}
 			/>
-			{error && <p className={s.error}>{error}</p>}
+			{error && <p className={s.error}>{t(error) ?? t('errors.general')}</p>}
 			<Button
 				radius='sm'
 				variant='filled'

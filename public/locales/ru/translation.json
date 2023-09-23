@@ -30,7 +30,7 @@
 	"loading": "Загрузка...",
 	"page_error": {
 		"message": "Произошла ошибка",
-		"refreshButton": "Обновить страницу"
+		"refresh_button": "Обновить страницу"
 	},
 	"error": {
 		"general": "Что-то пошло не так"

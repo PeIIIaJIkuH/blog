@@ -1,9 +1,11 @@
 import { type FC, memo, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { ArticleCard } from 'entities/article'
 import { cls } from 'shared/helpers/cls'
 import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
+import { PageError } from 'shared/ui/page-error'
 import { PageLoader } from 'shared/ui/page-loader'
 
 import { articleDetailsReducer } from '../model/article-details-slice'
@@ -27,6 +29,8 @@ export const ViewArticleDetails: FC<ViewArticleDetailsProps> = memo(({ className
 	const error = useAppSelector(getError)
 	const dispatch = useAppDispatch()
 
+	const { t } = useTranslation(['translation', 'article-details'])
+
 	useLazyModuleLoading(reducerMap)
 
 	useEffect(() => {
@@ -40,11 +44,11 @@ export const ViewArticleDetails: FC<ViewArticleDetailsProps> = memo(({ className
 	}
 
 	if (status === 'error') {
-		return <div>{error}</div>
+		return <PageError message={error ? t(error, { ns: 'article-details' }) : t('error.general')} />
 	}
 
 	if (!article && status === 'success') {
-		return <div>not found</div>
+		return <PageError message='No article' />
 	}
 
 	return (

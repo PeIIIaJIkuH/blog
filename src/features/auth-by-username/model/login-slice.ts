@@ -1,7 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
 import { type LoginState } from 'features/auth-by-username/model/types'
-import i18n from 'shared/config/i18n'
 
 import { loginByUsername } from './services'
 
@@ -41,7 +40,7 @@ export const loginSlice = createSlice({
 		})
 		builder.addCase(loginByUsername.rejected, (state) => {
 			state.status = 'error'
-			state.error = i18n.t('login_form.error') ?? 'error'
+			state.error = 'login_form.error'
 		})
 	},
 })
