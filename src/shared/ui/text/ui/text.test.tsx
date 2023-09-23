@@ -184,4 +184,40 @@ describe('shared/ui/text', () => {
 
 		expect(screen.getByTestId('text')).toBeInstanceOf(HTMLDivElement)
 	})
+
+	it('should render with component h1', () => {
+		render(<Text component='h1' text='Test' />)
+
+		expect(screen.getByTestId('text')).toBeInstanceOf(HTMLHeadingElement)
+	})
+
+	it('should render with component h2', () => {
+		render(<Text component='h2' text='Test' />)
+
+		expect(screen.getByTestId('text')).toBeInstanceOf(HTMLHeadingElement)
+	})
+
+	it('should render with component h3', () => {
+		render(<Text component='h3' text='Test' />)
+
+		expect(screen.getByTestId('text')).toBeInstanceOf(HTMLHeadingElement)
+	})
+
+	it('should render with component h4', () => {
+		render(<Text component='h4' text='Test' />)
+
+		expect(screen.getByTestId('text')).toBeInstanceOf(HTMLHeadingElement)
+	})
+
+	it('should render with component h5', () => {
+		render(<Text component='h5' text='Test' />)
+
+		expect(screen.getByTestId('text')).toBeInstanceOf(HTMLHeadingElement)
+	})
+
+	it('should render with component h6', () => {
+		render(<Text component='h6' text='Test' />)
+
+		expect(screen.getByTestId('text')).toBeInstanceOf(HTMLHeadingElement)
+	})
 })

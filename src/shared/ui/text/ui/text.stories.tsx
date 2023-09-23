@@ -177,3 +177,39 @@ ComponentP.args = {
 	text: 'Component p text',
 	component: 'p',
 }
+
+export const ComponentH1 = Template.bind({})
+ComponentH1.args = {
+	text: 'Component h1 text',
+	component: 'h1',
+}
+
+export const ComponentH2 = Template.bind({})
+ComponentH2.args = {
+	text: 'Component h2 text',
+	component: 'h2',
+}
+
+export const ComponentH3 = Template.bind({})
+ComponentH3.args = {
+	text: 'Component h3 text',
+	component: 'h3',
+}
+
+export const ComponentH4 = Template.bind({})
+ComponentH4.args = {
+	text: 'Component h4 text',
+	component: 'h4',
+}
+
+export const ComponentH5 = Template.bind({})
+ComponentH5.args = {
+	text: 'Component h5 text',
+	component: 'h5',
+}
+
+export const ComponentH6 = Template.bind({})
+ComponentH6.args = {
+	text: 'Component h6 text',
+	component: 'h6',
+}

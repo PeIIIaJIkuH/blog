@@ -12,7 +12,7 @@ interface TextProps {
 	align?: 'left' | 'center' | 'right'
 	transform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize'
 	decoration?: 'none' | 'underline' | 'line-through'
-	component?: 'p' | 'span' | 'div'
+	component?: 'p' | 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 	text?: string | null
 }
 
