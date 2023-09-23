@@ -7,7 +7,7 @@ describe('shared/ui/loader', () => {
 		render(<Loader />)
 
 		expect(screen.getByTestId('loader')).toBeInTheDocument()
-		expect(screen.getByTestId('loader')).toHaveClass('size-medium')
+		expect(screen.getByTestId('loader')).toHaveClass('size-md')
 	})
 
 	it('should render with size xs', () => {
