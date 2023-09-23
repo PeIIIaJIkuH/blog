@@ -44,7 +44,7 @@ export const ViewArticleDetails: FC<ViewArticleDetailsProps> = memo(({ className
 	}
 
 	if (status === 'error') {
-		return <PageError message={error ? t(error, { ns: 'article-details' }) : t('error.general')} />
+		return <PageError message={error ? t(error, { ns: 'article-details' }) : t('errors.general')} />
 	}
 
 	if (!article && status === 'success') {

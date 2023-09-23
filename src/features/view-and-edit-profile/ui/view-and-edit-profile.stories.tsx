@@ -62,7 +62,7 @@ Error.decorators = [
 		{
 			profile: {
 				status: 'error',
-				error: 'error',
+				error: 'errors.no_profile',
 			},
 		},
 		reducerMap,
