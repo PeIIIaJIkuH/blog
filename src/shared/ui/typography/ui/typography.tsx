@@ -1,10 +1,10 @@
-import { memo, type FC, type CSSProperties, useMemo } from 'react'
+import { type CSSProperties, useMemo, type FC, memo } from 'react'
 
 import { cls } from 'shared/helpers/cls'
 
-import s from './text.module.scss'
+import s from './typography.module.scss'
 
-interface TextProps {
+interface TypographyProps {
 	className?: string
 	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 	color?: 'default' | 'primary' | 'success' | 'danger' | 'warning' | 'info'
@@ -12,11 +12,11 @@ interface TextProps {
 	align?: 'left' | 'center' | 'right'
 	transform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize'
 	decoration?: 'none' | 'underline' | 'line-through'
-	component?: 'p' | 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+	as?: 'p' | 'span' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 	text?: string | null
 }
 
-export const Text: FC<TextProps> = memo(
+export const Typography: FC<TypographyProps> = memo(
 	({
 		className,
 		size = 'md',
@@ -25,15 +25,16 @@ export const Text: FC<TextProps> = memo(
 		align = 'left',
 		transform = 'none',
 		decoration = 'none',
-		component: Component = 'p',
+		as = 'p',
 		text,
 	}) => {
+		const Component = as ?? 'p'
 		const styles: CSSProperties = useMemo(() => ({ fontWeight: weight }), [weight])
 
 		return (
 			<Component
 				className={cls(
-					s.text,
+					s.typography,
 					className,
 					s[`size-${size}`],
 					s[`color-${color}`],
@@ -42,7 +43,7 @@ export const Text: FC<TextProps> = memo(
 					s[`decoration-${decoration}`],
 				)}
 				style={styles}
-				data-testid='text'
+				data-testid='typography'
 			>
 				{text}
 			</Component>
