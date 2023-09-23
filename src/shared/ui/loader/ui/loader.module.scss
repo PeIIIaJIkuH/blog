@@ -19,19 +19,31 @@
 	}
 }
 
-.size-small {
+.size-xs {
+	width: 16px;
+	height: 16px;
+	border-width: 1px;
+}
+
+.size-sm {
 	width: 24px;
 	height: 24px;
 	border-width: 2px;
 }
 
-.size-medium {
+.size-md {
 	width: 32px;
 	height: 32px;
 	border-width: 3px;
 }
 
-.size-large {
+.size-lg {
+	width: 40px;
+	height: 40px;
+	border-width: 4px;
+}
+
+.size-xl {
 	width: 48px;
 	height: 48px;
 	border-width: 5px;

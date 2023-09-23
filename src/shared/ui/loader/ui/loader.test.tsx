@@ -10,21 +10,33 @@ describe('shared/ui/loader', () => {
 		expect(screen.getByTestId('loader')).toHaveClass('size-medium')
 	})
 
-	it('should render with size small', () => {
-		render(<Loader size='small' />)
+	it('should render with size xs', () => {
+		render(<Loader size='xs' />)
 
-		expect(screen.getByTestId('loader')).toHaveClass('size-small')
+		expect(screen.getByTestId('loader')).toHaveClass('size-xs')
 	})
 
-	it('should render with size medium', () => {
-		render(<Loader size='medium' />)
+	it('should render with size sm', () => {
+		render(<Loader size='sm' />)
 
-		expect(screen.getByTestId('loader')).toHaveClass('size-medium')
+		expect(screen.getByTestId('loader')).toHaveClass('size-sm')
 	})
 
-	it('should render with size large', () => {
-		render(<Loader size='large' />)
+	it('should render with size md', () => {
+		render(<Loader size='md' />)
 
-		expect(screen.getByTestId('loader')).toHaveClass('size-large')
+		expect(screen.getByTestId('loader')).toHaveClass('size-md')
+	})
+
+	it('should render with size lg', () => {
+		render(<Loader size='lg' />)
+
+		expect(screen.getByTestId('loader')).toHaveClass('size-lg')
+	})
+
+	it('should render with size xl', () => {
+		render(<Loader size='xl' />)
+
+		expect(screen.getByTestId('loader')).toHaveClass('size-xl')
 	})
 })

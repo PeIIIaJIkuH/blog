@@ -11,17 +11,27 @@ export default componentMeta
 
 const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />
 
-export const Small = Template.bind({})
-Small.args = {
-	size: 'small',
+export const Xs = Template.bind({})
+Xs.args = {
+	size: 'xs',
 }
 
-export const Medium = Template.bind({})
-Medium.args = {
-	size: 'medium',
+export const Sm = Template.bind({})
+Sm.args = {
+	size: 'sm',
 }
 
-export const Large = Template.bind({})
-Large.args = {
-	size: 'large',
+export const Md = Template.bind({})
+Md.args = {
+	size: 'md',
+}
+
+export const Lg = Template.bind({})
+Lg.args = {
+	size: 'lg',
+}
+
+export const Xl = Template.bind({})
+Xl.args = {
+	size: 'xl',
 }
