@@ -6,7 +6,7 @@
 *::before,
 *::after {
 	box-sizing: border-box;
-	font: var(--font-m);
+	font: var(--font-md);
 	color: var(--color-font);
 	transition: background 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out,
 		stroke 0.3s ease-in-out;
