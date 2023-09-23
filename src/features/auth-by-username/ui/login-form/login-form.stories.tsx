@@ -59,7 +59,7 @@ Error.decorators = [
 		{
 			login: {
 				status: 'error',
-				error: 'error',
+				error: 'login_form.error',
 			},
 		},
 		reducerMap,
