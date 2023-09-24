@@ -6,6 +6,8 @@ import { AppRoute } from 'shared/config/routes'
 
 import { type SidebarLinkItem } from './types'
 
+export const LOCAL_STORAGE_SIDEBAR_KEY = 'sidebar_open'
+
 export const SIDEBAR_LINKS: SidebarLinkItem[] = [
 	{
 		path: AppRoute.HOME,
@@ -30,8 +32,3 @@ export const SIDEBAR_LINKS: SidebarLinkItem[] = [
 		auth: true,
 	},
 ]
-
-export const SIDEBAR_WIDTH = {
-	OPEN: 240,
-	COLLAPSED: 80,
-}

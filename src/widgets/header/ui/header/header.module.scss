@@ -10,7 +10,7 @@
 	justify-content: space-between;
 	padding: 20px;
 	grid-column: 1 / -1;
-	border-bottom: 1px solid var(--color-border);
+	border-bottom: 1px solid var(--color-gray-1);
 }
 
 .button {
@@ -21,6 +21,6 @@
 	transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 
 	&:hover {
-		background: var(--color-button-hover);
+		background: var(--color-gray-1);
 	}
 }

@@ -41,6 +41,12 @@
 	color: var(--color-off-white);
 }
 
+.variant-link {
+	background-color: transparent;
+	border: none;
+	color: var(--current-color);
+}
+
 .size-xs {
 	padding: 0 4px;
 	font-size: 8px;

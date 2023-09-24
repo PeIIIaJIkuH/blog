@@ -7,7 +7,7 @@ import s from './button.module.scss'
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string
 	text?: string | null
-	variant?: 'default' | 'outline' | 'filled'
+	variant?: 'default' | 'outline' | 'filled' | 'link'
 	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 	radius?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'none'
 	color?: 'primary' | 'success' | 'danger' | 'warning' | 'info'
