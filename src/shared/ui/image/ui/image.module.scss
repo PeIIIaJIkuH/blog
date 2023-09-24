@@ -1,0 +1,37 @@
+.image {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.radius-none {
+	border-radius: 0;
+}
+
+.radius-xs {
+	border-radius: var(--radius-xs);
+}
+
+.radius-sm {
+	border-radius: var(--radius-sm);
+}
+
+.radius-md {
+	border-radius: var(--radius-md);
+}
+
+.radius-lg {
+	border-radius: var(--radius-lg);
+}
+
+.radius-xl {
+	border-radius: var(--radius-xl);
+}
+
+.object-fit-contain {
+	object-fit: contain;
+}
+
+.object-fit-cover {
+	object-fit: cover;
+}
