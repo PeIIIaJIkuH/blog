@@ -4,7 +4,7 @@ import { profileSlice, profileActions, profileReducer } from '../profile-slice'
 import { fetchProfile } from '../services'
 import { type ProfileState } from '../types'
 
-describe('features/view-and-edit-profile/model/login-slice', () => {
+describe('features/view-and-edit-profile/model/profile-slice', () => {
 	it('should return the initial state', () => {
 		expect(profileSlice.reducer(undefined, {} as any)).toEqual({
 			profile: null,

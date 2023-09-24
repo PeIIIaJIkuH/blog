@@ -1,6 +1,4 @@
-import { withRouter } from 'storybook-addon-react-router-v6'
-
-import { withStore } from 'shared/config/storybook'
+import { withStore, withRouter } from 'shared/config/storybook'
 
 import 'app/styles/index.scss'
 import { withTheme } from './decorators/with-theme'

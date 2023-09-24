@@ -1,26 +1,33 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
-import { articleDetailsReducer } from 'features/view-article-details'
 import { withStore } from 'shared/config/storybook'
 import { type ReducerMap } from 'shared/hooks/use-lazy-module-loading'
 
-import { ArticleDetails } from './article-details'
+import { articleDetailsReducer } from '../model/article-details-slice'
+
+import { ViewArticleDetails } from './view-article-details'
 
 const reducerMap: ReducerMap = {
 	articleDetails: articleDetailsReducer,
 }
 
-const componentMeta: ComponentMeta<typeof ArticleDetails> = {
-	title: 'pages/article-details',
-	component: ArticleDetails,
+const componentMeta: ComponentMeta<typeof ViewArticleDetails> = {
+	title: 'features/view-article-details',
+	component: ViewArticleDetails,
+	decorators: [
+		(Story) => (
+			<div style={{ maxWidth: 600, margin: '0 auto' }}>
+				<Story />
+			</div>
+		),
+	],
 }
 
 export default componentMeta
 
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />
+const Template: ComponentStory<typeof ViewArticleDetails> = (args) => <ViewArticleDetails {...args} />
 
 export const Default = Template.bind({})
-Default.args = {}
 Default.decorators = [
 	withStore(
 		{
@@ -62,9 +69,28 @@ Default.decorators = [
 		reducerMap,
 	),
 ]
-Default.parameters = {
-	router: {
-		path: '/articles/:id',
-		route: '/articles/1',
-	},
-}
+
+export const Loading = Template.bind({})
+Loading.decorators = [
+	withStore(
+		{
+			articleDetails: {
+				status: 'loading',
+			},
+		},
+		reducerMap,
+	),
+]
+
+export const Error = Template.bind({})
+Error.decorators = [
+	withStore(
+		{
+			articleDetails: {
+				status: 'error',
+				error: 'errors.no_article',
+			},
+		},
+		reducerMap,
+	),
+]

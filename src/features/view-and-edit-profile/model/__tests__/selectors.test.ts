@@ -41,7 +41,7 @@ describe('features/view-and-edit-profile/model/selectors', () => {
 		})
 	})
 
-	it('should return default if username is not set', () => {
+	it('should return default if profile is not set', () => {
 		expect(getProfile(emptyState as RootState)).toEqual(null)
 	})
 

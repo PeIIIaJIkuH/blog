@@ -5,6 +5,13 @@ import { ArticleCard } from './article-card'
 const componentMeta: ComponentMeta<typeof ArticleCard> = {
 	title: 'entities/article/article-card',
 	component: ArticleCard,
+	decorators: [
+		(Story) => (
+			<div style={{ maxWidth: 600, margin: '0 auto' }}>
+				<Story />
+			</div>
+		),
+	],
 }
 
 export default componentMeta
@@ -46,10 +53,3 @@ Default.args = {
 		],
 	},
 }
-Default.decorators = [
-	(Story) => (
-		<div style={{ maxWidth: 600, margin: '0 auto' }}>
-			<Story />
-		</div>
-	),
-]
