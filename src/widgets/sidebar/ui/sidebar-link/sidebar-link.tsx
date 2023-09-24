@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next'
 import { cls } from 'shared/helpers/cls'
 import { AppLink } from 'shared/ui/app-link'
 
-import { type SidebarLinkItem } from '../../lib'
+import { type SidebarLinkItem } from '../../lib/types'
 
 import s from './sidebar-link.module.scss'
 

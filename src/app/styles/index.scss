@@ -17,7 +17,6 @@
 	min-height: 100vh;
 	display: grid;
 	grid-template-rows: auto 1fr;
-	grid-template-columns: auto 1fr;
 }
 
 .storybook-app {
@@ -28,6 +27,7 @@
 
 .content-page {
 	display: flex;
+	transition: margin-left 0.3s ease-in-out;
 }
 
 .page-wrapper {

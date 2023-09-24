@@ -1,4 +1,7 @@
 .Header {
+	position: sticky;
+	top: 0;
+	z-index: var(--z-index-header);
 	height: var(--header-height);
 	background: var(--color-background);
 	color: var(--color-font);

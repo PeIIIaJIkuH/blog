@@ -18,8 +18,9 @@ export const AppLink: FC<PropsWithChildren<AppLinkProps>> = ({ to, className, na
 	}, [to])
 	const { pathname } = useLocation()
 	const isActive = useMemo(() => {
-		return nav && pathname === link
-	}, [nav, pathname, link])
+		if (link !== '/') return pathname.startsWith(link)
+		return pathname === link
+	}, [pathname, link])
 
 	return (
 		<Link to={link} className={cls(s.appLink, className, isActive && s.active)} {...rest}>

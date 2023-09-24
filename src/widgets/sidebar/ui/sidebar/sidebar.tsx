@@ -1,4 +1,4 @@
-import { type FC, memo, useCallback, useMemo, useState } from 'react'
+import { type FC, memo, useMemo, type CSSProperties } from 'react'
 
 import { useAppSelector } from 'app/store'
 import { getUser } from 'entities/user'
@@ -8,30 +8,26 @@ import { ThemeSwitcher } from 'features/theme-switcher'
 import { cls } from 'shared/helpers/cls'
 import { SidebarLink } from 'widgets/sidebar/ui/sidebar-link/sidebar-link'
 
-import { LOCAL_STORAGE_SIDEBAR_KEY, SIDEBAR_LINKS } from '../../lib'
+import { SIDEBAR_LINKS } from '../../lib/constants'
 
 import s from './sidebar.module.scss'
 
 interface SidebarProps {
 	className?: string
+	isOpen: boolean
+	width: number
+	toggle: () => void
 }
 
-export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
+export const Sidebar: FC<SidebarProps> = memo(({ className, isOpen, width, toggle }) => {
 	const user = useAppSelector(getUser)
-	const [isOpen, setIsOpen] = useState(localStorage.getItem(LOCAL_STORAGE_SIDEBAR_KEY) !== 'false' ?? false)
-
-	const toggle = useCallback(() => {
-		setIsOpen((prev) => {
-			const next = !prev
-			localStorage.setItem(LOCAL_STORAGE_SIDEBAR_KEY, next.toString())
-			return next
-		})
-	}, [])
 
 	const filteredLinks = useMemo(() => SIDEBAR_LINKS.filter((item) => !item.auth || user), [user])
 
+	const styles: CSSProperties = useMemo(() => ({ width }), [width])
+
 	return (
-		<div className={cls(s.sidebar, className, !isOpen && s.collapsed)} data-testid='sidebar'>
+		<div className={cls(s.sidebar, className, !isOpen && s.collapsed)} style={styles} data-testid='sidebar'>
 			<div className={s.controls}>
 				<BurgerButton isOpen={isOpen} toggle={toggle} />
 				<div className={s.links}>
