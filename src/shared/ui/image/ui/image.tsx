@@ -28,8 +28,9 @@ export const Image: FC<RequiredOnlyOne<ImageProps, 'width' | 'height'>> = memo(
 		return (
 			<img
 				className={cls(s.image, className, s[`radius-${radius}`], s[`object-fit-${fit}`])}
-				alt={alt}
 				src={src}
+				alt={alt}
+				title={alt}
 				style={styles}
 				loading='lazy'
 				data-testid='image'
