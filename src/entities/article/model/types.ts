@@ -6,15 +6,15 @@ export interface Article {
 	views: number
 	createdAt: string
 	tags: string[]
-	blocks: Block[]
+	blocks: ArticleBlock[]
 }
 
-export type Block = TextBlock | ImageBlock | CodeBlock
+export type ArticleBlock = TextBlock | ImageBlock | CodeBlock
 
 export interface TextBlock {
 	type: 'text'
 	data: {
-		title: string
+		title?: string
 		content: string[]
 	}
 }

@@ -1,4 +1,5 @@
 import { type FC, memo } from 'react'
+import { useTranslation } from 'react-i18next'
 
 import { useAppSelector } from 'app/store'
 import { cls } from 'shared/helpers/cls'
@@ -24,6 +25,8 @@ export const ViewArticles: FC<ViewArticlesProps> = memo(({ className }) => {
 	const status = useAppSelector(getStatus)
 	const error = useAppSelector(getError)
 
+	const { t } = useTranslation('articles')
+
 	useLazyModuleLoading(reducerMap)
 
 	if (status === 'loading') {
@@ -40,7 +43,7 @@ export const ViewArticles: FC<ViewArticlesProps> = memo(({ className }) => {
 
 	return (
 		<div className={cls(className, s.viewArticles)}>
-			<div>articles</div>
+			<div>{t('title')}</div>
 		</div>
 	)
 })

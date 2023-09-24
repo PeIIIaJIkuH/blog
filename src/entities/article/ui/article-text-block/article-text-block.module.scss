@@ -1,2 +1,10 @@
 .articleTextBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.paragraph {
+	line-height: 2;
+	text-indent: 2rem;
 }

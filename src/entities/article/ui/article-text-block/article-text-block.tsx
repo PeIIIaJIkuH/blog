@@ -1,6 +1,7 @@
 import { type FC } from 'react'
 
 import { cls } from 'shared/helpers/cls'
+import { Typography } from 'shared/ui/typography'
 
 import { type TextBlock } from '../../model/types'
 
@@ -14,8 +15,9 @@ interface ArticleTextBlockProps {
 export const ArticleTextBlock: FC<ArticleTextBlockProps> = ({ className, block }) => {
 	return (
 		<div className={cls(className, s.articleTextBlock)}>
+			{block.data.title && <Typography text={block.data.title} as='h3' weight='bold' size='lg' align='center' />}
 			{block.data.content.map((item, index) => (
-				<div key={index}>{item}</div>
+				<Typography text={item} key={index} className={s.paragraph} />
 			))}
 		</div>
 	)

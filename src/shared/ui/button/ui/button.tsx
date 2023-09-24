@@ -13,6 +13,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	color?: 'primary' | 'success' | 'danger' | 'warning' | 'info'
 	uppercase?: boolean
 	loading?: boolean
+	icon?: boolean
 }
 
 export const Button: FC<PropsWithChildren<ButtonProps>> = memo(
@@ -23,8 +24,9 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = memo(
 		size = 'md',
 		radius = 'md',
 		color = 'primary',
-		uppercase = false,
-		loading = false,
+		uppercase,
+		loading,
+		icon,
 		children,
 		...rest
 	}) => {
@@ -37,6 +39,7 @@ export const Button: FC<PropsWithChildren<ButtonProps>> = memo(
 					s[`size-${size}`],
 					s[`radius-${radius}`],
 					s[`color-${color}`],
+					icon && s.icon,
 					uppercase && s.uppercase,
 					loading && s.loading,
 				)}

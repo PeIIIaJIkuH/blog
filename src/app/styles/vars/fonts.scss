@@ -1,19 +1,16 @@
 :root {
 	--font-family-main: -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, helvetica, arial, sans-serif,
 		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-	--font-size-xs: 8px;
-	--font-line-xs: 12px;
-	--font-xs: var(--font-size-xs) / var(--font-line-xs) var(--font-family-main);
-	--font-size-sm: 12px;
-	--font-line-sm: 16px;
-	--font-sm: var(--font-size-sm) / var(--font-line-sm) var(--font-family-main);
+	--font-size-xs: 12px;
+	--font-xs: var(--font-size-xs) / 1.5 var(--font-family-main);
+	--font-size-sm: 14px;
+	--font-sm: var(--font-size-sm) / 1.5 var(--font-family-main);
 	--font-size-md: 16px;
-	--font-line-md: 24px;
-	--font-md: var(--font-size-md) / var(--font-line-md) var(--font-family-main);
+	--font-md: var(--font-size-md) / 1.5 var(--font-family-main);
 	--font-size-lg: 20px;
-	--font-line-lg: 28px;
-	--font-lg: var(--font-size-lg) / var(--font-line-lg) var(--font-family-main);
+	--font-lg: var(--font-size-lg) / 1.5 var(--font-family-main);
 	--font-size-xl: 24px;
-	--font-line-xl: 32px;
-	--font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+	--font-xl: var(--font-size-xl) / 1.5 var(--font-family-main);
+	--font-size-xxl: 32px;
+	--font-xxl: var(--font-size-xxl) / 1.5 var(--font-family-main);
 }

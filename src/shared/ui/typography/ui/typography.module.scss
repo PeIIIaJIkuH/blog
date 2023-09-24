@@ -23,6 +23,10 @@
 	font-size: var(--font-size-xl);
 }
 
+.size-xxl {
+	font-size: var(--font-size-xxl);
+}
+
 .color-default {
 	color: var(--color-font);
 }
@@ -45,6 +49,14 @@
 
 .color-info {
 	color: var(--color-accent-gray);
+}
+
+.color-light {
+	color: var(--color-off-white);
+}
+
+.color-dark {
+	color: var(--color-dark-gray);
 }
 
 .align-left {

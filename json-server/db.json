@@ -31,8 +31,8 @@
       "id": "1",
       "title": "First article",
       "subtitle": "First article subtitle",
-      "imgUrl": null,
-      "views": 0,
+      "imgUrl": "https://www.adorama.com/alc/wp-content/uploads/2018/11/landscape-photography-tips-yosemite-valley-feature.jpg",
+      "views": 2145,
       "createdAt": "2021-02-23",
       "tags": ["tag1", "tag2"],
       "blocks": [
@@ -42,8 +42,8 @@
           "data": {
             "title": "First article title",
             "content": [
-              "First article content paragraph 1",
-              "First article content paragraph 2"
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rutrum quisque non tellus orci ac auctor. Ac turpis egestas maecenas pharetra convallis. Ac turpis egestas integer eget aliquet nibh praesent. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Tristique risus nec feugiat in fermentum posuere. At erat pellentesque adipiscing commodo elit. Sapien et ligula ullamcorper malesuada. Ut sem nulla pharetra diam sit amet nisl suscipit adipiscing. Consequat id porta nibh venenatis cras. Nulla aliquet enim tortor at auctor urna. Volutpat sed cras ornare arcu dui vivamus. Risus sed vulputate odio ut enim blandit. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Ac turpis egestas maecenas pharetra convallis. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Arcu non sodales neque sodales. Amet aliquam id diam maecenas ultricies mi eget mauris. Est placerat in egestas erat imperdiet sed euismod nisi porta.",
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rutrum quisque non tellus orci ac auctor. Ac turpis egestas maecenas pharetra convallis. Ac turpis egestas integer eget aliquet nibh praesent. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Tristique risus nec feugiat in fermentum posuere. At erat pellentesque adipiscing commodo elit. Sapien et ligula ullamcorper malesuada. Ut sem nulla pharetra diam sit amet nisl suscipit adipiscing. Consequat id porta nibh venenatis cras. Nulla aliquet enim tortor at auctor urna. Volutpat sed cras ornare arcu dui vivamus. Risus sed vulputate odio ut enim blandit. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Ac turpis egestas maecenas pharetra convallis. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Arcu non sodales neque sodales. Amet aliquam id diam maecenas ultricies mi eget mauris. Est placerat in egestas erat imperdiet sed euismod nisi porta."
             ]
           }
         },
@@ -52,7 +52,7 @@
           "type": "code",
           "data": {
             "language": "javascript",
-            "code": "First article code\nSecond line\nThird line"
+            "code": "export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = ({ className, block }) => {\n\treturn (\n\t\t<pre className={cls(className, s.articleCodeBlock)}>\n\t\t\t{block.data.code.split('\\n').map((line, index) => (\n\t\t\t\t<div key={index} className={s.line}>\n\t\t\t\t\t<span className={s.lineNumber}>{index + 1}</span>\n\t\t\t\t\t<span>{line}</span>\n\t\t\t\t</div>\n\t\t\t))}\n\t\t</pre>\n\t)\n}"
           }
         },
         {
@@ -61,8 +61,8 @@
           "data": {
             "title": "Third article title",
             "content": [
-              "First article content paragraph 1",
-              "First article content paragraph 2"
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rutrum quisque non tellus orci ac auctor. Ac turpis egestas maecenas pharetra convallis. Ac turpis egestas integer eget aliquet nibh praesent. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Tristique risus nec feugiat in fermentum posuere. At erat pellentesque adipiscing commodo elit. Sapien et ligula ullamcorper malesuada. Ut sem nulla pharetra diam sit amet nisl suscipit adipiscing. Consequat id porta nibh venenatis cras. Nulla aliquet enim tortor at auctor urna. Volutpat sed cras ornare arcu dui vivamus. Risus sed vulputate odio ut enim blandit. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Ac turpis egestas maecenas pharetra convallis. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Arcu non sodales neque sodales. Amet aliquam id diam maecenas ultricies mi eget mauris. Est placerat in egestas erat imperdiet sed euismod nisi porta.",
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Rutrum quisque non tellus orci ac auctor. Ac turpis egestas maecenas pharetra convallis. Ac turpis egestas integer eget aliquet nibh praesent. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Tristique risus nec feugiat in fermentum posuere. At erat pellentesque adipiscing commodo elit. Sapien et ligula ullamcorper malesuada. Ut sem nulla pharetra diam sit amet nisl suscipit adipiscing. Consequat id porta nibh venenatis cras. Nulla aliquet enim tortor at auctor urna. Volutpat sed cras ornare arcu dui vivamus. Risus sed vulputate odio ut enim blandit. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Ac turpis egestas maecenas pharetra convallis. Urna nec tincidunt praesent semper feugiat nibh sed pulvinar proin. Arcu non sodales neque sodales. Amet aliquam id diam maecenas ultricies mi eget mauris. Est placerat in egestas erat imperdiet sed euismod nisi porta."
             ]
           }
         },
@@ -70,7 +70,7 @@
           "id": "4",
           "type": "image",
           "data": {
-            "url": "http://localhost:8000/uploads/image-1695175713438.jpg",
+            "url": "https://www.befunky.com/images/prismic/f5ca4181-01da-4237-92bf-b6938359503e_hero-blur-image-5.jpg",
             "caption": "First article image caption"
           }
         }

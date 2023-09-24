@@ -46,6 +46,12 @@ SizeXl.args = {
 	size: 'xl',
 }
 
+export const SizeXxl = Template.bind({})
+SizeXxl.args = {
+	text: 'Size xxl typography',
+	size: 'xxl',
+}
+
 export const ColorDefault = Template.bind({})
 ColorDefault.args = {
 	text: 'Color default typography',
@@ -80,6 +86,18 @@ export const ColorInfo = Template.bind({})
 ColorInfo.args = {
 	text: 'Color info typography',
 	color: 'info',
+}
+
+export const ColorLight = Template.bind({})
+ColorLight.args = {
+	text: 'Color light typography',
+	color: 'light',
+}
+
+export const ColorDark = Template.bind({})
+ColorDark.args = {
+	text: 'Color dark typography',
+	color: 'dark',
 }
 
 export const WeightLight = Template.bind({})

@@ -6,8 +6,8 @@ import s from './typography.module.scss'
 
 interface TypographyProps {
 	className?: string
-	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-	color?: 'default' | 'primary' | 'success' | 'danger' | 'warning' | 'info'
+	size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+	color?: 'default' | 'primary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'
 	weight?: CSSProperties['fontWeight']
 	align?: 'left' | 'center' | 'right'
 	transform?: 'none' | 'uppercase' | 'lowercase' | 'capitalize'

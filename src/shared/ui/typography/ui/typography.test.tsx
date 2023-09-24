@@ -53,6 +53,12 @@ describe('shared/ui/typography', () => {
 		expect(screen.getByTestId('typography')).toHaveClass('size-xl')
 	})
 
+	it('should render with size xxl', () => {
+		render(<Typography size='xxl' text='Test' />)
+
+		expect(screen.getByTestId('typography')).toHaveClass('size-xxl')
+	})
+
 	it('should render with color default', () => {
 		render(<Typography color='default' text='Test' />)
 
@@ -87,6 +93,18 @@ describe('shared/ui/typography', () => {
 		render(<Typography color='info' text='Test' />)
 
 		expect(screen.getByTestId('typography')).toHaveClass('color-info')
+	})
+
+	it('should render with color light', () => {
+		render(<Typography color='light' text='Test' />)
+
+		expect(screen.getByTestId('typography')).toHaveClass('color-light')
+	})
+
+	it('should render with color dark', () => {
+		render(<Typography color='dark' text='Test' />)
+
+		expect(screen.getByTestId('typography')).toHaveClass('color-dark')
 	})
 
 	it('should render with weight light', () => {

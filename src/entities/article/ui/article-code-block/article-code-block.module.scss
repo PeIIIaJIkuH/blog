@@ -1,2 +1,44 @@
 .articleCodeBlock {
+	position: relative;
+	margin: 0;
+	padding: 1rem;
+	border-radius: var(--radius-xs);
+	background-color: var(--color-gray-1);
+}
+
+.copyButton {
+	position: absolute;
+	z-index: 1;
+	top: 0.5rem;
+	right: 0.5rem;
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out, background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.articleCodeBlock:hover .copyButton {
+	opacity: 1;
+}
+
+.line {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+
+	::selection {
+		background-color: var(--color-accent-yellow);
+		color: var(--color-white);
+	}
+}
+
+.lineNumber {
+	font-style: italic;
+	user-select: none;
+	min-width: 2rem;
+	text-align: right;
+}
+
+.lineContent {
+	flex: 1;
+	white-space: pre-wrap;
+	word-break: break-all;
 }
