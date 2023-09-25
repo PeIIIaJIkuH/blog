@@ -15,6 +15,7 @@ describe('features/view-and-edit-profile/model/profile-slice', () => {
 
 	it('should handle setProfile', () => {
 		const profile: Profile = {
+			id: 'test-id',
 			firstName: 'test-firstName',
 			lastName: 'test-lastName',
 			birthDate: 'test-birthDate',
@@ -46,6 +47,7 @@ describe('features/view-and-edit-profile/model/profile-slice', () => {
 			error: null,
 		}
 		const profile: Profile = {
+			id: 'test-id',
 			firstName: 'test-firstName',
 			lastName: 'test-lastName',
 			birthDate: 'test-birthDate',
@@ -58,8 +60,8 @@ describe('features/view-and-edit-profile/model/profile-slice', () => {
 			currency: 'test-currency',
 			balance: 100,
 		}
-		expect(profileReducer(state, fetchProfile.fulfilled(profile, '')).status).toEqual('success')
-		expect(profileReducer(state, fetchProfile.fulfilled(profile, '')).profile).toEqual(profile)
+		expect(profileReducer(state, fetchProfile.fulfilled(profile, '', '')).status).toEqual('success')
+		expect(profileReducer(state, fetchProfile.fulfilled(profile, '', '')).profile).toEqual(profile)
 	})
 
 	it('should set status to error on fetchProfile.rejected', () => {

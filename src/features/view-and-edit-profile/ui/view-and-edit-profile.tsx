@@ -14,13 +14,14 @@ import { fetchProfile, updateProfile, updateProfileImage } from '../model/servic
 
 interface ViewAndEditProfileProps {
 	className?: string
+	profileId: string
 }
 
 const reducerMap: ReducerMap = {
 	profile: profileReducer,
 }
 
-export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className }) => {
+export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className, profileId }) => {
 	const profile = useAppSelector(getProfile)
 	const status = useAppSelector(getStatus)
 	const error = useAppSelector(getError)
@@ -31,7 +32,7 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className
 	useLazyModuleLoading(reducerMap)
 
 	useInitialEffect(() => {
-		void dispatch(fetchProfile())
+		void dispatch(fetchProfile(profileId))
 	})
 
 	const updateData = useCallback(

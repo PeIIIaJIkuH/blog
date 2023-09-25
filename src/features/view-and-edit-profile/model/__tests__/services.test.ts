@@ -19,11 +19,12 @@ const data = {
 
 describe('features/view-and-edit-profile/model/services', () => {
 	it('should fetch profile', async () => {
+		const userRequest = 'test-userId'
 		const userResponse = { ...data }
 
 		const thunkWrapper = new AsyncThunkWrapper(fetchProfile)
 		thunkWrapper.api.get.mockReturnValue(Promise.resolve({ data: userResponse }))
-		const result = await thunkWrapper.callThunk()
+		const result = await thunkWrapper.callThunk(userRequest)
 
 		expect(thunkWrapper.api.get).toHaveBeenCalledWith('/profile')
 		expect(result.meta.requestStatus).toEqual('fulfilled')
@@ -31,11 +32,12 @@ describe('features/view-and-edit-profile/model/services', () => {
 	})
 
 	it('should return error if status is not 200 on fetch profile', async () => {
+		const userRequest = 'test-userId'
 		const userResponse = 'error'
 
 		const thunkWrapper = new AsyncThunkWrapper(fetchProfile)
 		thunkWrapper.api.get.mockReturnValue(Promise.resolve({ status: 401 }))
-		const result = await thunkWrapper.callThunk()
+		const result = await thunkWrapper.callThunk(userRequest)
 
 		expect(thunkWrapper.api.get).toHaveBeenCalledWith('/profile')
 		expect(result.payload).toEqual(userResponse)

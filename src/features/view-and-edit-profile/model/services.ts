@@ -5,11 +5,11 @@ import { type ImagePayload, type Profile } from 'entities/profile'
 
 import { profileSliceName } from './profile-slice'
 
-export const fetchProfile = createAsyncThunk<Profile, void, StoreThunkConfig<string>>(
+export const fetchProfile = createAsyncThunk<Profile, string, StoreThunkConfig<string>>(
 	`${profileSliceName}/fetchProfile`,
-	async (payload, thunkAPI) => {
+	async (profileId, thunkAPI) => {
 		try {
-			const response = await thunkAPI.extra.api.get<Profile>('/profile')
+			const response = await thunkAPI.extra.api.get<Profile>(`/profiles/${profileId}`)
 			if (!response.data) {
 				throw new Error('No data')
 			}

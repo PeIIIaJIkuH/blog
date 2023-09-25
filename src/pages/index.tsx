@@ -26,7 +26,7 @@ const routes: Record<AppRoute, AppRouteProps> = {
 		element: <About />,
 	},
 	[AppRoute.PROFILE]: {
-		path: RoutePath[AppRoute.PROFILE],
+		path: `${RoutePath[AppRoute.PROFILE]}:id`,
 		element: <Profile />,
 		auth: true,
 	},
@@ -36,7 +36,7 @@ const routes: Record<AppRoute, AppRouteProps> = {
 		auth: true,
 	},
 	[AppRoute.ARTICLE_DETAILS]: {
-		path: RoutePath[AppRoute.ARTICLE_DETAILS],
+		path: `${RoutePath[AppRoute.ARTICLE_DETAILS]}:id`,
 		element: <ArticleDetails />,
 		auth: true,
 	},
