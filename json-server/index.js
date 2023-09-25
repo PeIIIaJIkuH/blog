@@ -4,6 +4,7 @@ const path = require('path')
 const express = require('express')
 const jsonServer = require('json-server')
 const multer = require('multer')
+const uuid = require('uuid')
 
 const server = jsonServer.create()
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'))
@@ -13,7 +14,7 @@ const storage = multer.diskStorage({
 		cb(null, path.resolve(__dirname, 'uploads'))
 	},
 	filename: (req, file, cb) => {
-		cb(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`)
+		cb(null, `${uuid.v4()}${path.extname(file.originalname)}`)
 	},
 })
 
@@ -69,6 +70,8 @@ server.patch('/users/image', upload.single('image'), (req, res) => {
 		user.backgroundUrl = url
 	}
 	fs.writeFileSync(path.resolve(__dirname, 'db.json'), JSON.stringify(db, null, 2))
+
+	router.db.read()
 
 	return res.json(user)
 })
