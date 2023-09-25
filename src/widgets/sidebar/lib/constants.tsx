@@ -2,8 +2,6 @@ import { AppRoute } from 'shared/config/routes'
 
 import { type SidebarLinkItem } from './types'
 
-export const LOCAL_STORAGE_SIDEBAR_KEY = 'sidebar_open'
-
 export const SIDEBAR_LINKS: SidebarLinkItem[] = [
 	{
 		path: AppRoute.HOME,

@@ -5,10 +5,11 @@ import { getUser } from 'entities/user'
 import { BurgerButton } from 'features/burger-button'
 import { LanguageSwitcher } from 'features/language-switcher'
 import { ThemeSwitcher } from 'features/theme-switcher'
+import { LS_KEYS } from 'shared/constants/local-storage'
 import { cls } from 'shared/helpers/cls'
 import { SidebarLink } from 'widgets/sidebar/ui/sidebar-link/sidebar-link'
 
-import { LOCAL_STORAGE_SIDEBAR_KEY, SIDEBAR_LINKS } from '../../lib/constants'
+import { SIDEBAR_LINKS } from '../../lib/constants'
 
 import s from './sidebar.module.scss'
 
@@ -17,12 +18,12 @@ interface SidebarProps {
 }
 
 export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
-	const [isOpen, setIsOpen] = useState(localStorage.getItem(LOCAL_STORAGE_SIDEBAR_KEY) !== 'false' ?? false)
+	const [isOpen, setIsOpen] = useState(localStorage.getItem(LS_KEYS.SIDEBAR_OPEN) !== 'false' ?? false)
 
 	const toggle = useCallback(() => {
 		setIsOpen((prev) => {
 			const next = !prev
-			localStorage.setItem(LOCAL_STORAGE_SIDEBAR_KEY, next.toString())
+			localStorage.setItem(LS_KEYS.SIDEBAR_OPEN, next.toString())
 			return next
 		})
 	}, [])
