@@ -18,7 +18,7 @@
 	padding: 6px 10px;
 	border-radius: var(--radius-xs);
 	background: transparent;
-	transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+	transition: background 0.3s ease-out, color 0.3s ease-out;
 
 	&:hover {
 		background: var(--color-gray-1);

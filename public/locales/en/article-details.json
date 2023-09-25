@@ -2,5 +2,9 @@
 	"title": "Article Details",
 	"errors": {
 		"no_article": "No article found"
+	},
+	"comments": {
+		"title": "Comments",
+		"no_comments": "No comments yet"
 	}
 }

@@ -3,6 +3,8 @@ import { useTranslation } from 'react-i18next'
 
 import { cls } from 'shared/helpers/cls'
 import { AppLink } from 'shared/ui/app-link'
+import { Icon } from 'shared/ui/icon'
+import { Typography } from 'shared/ui/typography'
 
 import { type SidebarLinkItem } from '../../lib/types'
 
@@ -19,10 +21,8 @@ export const SidebarLink: FC<SidebarLinkProps> = memo(({ className, item, collap
 
 	return (
 		<AppLink to={item.path} nav className={cls(s.link, className, collapsed && s.collapsed)}>
-			<>
-				{item.icon}
-				<span>{t(item.text)}</span>
-			</>
+			<Icon type={item.icon} />
+			<Typography as='span' text={t(item.text)} />
 		</AppLink>
 	)
 })

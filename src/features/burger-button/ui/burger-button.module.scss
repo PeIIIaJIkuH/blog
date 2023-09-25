@@ -14,13 +14,13 @@
 	--pi: 3.1416;
 
 	.svg {
-		transition: rotate 0.3s ease-in-out, stroke 0.3s ease-in-out;
+		transition: rotate 0.3s ease-out, stroke 0.3s ease-out;
 	}
 
 	.line {
 		stroke-dasharray: 60 calc(10 * var(--pi)) 59 calc(200 + 20 * var(--pi));
 		stroke-dashoffset: calc(-58 - 5 * var(--pi));
-		transition: stroke-dasharray 0.3s ease-in-out, stroke-dashoffset 0.3s ease-in-out;
+		transition: stroke-dasharray 0.3s ease-out, stroke-dashoffset 0.3s ease-out;
 	}
 
 	&.open {

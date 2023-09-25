@@ -15,6 +15,7 @@ describe('features/auth-by-username/model/services', () => {
 			id: 'test-id',
 			username: 'test-username',
 			role: 'user',
+			avatarUrl: null,
 		}
 
 		const thunkWrapper = new AsyncThunkWrapper(loginByUsername)

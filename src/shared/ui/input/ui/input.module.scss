@@ -32,7 +32,7 @@
 		border: 1px solid var(--color-font);
 		-webkit-text-fill-color: var(--color-font);
 		-webkit-box-shadow: 0 0 0 1000px transparent inset;
-		transition: background-color 5000s ease-in-out 0s;
+		transition: background-color 5000s ease-out 0s;
 	}
 
 	&::-webkit-outer-spin-button,
@@ -65,7 +65,7 @@
 	transform: translateY(-50%) scale(0.8);
 	opacity: 0;
 	pointer-events: none;
-	transition: opacity 0.2s ease-in-out;
+	transition: opacity 0.2s ease-out;
 
 	&.withRight {
 		right: 40px;

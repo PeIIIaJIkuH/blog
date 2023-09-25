@@ -9,10 +9,8 @@ import {
 	useState,
 } from 'react'
 
-import IconEyeOff from 'shared/assets/icons/eye-off.svg'
-import IconEye from 'shared/assets/icons/eye.svg'
-import IconX from 'shared/assets/icons/x.svg'
 import { cls } from 'shared/helpers/cls'
+import { Icon } from 'shared/ui/icon'
 
 import s from './input.module.scss'
 
@@ -66,7 +64,7 @@ export const Input: FC<InputProps> = memo(
 					type='button'
 					tabIndex={-1}
 				>
-					{newType === 'password' ? <IconEye /> : <IconEyeOff />}
+					<Icon type={newType === 'password' ? 'eye' : 'eye-off'} />
 				</button>
 			),
 			[handleShowPassword, newType],
@@ -94,7 +92,7 @@ export const Input: FC<InputProps> = memo(
 							type='button'
 							data-testid='clear-button'
 						>
-							<IconX />
+							<Icon type='x' />
 						</button>
 					)}
 				</div>

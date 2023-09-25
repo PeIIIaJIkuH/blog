@@ -1,9 +1,8 @@
 import { type FC } from 'react'
 
 import { renderBlock } from 'entities/article/lib/render-block'
-import CalendarIcon from 'shared/assets/icons/calendar.svg'
-import EyeIcon from 'shared/assets/icons/eye.svg'
 import { cls } from 'shared/helpers/cls'
+import { Icon } from 'shared/ui/icon'
 import { Image } from 'shared/ui/image'
 import { Typography } from 'shared/ui/typography'
 
@@ -37,15 +36,15 @@ export const ArticleCard: FC<ArticleCardProps> = ({ className, article }) => {
 					<div className={s.section}>
 						<Typography text={article.title} as='h1' size='xxl' weight='bold' color='light' />
 						<div className={s.withIcon}>
-							<Typography text={article.createdAt} color='light' />
-							<CalendarIcon />
+							<Typography text={article.createdAt} color='info' />
+							<Icon type='calendar' color='info' />
 						</div>
 					</div>
 					<div className={s.section}>
-						<Typography text={article.subtitle} as='h2' size='lg' color='light' />
+						<Typography text={article.subtitle} as='h2' size='lg' color='info' />
 						<div className={s.withIcon}>
-							<Typography text={String(article.views)} color='light' />
-							<EyeIcon />
+							<Typography text={String(article.views)} color='info' />
+							<Icon type='eye' color='info' />
 						</div>
 					</div>
 				</div>

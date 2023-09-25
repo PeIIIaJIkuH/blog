@@ -2,6 +2,7 @@ import { type FC, type KeyboardEventHandler, memo, useCallback, useEffect, useSt
 
 import { cls } from 'shared/helpers/cls'
 import { Input } from 'shared/ui/input'
+import { Typography } from 'shared/ui/typography'
 
 import s from './editable-input.module.scss'
 
@@ -51,7 +52,7 @@ export const EditableInput: FC<EditableInputProps> = memo(({ className, initialV
 
 	return (
 		<div className={s.wrapper}>
-			{label && <div className={s.label}>{label}</div>}
+			{label && <Typography as='span' className={s.label} text={label} weight={500} size='sm' />}
 			<Input
 				value={value}
 				onChange={onChange}

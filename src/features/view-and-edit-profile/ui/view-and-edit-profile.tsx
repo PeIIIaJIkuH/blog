@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { type Profile, ProfileCard, type ImagePayload } from 'entities/profile'
-import { cls } from 'shared/helpers/cls'
 import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
 import { PageError } from 'shared/ui/page-error'
 import { PageLoader } from 'shared/ui/page-loader'
@@ -11,8 +10,6 @@ import { PageLoader } from 'shared/ui/page-loader'
 import { profileReducer } from '../model/profile-slice'
 import { getError, getProfile, getStatus } from '../model/selectors'
 import { fetchProfile, updateProfile, updateProfileImage } from '../model/services'
-
-import s from './view-and-edit-profile.module.scss'
 
 interface ViewAndEditProfileProps {
 	className?: string
@@ -61,7 +58,7 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className
 	}
 
 	return (
-		<div className={cls(className, s.viewAndEditProfile)}>
+		<div className={className}>
 			<ProfileCard profile={profile} updateProfileData={updateData} updateProfileImage={updateImage} />
 		</div>
 	)

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next'
 
 import { cls } from 'shared/helpers/cls'
 import { Button } from 'shared/ui/button'
+import { Typography } from 'shared/ui/typography'
 
 import s from './language-switcher.module.scss'
 
@@ -22,8 +23,18 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = memo(({ className, sh
 
 	return (
 		<Button onClick={toggleLanguage} radius='sm' className={cls(s.languageSwitcher, className, short && s.short)}>
-			<span className={cls(short ? s.hidden : s.visible)}>{t('language.translated.long')}</span>
-			<span className={cls(short ? s.visible : s.hidden)}>{t('language.translated.short')}</span>
+			<Typography
+				as='span'
+				className={cls(short ? s.hidden : s.visible)}
+				text={t('language.translated.long')}
+				weight={500}
+			/>
+			<Typography
+				as='span'
+				className={cls(short ? s.visible : s.hidden)}
+				text={t('language.translated.short')}
+				weight={500}
+			/>
 		</Button>
 	)
 })

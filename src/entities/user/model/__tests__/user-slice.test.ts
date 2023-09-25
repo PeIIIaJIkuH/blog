@@ -9,7 +9,7 @@ describe('entities/user/model/user-slice', () => {
 	})
 
 	it('should handle setUser', () => {
-		const user: User = { id: 'test-id', username: 'test-username', role: 'user' }
+		const user: User = { id: 'test-id', username: 'test-username', role: 'user', avatarUrl: null }
 		expect(userReducer(undefined, userActions.setUser(user)).user).toEqual(user)
 	})
 })

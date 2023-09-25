@@ -4,13 +4,15 @@
       "id": "1",
       "username": "admin",
       "password": "admin",
-      "role": "admin"
+      "role": "admin",
+      "avatarUrl": "http://localhost:8000/uploads/image-1695175702646.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "user",
-      "role": "user"
+      "role": "user",
+      "avatarUrl": "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
     }
   ],
   "profile": {

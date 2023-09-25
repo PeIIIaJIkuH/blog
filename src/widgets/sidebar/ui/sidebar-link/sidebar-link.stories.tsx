@@ -1,8 +1,5 @@
 import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 
-import HomeIcon from 'shared/assets/icons/home.svg'
-import InfoCircleIcon from 'shared/assets/icons/info-circle.svg'
-import UserIcon from 'shared/assets/icons/user.svg'
 import { AppRoute } from 'shared/config/routes'
 
 import { SidebarLink } from './sidebar-link'
@@ -28,7 +25,7 @@ Home.args = {
 	item: {
 		path: AppRoute.HOME,
 		text: 'sidebar.home',
-		icon: <HomeIcon />,
+		icon: 'home',
 	},
 }
 
@@ -37,7 +34,7 @@ About.args = {
 	item: {
 		path: AppRoute.ABOUT,
 		text: 'sidebar.about',
-		icon: <InfoCircleIcon />,
+		icon: 'info-circle',
 	},
 }
 
@@ -46,7 +43,7 @@ Profile.args = {
 	item: {
 		path: AppRoute.PROFILE,
 		text: 'sidebar.profile',
-		icon: <UserIcon />,
+		icon: 'user',
 	},
 }
 
@@ -55,7 +52,7 @@ Collapsed.args = {
 	item: {
 		path: AppRoute.HOME,
 		text: 'sidebar.home',
-		icon: <HomeIcon />,
+		icon: 'home',
 	},
 	collapsed: true,
 }

@@ -1,10 +1,9 @@
-import { type ReactNode } from 'react'
-
 import { type AppRoute } from 'shared/config/routes'
+import { type IconType } from 'shared/ui/icon'
 
 export interface SidebarLinkItem {
 	path: AppRoute
-	icon: ReactNode
+	icon: IconType
 	text: string
 	auth?: boolean
 }

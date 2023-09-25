@@ -2,7 +2,7 @@
 	border-width: 2px;
 	border-color: var(--color-font);
 	color: var(--color-font);
-	transition: width 0.3s ease-in-out, background 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+	transition: width 0.3s ease-out, background 0.3s ease-out, color 0.3s ease-out, border-color 0.3s ease-out;
 	width: 100px;
 	height: 40px;
 	position: relative;
@@ -16,7 +16,7 @@
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		transition: filter 0.3s ease-in-out, opacity 0.3s ease-in-out, color 0.3s ease-in-out;
+		transition: filter 0.3s ease-out, opacity 0.3s ease-out, color 0.3s ease-out;
 
 		&.visible {
 			filter: blur(0);

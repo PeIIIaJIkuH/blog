@@ -12,7 +12,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 20px;
-	transition: width 0.3s ease-in-out, background 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+	transition: width 0.3s ease-out, background 0.3s ease-out, color 0.3s ease-out, border-color 0.3s ease-out;
 	overflow: hidden;
 
 	.controls {
@@ -37,7 +37,7 @@
 		width: 100%;
 		position: relative;
 		height: 40px;
-		transition: height 0.3s ease-in-out;
+		transition: height 0.3s ease-out;
 
 		.theme {
 			position: absolute;

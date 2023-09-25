@@ -1,7 +1,7 @@
 import { type ChangeEventHandler, type FC, memo, useCallback, useMemo, useRef } from 'react'
 
-import PencilIcon from 'shared/assets/icons/pencil.svg'
 import { cls } from 'shared/helpers/cls'
+import { Icon } from 'shared/ui/icon'
 
 import s from './image-input.module.scss'
 
@@ -41,12 +41,12 @@ export const ImageInput: FC<ImageInputProps> = memo(({ className, image, updateI
 			<div className={s.inner}>
 				{variant === 'changeButton' && (
 					<button className={s.changeButton} onClick={onEditClick} data-testid='change-button'>
-						<PencilIcon />
+						<Icon type='pencil' />
 					</button>
 				)}
 				{variant === 'overlay' && (
 					<div className={s.overlay} onClick={onEditClick}>
-						<PencilIcon />
+						<Icon type='pencil' />
 					</div>
 				)}
 			</div>

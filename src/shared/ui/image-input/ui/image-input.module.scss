@@ -3,7 +3,7 @@
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	transition: background-color 0.3s ease-in-out;
+	transition: background-color 0.3s ease-out;
 
 	.inner {
 		position: relative;
@@ -25,7 +25,7 @@
 			transform: scale(0.8);
 			opacity: 0;
 			background: var(--color-overlay-background-light);
-			transition: opacity 0.3s ease-in-out, background-color 0.3s ease-in-out;
+			transition: opacity 0.3s ease-out, background-color 0.3s ease-out;
 
 			&:hover {
 				background: var(--color-overlay-background);
@@ -47,7 +47,7 @@
 			align-items: center;
 			justify-content: center;
 			opacity: 0;
-			transition: opacity 0.3s ease-in-out;
+			transition: opacity 0.3s ease-out;
 			z-index: var(--z-index-image-input-overlay);
 			cursor: pointer;
 

@@ -6,7 +6,7 @@ import { PageError } from 'shared/ui/page-error'
 const Error: FC = () => {
 	const { t } = useTranslation()
 
-	return <PageError message={t('page_error.message')} fullHeight />
+	return <PageError message={t('page_error.message')} fullHeight withRefreshButton />
 }
 
 interface ErrorBoundaryProps {

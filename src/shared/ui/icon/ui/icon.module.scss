@@ -1,0 +1,31 @@
+.color-default {
+	stroke: var(--color-font);
+}
+
+.color-primary {
+	stroke: var(--color-primary);
+}
+
+.color-success {
+	stroke: var(--color-accent-green);
+}
+
+.color-danger {
+	stroke: var(--color-accent-red);
+}
+
+.color-warning {
+	stroke: var(--color-accent-yellow);
+}
+
+.color-info {
+	stroke: var(--color-accent-gray);
+}
+
+.color-light {
+	stroke: var(--color-off-white);
+}
+
+.color-dark {
+	stroke: var(--color-dark-gray);
+}

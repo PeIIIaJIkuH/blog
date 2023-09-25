@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { ArticleCard } from 'entities/article'
-import { cls } from 'shared/helpers/cls'
 import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
 import { PageError } from 'shared/ui/page-error'
 import { PageLoader } from 'shared/ui/page-loader'
@@ -11,8 +10,6 @@ import { PageLoader } from 'shared/ui/page-loader'
 import { articleDetailsReducer } from '../model/article-details-slice'
 import { getArticle, getError, getStatus } from '../model/selectors'
 import { fetchArticle } from '../model/services'
-
-import s from './view-article-details.module.scss'
 
 interface ViewArticleDetailsProps {
 	className?: string
@@ -52,7 +49,7 @@ export const ViewArticleDetails: FC<ViewArticleDetailsProps> = memo(({ className
 	}
 
 	return (
-		<div className={cls(className, s.viewArticleDetails)}>
+		<div className={className}>
 			<ArticleCard article={article} />
 		</div>
 	)

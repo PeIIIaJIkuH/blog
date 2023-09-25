@@ -1,8 +1,8 @@
 import { useCallback, type FC } from 'react'
 
-import CopyIcon from 'shared/assets/icons/copy.svg'
 import { cls } from 'shared/helpers/cls'
 import { Button } from 'shared/ui/button'
+import { Icon } from 'shared/ui/icon'
 import { Typography } from 'shared/ui/typography'
 
 import { type CodeBlock } from '../../model/types'
@@ -22,7 +22,7 @@ export const ArticleCodeBlock: FC<ArticleCodeBlockProps> = ({ className, block }
 	return (
 		<pre className={cls(className, s.articleCodeBlock)}>
 			<Button className={s.copyButton} onClick={onCopy} variant='link' icon>
-				<CopyIcon />
+				<Icon type='copy' />
 			</Button>
 			{block.data.code.split('\n').map((line, index) => (
 				<div key={index} className={s.line}>

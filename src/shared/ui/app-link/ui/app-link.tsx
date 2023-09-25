@@ -10,17 +10,26 @@ interface AppLinkProps extends LinkProps {
 	className?: string
 	to: AppRoute
 	nav?: boolean
+	withoutActive?: boolean
 }
 
-export const AppLink: FC<PropsWithChildren<AppLinkProps>> = ({ to, className, nav, children, ...rest }) => {
+export const AppLink: FC<PropsWithChildren<AppLinkProps>> = ({
+	to,
+	className,
+	nav,
+	withoutActive,
+	children,
+	...rest
+}) => {
 	const link = useMemo(() => {
 		return RoutePath[to]
 	}, [to])
 	const { pathname } = useLocation()
 	const isActive = useMemo(() => {
+		if (withoutActive) return false
 		if (link !== '/') return pathname.startsWith(link)
 		return pathname === link
-	}, [pathname, link])
+	}, [withoutActive, link, pathname])
 
 	return (
 		<Link to={link} className={cls(s.appLink, className, isActive && s.active)} {...rest}>
