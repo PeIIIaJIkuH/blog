@@ -1,18 +1,19 @@
 import { type FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
+import { type User } from 'entities/user'
 import { cls } from 'shared/helpers/cls'
 import { EditableInput } from 'shared/ui/editable-input'
 import { ImageInput } from 'shared/ui/image-input'
 
-import { type ImagePayload, type Profile } from '../../model/types'
+import { type ImagePayload } from '../../model/types'
 
 import s from './profile-card.module.scss'
 
 interface ProfileCardProps {
 	className?: string
-	profile?: Profile | null
-	updateProfileData?: (profile: Partial<Profile>) => Promise<void>
+	profile?: User | null
+	updateProfileData?: (profile: Partial<User>) => Promise<void>
 	updateProfileImage?: (payload: ImagePayload) => Promise<void>
 }
 
@@ -21,7 +22,7 @@ export const ProfileCard: FC<ProfileCardProps> = memo(
 		const { t } = useTranslation('profile')
 
 		const updateData = useCallback(
-			(key: keyof Profile) => async (value: string) => {
+			(key: keyof User) => async (value: string) => {
 				await updateProfileData?.({ [key]: value })
 			},
 			[updateProfileData],

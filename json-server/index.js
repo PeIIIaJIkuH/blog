@@ -40,7 +40,8 @@ server.post('/login', (req, res) => {
 	return res.status(401).json({ message: 'Invalid credentials' })
 })
 
-server.patch('/profile/image', upload.single('image'), (req, res) => {
+server.patch('/users/image', upload.single('image'), (req, res) => {
+	const { userId, type } = req.body
 	const db = JSON.parse(
 		fs.readFileSync(path.resolve(__dirname, 'db.json'), {
 			encoding: 'utf8',
@@ -49,22 +50,27 @@ server.patch('/profile/image', upload.single('image'), (req, res) => {
 
 	const url = `http://localhost:8000/uploads/${req.file.filename}`
 
-	const { profile } = db
+	const { users } = db
+	const user = users.find((u) => u.id === userId)
 
-	if (req.body.type === 'avatar') {
-		if (profile.avatarUrl) {
-			fs.unlinkSync(path.resolve(__dirname, 'uploads', profile.avatarUrl.split('/').pop()))
+	if (!user) {
+		return res.status(404).json({ message: 'User not found' })
+	}
+
+	if (type === 'avatar') {
+		if (user.avatarUrl) {
+			fs.unlinkSync(path.resolve(__dirname, 'uploads', user.avatarUrl.split('/').pop()))
 		}
-		profile.avatarUrl = url
+		user.avatarUrl = url
 	} else {
-		if (profile.backgroundUrl) {
-			fs.unlinkSync(path.resolve(__dirname, 'uploads', profile.backgroundUrl.split('/').pop()))
+		if (user.backgroundUrl) {
+			fs.unlinkSync(path.resolve(__dirname, 'uploads', user.backgroundUrl.split('/').pop()))
 		}
-		profile.backgroundUrl = url
+		user.backgroundUrl = url
 	}
 	fs.writeFileSync(path.resolve(__dirname, 'db.json'), JSON.stringify(db, null, 2))
 
-	return res.json(profile)
+	return res.json(user)
 })
 
 server.use('/uploads', express.static(path.resolve(__dirname, 'uploads')))

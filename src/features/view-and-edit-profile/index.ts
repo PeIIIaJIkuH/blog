@@ -1,5 +1,4 @@
-export type { ProfileState } from './model/types'
+export type { ProfileState, ImagePayload } from './model/types'
 export { profileReducer, profileActions, profileSlice } from './model/profile-slice'
-export { fetchProfile } from './model/services'
 export * from './model/selectors'
-export { ViewAndEditProfile } from './ui/view-and-edit-profile'
+export { ViewAndEditProfile } from './ui/view-and-edit-profile/view-and-edit-profile'

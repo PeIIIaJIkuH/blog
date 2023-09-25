@@ -3,7 +3,7 @@ import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 import { ProfileCard } from './profile-card'
 
 const componentMeta: ComponentMeta<typeof ProfileCard> = {
-	title: 'entities/profile/profile-card',
+	title: 'features/view-and-edit-profiles/profile-card',
 	component: ProfileCard,
 }
 
@@ -17,6 +17,7 @@ Default.args = {
 		id: 'id',
 		username: 'username',
 		email: 'email',
+		role: 'user',
 		firstName: 'firstName',
 		lastName: 'lastName',
 		avatarUrl: null,

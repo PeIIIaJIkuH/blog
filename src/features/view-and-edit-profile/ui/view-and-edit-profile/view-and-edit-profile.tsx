@@ -2,15 +2,17 @@ import { type FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
-import { type Profile, ProfileCard, type ImagePayload } from 'entities/profile'
+import { getUser, type User } from 'entities/user'
 import { useInitialEffect } from 'shared/hooks/use-initial-effect'
 import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
 import { PageError } from 'shared/ui/page-error'
 import { PageLoader } from 'shared/ui/page-loader'
 
-import { profileReducer } from '../model/profile-slice'
-import { getError, getProfile, getStatus } from '../model/selectors'
-import { fetchProfile, updateProfile, updateProfileImage } from '../model/services'
+import { profileReducer } from '../../model/profile-slice'
+import { getError, getProfile, getStatus } from '../../model/selectors'
+import { fetchProfile, updateProfile, updateProfileImage } from '../../model/services'
+import { type ImagePayload } from '../../model/types'
+import { ProfileCard } from '../profile-card/profile-card'
 
 interface ViewAndEditProfileProps {
 	className?: string
@@ -25,6 +27,7 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className
 	const profile = useAppSelector(getProfile)
 	const status = useAppSelector(getStatus)
 	const error = useAppSelector(getError)
+	const user = useAppSelector(getUser)
 	const dispatch = useAppDispatch()
 
 	const { t } = useTranslation(['translation', 'profile'])
@@ -36,17 +39,33 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className
 	})
 
 	const updateData = useCallback(
-		async (profile: Partial<Profile>) => {
-			await dispatch(updateProfile(profile))
+		async (profile: Partial<User>) => {
+			if (!user) {
+				return
+			}
+			await dispatch(
+				updateProfile({
+					...profile,
+					id: user?.id,
+				}),
+			)
 		},
-		[dispatch],
+		[dispatch, user],
 	)
 
 	const updateImage = useCallback(
 		async (payload: ImagePayload) => {
-			await dispatch(updateProfileImage(payload))
+			if (!user) {
+				return
+			}
+			await dispatch(
+				updateProfileImage({
+					...payload,
+					userId: user?.id,
+				}),
+			)
 		},
-		[dispatch],
+		[dispatch, user],
 	)
 
 	if (status === 'loading') {

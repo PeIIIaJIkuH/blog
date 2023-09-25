@@ -1,4 +1,4 @@
-import { type Profile } from 'entities/profile'
+import { type User } from 'entities/user'
 
 import { profileSlice, profileActions, profileReducer } from '../profile-slice'
 import { fetchProfile } from '../services'
@@ -14,10 +14,11 @@ describe('features/view-and-edit-profile/model/profile-slice', () => {
 	})
 
 	it('should handle setProfile', () => {
-		const profile: Profile = {
+		const profile: User = {
 			id: 'test-id',
 			firstName: 'test-firstName',
 			lastName: 'test-lastName',
+			role: 'user',
 			birthDate: 'test-birthDate',
 			email: 'test-email',
 			username: 'test-username',
@@ -46,11 +47,12 @@ describe('features/view-and-edit-profile/model/profile-slice', () => {
 			status: 'idle',
 			error: null,
 		}
-		const profile: Profile = {
+		const profile: User = {
 			id: 'test-id',
 			firstName: 'test-firstName',
 			lastName: 'test-lastName',
 			birthDate: 'test-birthDate',
+			role: 'user',
 			email: 'test-email',
 			username: 'test-username',
 			country: 'test-country',

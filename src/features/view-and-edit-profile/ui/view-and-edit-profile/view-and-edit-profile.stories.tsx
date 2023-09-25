@@ -3,7 +3,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { withStore } from 'shared/config/storybook'
 import { type ReducerMap } from 'shared/hooks/use-lazy-module-loading'
 
-import { profileReducer } from '../model/profile-slice'
+import { profileReducer } from '../../model/profile-slice'
 
 import { ViewAndEditProfile } from './view-and-edit-profile'
 

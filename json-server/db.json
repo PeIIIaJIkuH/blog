@@ -5,38 +5,26 @@
       "username": "PeIIIaJIkuH",
       "password": "erhan1022",
       "role": "admin",
-      "avatarUrl": "http://localhost:8000/uploads/image-1695175702646.jpg"
+      "firstName": "Yerkhan",
+      "lastName": "Baigal",
+      "birthDate": "2000-02-23",
+      "email": "baigal.erhan@gmail.com",
+      "country": "Kazakhstan",
+      "city": "Astana",
+      "currency": "KZT",
+      "balance": "2000",
+      "backgroundUrl": "http://localhost:8000/uploads/image-1695175713438.jpg",
+      "avatarUrl": "http://localhost:8000/uploads/image-1695679482293.jpg"
     },
     {
       "id": "2",
       "username": "IVAN",
       "password": "ivan123",
       "role": "user",
-      "avatarUrl": "https://cdn-icons-png.flaticon.com/512/6596/6596121.png"
-    }
-  ],
-  "profiles": [
-    {
-      "id": "1",
-      "firstName": "Yerkhan",
-      "lastName": "Baigal",
-      "birthDate": "2000-02-23",
-      "email": "baigal.erhan@gmail.com",
-      "username": "PeIIIaJIkuH",
-      "country": "Kazakhstan",
-      "city": "Astana",
-      "currency": "KZT",
-      "balance": "2000",
-      "backgroundUrl": "http://localhost:8000/uploads/image-1695175713438.jpg",
-      "avatarUrl": "http://localhost:8000/uploads/image-1695175702646.jpg"
-    },
-    {
-      "id": "2",
       "firstName": "Ivan",
       "lastName": "Ivanov",
       "birthDate": "1985-08-05",
       "email": "ivan.ivanov@gmail.com",
-      "username": "IVAN",
       "country": "Russia",
       "city": "Moscow",
       "currency": "RUB",

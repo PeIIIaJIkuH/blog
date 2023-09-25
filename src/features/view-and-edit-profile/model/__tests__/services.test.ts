@@ -1,11 +1,14 @@
-import { type ImagePayload } from 'entities/profile'
+import { type User } from 'entities/user'
 import { AsyncThunkWrapper } from 'shared/helpers/async-thunk-wrapper'
 
 import { fetchProfile, updateProfile, updateProfileImage } from '../services'
+import { type ImagePayload } from '../types'
 
-const data = {
+const user: User = {
+	id: 'test-id',
 	firstName: 'test-firstName',
 	lastName: 'test-lastName',
+	role: 'user',
 	birthDate: 'test-birthDate',
 	email: 'test-email',
 	username: 'test-username',
@@ -20,13 +23,13 @@ const data = {
 describe('features/view-and-edit-profile/model/services', () => {
 	it('should fetch profile', async () => {
 		const userRequest = 'test-userId'
-		const userResponse = { ...data }
+		const userResponse = { ...user }
 
 		const thunkWrapper = new AsyncThunkWrapper(fetchProfile)
 		thunkWrapper.api.get.mockReturnValue(Promise.resolve({ data: userResponse }))
 		const result = await thunkWrapper.callThunk(userRequest)
 
-		expect(thunkWrapper.api.get).toHaveBeenCalledWith('/profile')
+		expect(thunkWrapper.api.get).toHaveBeenCalledWith(`/users/${userRequest}`)
 		expect(result.meta.requestStatus).toEqual('fulfilled')
 		expect(result.payload).toEqual(userResponse)
 	})
@@ -39,55 +42,57 @@ describe('features/view-and-edit-profile/model/services', () => {
 		thunkWrapper.api.get.mockReturnValue(Promise.resolve({ status: 401 }))
 		const result = await thunkWrapper.callThunk(userRequest)
 
-		expect(thunkWrapper.api.get).toHaveBeenCalledWith('/profile')
+		expect(thunkWrapper.api.get).toHaveBeenCalledWith(`/users/${userRequest}`)
 		expect(result.payload).toEqual(userResponse)
 		expect(result.meta.requestStatus).toEqual('rejected')
 	})
 
 	it('should update profile', async () => {
-		const userRequest = { ...data }
+		const userRequest = { ...user }
 		const userResponse = { ...userRequest }
 
 		const thunkWrapper = new AsyncThunkWrapper(updateProfile)
 		thunkWrapper.api.patch.mockReturnValue(Promise.resolve({ data: userResponse }))
 		const result = await thunkWrapper.callThunk(userRequest)
 
-		expect(thunkWrapper.api.patch).toHaveBeenCalledWith('/profile', userRequest)
+		expect(thunkWrapper.api.patch).toHaveBeenCalledWith(`/users/${user.id}`, userRequest)
 		expect(result.meta.requestStatus).toEqual('fulfilled')
 		expect(result.payload).toEqual(userResponse)
 	})
 
 	it('should return error if status is not 200 on update profile', async () => {
-		const userRequest = { ...data }
+		const userRequest = { ...user }
 		const userResponse = 'error'
 
 		const thunkWrapper = new AsyncThunkWrapper(updateProfile)
 		thunkWrapper.api.patch.mockReturnValue(Promise.resolve({ status: 401 }))
 		const result = await thunkWrapper.callThunk(userRequest)
 
-		expect(thunkWrapper.api.patch).toHaveBeenCalledWith('/profile', userRequest)
+		expect(thunkWrapper.api.patch).toHaveBeenCalledWith(`/users/${user.id}`, userRequest)
 		expect(result.payload).toEqual(userResponse)
 		expect(result.meta.requestStatus).toEqual('rejected')
 	})
 
 	it('should update profile image', async () => {
-		const userRequest: ImagePayload = {
+		const userRequest: ImagePayload & { userId: string } = {
+			userId: 'test-userId',
 			image: new File([], 'test-image'),
 			type: 'avatar',
 		}
-		const userResponse = { ...data }
+		const userResponse = { ...user }
 
 		const thunkWrapper = new AsyncThunkWrapper(updateProfileImage)
 		thunkWrapper.api.patch.mockReturnValue(Promise.resolve({ data: userResponse }))
 		const result = await thunkWrapper.callThunk(userRequest)
 
-		expect(thunkWrapper.api.patch).toHaveBeenCalledWith('/profile/image', expect.any(FormData))
+		expect(thunkWrapper.api.patch).toHaveBeenCalledWith('/users/image', expect.any(FormData))
 		expect(result.meta.requestStatus).toEqual('fulfilled')
 		expect(result.payload).toEqual(userResponse)
 	})
 
 	it('should return error if status is not 200 on update profile image', async () => {
-		const userRequest: ImagePayload = {
+		const userRequest: ImagePayload & { userId: string } = {
+			userId: 'test-userId',
 			image: new File([], 'test-image'),
 			type: 'avatar',
 		}
@@ -97,7 +102,7 @@ describe('features/view-and-edit-profile/model/services', () => {
 		thunkWrapper.api.patch.mockReturnValue(Promise.resolve({ status: 401 }))
 		const result = await thunkWrapper.callThunk(userRequest)
 
-		expect(thunkWrapper.api.patch).toHaveBeenCalledWith('/profile/image', expect.any(FormData))
+		expect(thunkWrapper.api.patch).toHaveBeenCalledWith('/users/image', expect.any(FormData))
 		expect(result.payload).toEqual(userResponse)
 		expect(result.meta.requestStatus).toEqual('rejected')
 	})

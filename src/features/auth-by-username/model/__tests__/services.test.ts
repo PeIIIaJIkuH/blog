@@ -13,9 +13,18 @@ describe('features/auth-by-username/model/services', () => {
 		const userRequest = { ...data }
 		const userResponse: User = {
 			id: 'test-id',
-			username: 'test-username',
+			firstName: 'test-firstName',
+			lastName: 'test-lastName',
 			role: 'user',
-			avatarUrl: null,
+			birthDate: 'test-birthDate',
+			email: 'test-email',
+			username: 'test-username',
+			country: 'test-country',
+			city: 'test-city',
+			avatarUrl: 'test-avatarUrl',
+			backgroundUrl: 'test-backgroundUrl',
+			currency: 'test-currency',
+			balance: 100,
 		}
 
 		const thunkWrapper = new AsyncThunkWrapper(loginByUsername)
