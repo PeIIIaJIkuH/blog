@@ -78,7 +78,12 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className
 
 	return (
 		<div className={className}>
-			<ProfileCard profile={profile} updateProfileData={updateData} updateProfileImage={updateImage} />
+			<ProfileCard
+				profile={profile}
+				updateProfileData={updateData}
+				updateProfileImage={updateImage}
+				readOnly={profileId !== user?.id}
+			/>
 		</div>
 	)
 })

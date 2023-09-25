@@ -11,9 +11,10 @@ interface EditableInputProps {
 	initialValue?: string
 	onUpdate?: (value: string) => Promise<void>
 	label?: string | null
+	readOnly?: boolean
 }
 
-export const EditableInput: FC<EditableInputProps> = memo(({ className, initialValue, onUpdate, label }) => {
+export const EditableInput: FC<EditableInputProps> = memo(({ className, initialValue, onUpdate, label, readOnly }) => {
 	const [value, setValue] = useState(initialValue ?? '')
 	const [isEditing, setIsEditing] = useState(false)
 	const [isUpdating, setIsUpdating] = useState(false)
@@ -60,7 +61,7 @@ export const EditableInput: FC<EditableInputProps> = memo(({ className, initialV
 				onDoubleClick={onDoubleClick}
 				onBlur={reset}
 				onKeyDown={onKeydown}
-				readOnly={!isEditing}
+				readOnly={!isEditing || readOnly}
 				data-updating={isUpdating}
 			/>
 		</div>

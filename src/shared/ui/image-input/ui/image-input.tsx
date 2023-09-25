@@ -10,9 +10,10 @@ interface ImageInputProps {
 	image?: string | null
 	updateImage?: (file: File) => Promise<void>
 	variant: 'changeButton' | 'overlay'
+	readOnly?: boolean
 }
 
-export const ImageInput: FC<ImageInputProps> = memo(({ className, image, updateImage, variant }) => {
+export const ImageInput: FC<ImageInputProps> = memo(({ className, image, updateImage, variant, readOnly }) => {
 	const [isUpdating, setIsUpdating] = useState(false)
 	const ref = useRef<HTMLInputElement>(null)
 
@@ -41,19 +42,30 @@ export const ImageInput: FC<ImageInputProps> = memo(({ className, image, updateI
 
 	return (
 		<div className={cls(s.imageInput, className, isUpdating && s.updating)} style={style} data-testid='wrapper'>
-			<div className={s.inner}>
-				{variant === 'changeButton' && (
-					<button className={s.changeButton} onClick={onEditClick} data-testid='change-button'>
-						<Icon type='pencil' />
-					</button>
-				)}
-				{variant === 'overlay' && (
-					<div className={s.overlay} onClick={onEditClick}>
-						<Icon type='pencil' />
+			{!readOnly && (
+				<>
+					<div className={s.inner}>
+						{variant === 'changeButton' && (
+							<button className={s.changeButton} onClick={onEditClick} data-testid='change-button'>
+								<Icon type='pencil' />
+							</button>
+						)}
+						{variant === 'overlay' && (
+							<div className={s.overlay} onClick={onEditClick}>
+								<Icon type='pencil' />
+							</div>
+						)}
 					</div>
-				)}
-			</div>
-			<input type='file' className={s.input} accept='image/*' onChange={onChange} ref={ref} data-testid='file-input' />
+					<input
+						type='file'
+						className={s.input}
+						accept='image/*'
+						onChange={onChange}
+						ref={ref}
+						data-testid='file-input'
+					/>
+				</>
+			)}
 		</div>
 	)
 })
