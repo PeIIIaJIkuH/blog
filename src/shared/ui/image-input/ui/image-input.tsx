@@ -1,4 +1,4 @@
-import { type ChangeEventHandler, type FC, memo, useCallback, useMemo, useRef } from 'react'
+import { type ChangeEventHandler, type FC, memo, useCallback, useMemo, useRef, useState } from 'react'
 
 import { cls } from 'shared/helpers/cls'
 import { Icon } from 'shared/ui/icon'
@@ -8,11 +8,12 @@ import s from './image-input.module.scss'
 interface ImageInputProps {
 	className?: string
 	image?: string | null
-	updateImage?: (file: File) => void
+	updateImage?: (file: File) => Promise<void>
 	variant: 'changeButton' | 'overlay'
 }
 
 export const ImageInput: FC<ImageInputProps> = memo(({ className, image, updateImage, variant }) => {
+	const [isUpdating, setIsUpdating] = useState(false)
 	const ref = useRef<HTMLInputElement>(null)
 
 	const onEditClick = useCallback(() => {
@@ -20,11 +21,13 @@ export const ImageInput: FC<ImageInputProps> = memo(({ className, image, updateI
 	}, [])
 
 	const onChange: ChangeEventHandler<HTMLInputElement> = useCallback(
-		(e) => {
+		async (e) => {
 			const file = e.target.files?.[0]
+			setIsUpdating(true)
 			if (file) {
-				updateImage?.(file)
+				await updateImage?.(file)
 			}
+			setIsUpdating(false)
 		},
 		[updateImage],
 	)
@@ -37,7 +40,7 @@ export const ImageInput: FC<ImageInputProps> = memo(({ className, image, updateI
 	)
 
 	return (
-		<div className={cls(s.imageInput, className)} style={style} data-testid='wrapper'>
+		<div className={cls(s.imageInput, className, isUpdating && s.updating)} style={style} data-testid='wrapper'>
 			<div className={s.inner}>
 				{variant === 'changeButton' && (
 					<button className={s.changeButton} onClick={onEditClick} data-testid='change-button'>
