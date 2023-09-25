@@ -3,17 +3,16 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type StoreThunkConfig } from 'app/store'
 import { type Article } from 'entities/article'
 
-import { articleDetailsActions, articleDetailsSliceName } from './article-details-slice'
+import { articleDetailsSliceName } from './article-details-slice'
 
 export const fetchArticle = createAsyncThunk<Article | null, string, StoreThunkConfig<string>>(
 	`${articleDetailsSliceName}/fetchArticle`,
-	async (payload, thunkAPI) => {
+	async (articleId, thunkAPI) => {
 		try {
-			const response = await thunkAPI.extra.api.get<Article | null>(`/articles/${payload}`)
+			const response = await thunkAPI.extra.api.get<Article | null>(`/articles/${articleId}`)
 			if (!response.data) {
 				throw new Error('No data')
 			}
-			thunkAPI.dispatch(articleDetailsActions.setArticle(response.data))
 			return response.data
 		} catch (e) {
 			console.log(e)

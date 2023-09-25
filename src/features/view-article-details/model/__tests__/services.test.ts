@@ -1,7 +1,6 @@
 import { type Article } from 'entities/article'
 import { AsyncThunkWrapper } from 'shared/helpers/async-thunk-wrapper'
 
-import { articleDetailsActions } from '../article-details-slice'
 import { fetchArticle } from '../services'
 
 const data: Article = {
@@ -48,8 +47,6 @@ describe('features/view-article-details/model/services', () => {
 		expect(thunkWrapper.api.get).toHaveBeenCalledWith('/articles/id')
 		expect(result.meta.requestStatus).toEqual('fulfilled')
 		expect(result.payload).toEqual(userResponse)
-		expect(thunkWrapper.dispatch).toHaveBeenCalledWith(articleDetailsActions.setArticle(userResponse))
-		expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(3)
 	})
 
 	it('should return error if status is not 200 on fetch profile', async () => {
@@ -62,6 +59,5 @@ describe('features/view-article-details/model/services', () => {
 		expect(thunkWrapper.api.get).toHaveBeenCalledWith('/articles/id')
 		expect(result.payload).toEqual(userResponse)
 		expect(result.meta.requestStatus).toEqual('rejected')
-		expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(2)
 	})
 })

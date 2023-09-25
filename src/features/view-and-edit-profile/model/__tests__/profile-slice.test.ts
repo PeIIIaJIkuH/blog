@@ -61,4 +61,14 @@ describe('features/view-and-edit-profile/model/profile-slice', () => {
 		expect(profileReducer(state, fetchProfile.fulfilled(profile, '')).status).toEqual('success')
 		expect(profileReducer(state, fetchProfile.fulfilled(profile, '')).profile).toEqual(profile)
 	})
+
+	it('should set status to error on fetchProfile.rejected', () => {
+		const state: ProfileState = {
+			profile: null,
+			status: 'idle',
+			error: null,
+		}
+		expect(profileReducer(state, fetchProfile.rejected).status).toEqual('error')
+		expect(profileReducer(state, fetchProfile.rejected).error).toEqual('errors.no_profile')
+	})
 })

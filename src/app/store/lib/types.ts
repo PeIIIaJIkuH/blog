@@ -10,6 +10,7 @@ import { type AxiosInstance } from 'axios'
 import { type UserState } from 'entities/user'
 import { type LoginState } from 'features/auth-by-username'
 import { type ProfileState } from 'features/view-and-edit-profile'
+import { type ArticleCommentsState } from 'features/view-article-comments'
 import { type ArticleDetailsState } from 'features/view-article-details'
 import { type ArticlesState } from 'features/view-articles'
 
@@ -28,6 +29,7 @@ export interface RootState {
 	profile?: ProfileState
 	articles?: ArticlesState
 	articleDetails?: ArticleDetailsState
+	articleComments?: ArticleCommentsState
 }
 
 export type RootStateKeys = keyof RootState

@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type StoreThunkConfig } from 'app/store'
 import { type ImagePayload, type Profile } from 'entities/profile'
 
-import { profileActions, profileSliceName } from './profile-slice'
+import { profileSliceName } from './profile-slice'
 
 export const fetchProfile = createAsyncThunk<Profile, void, StoreThunkConfig<string>>(
 	`${profileSliceName}/fetchProfile`,
@@ -13,7 +13,6 @@ export const fetchProfile = createAsyncThunk<Profile, void, StoreThunkConfig<str
 			if (!response.data) {
 				throw new Error('No data')
 			}
-			thunkAPI.dispatch(profileActions.setProfile(response.data))
 			return response.data
 		} catch (e) {
 			console.log(e)
@@ -30,7 +29,6 @@ export const updateProfile = createAsyncThunk<Profile, Partial<Profile>, StoreTh
 			if (!response.data) {
 				throw new Error('No data')
 			}
-			thunkAPI.dispatch(profileActions.setProfile(response.data))
 			return response.data
 		} catch (e) {
 			console.log(e)
@@ -50,7 +48,6 @@ export const updateProfileImage = createAsyncThunk<Profile, ImagePayload, StoreT
 			if (!response.data) {
 				throw new Error('No data')
 			}
-			thunkAPI.dispatch(profileActions.setProfile(response.data))
 			return response.data
 		} catch (e) {
 			console.log(e)

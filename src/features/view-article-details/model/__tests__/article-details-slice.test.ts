@@ -99,4 +99,14 @@ describe('features/view-article-details/model/article-details-slice', () => {
 		expect(articleDetailsReducer(state, fetchArticle.fulfilled(article, '', '')).status).toEqual('success')
 		expect(articleDetailsReducer(state, fetchArticle.fulfilled(article, '', '')).article).toEqual(article)
 	})
+
+	it('should set status to error on fetchArticle.rejected', () => {
+		const state: ArticleDetailsState = {
+			article: null,
+			status: 'idle',
+			error: null,
+		}
+		expect(articleDetailsReducer(state, fetchArticle.rejected).status).toEqual('error')
+		expect(articleDetailsReducer(state, fetchArticle.rejected).error).toEqual('errors.no_article')
+	})
 })

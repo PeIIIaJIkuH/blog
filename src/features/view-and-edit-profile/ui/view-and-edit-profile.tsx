@@ -1,8 +1,9 @@
-import { type FC, memo, useCallback, useEffect } from 'react'
+import { type FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { type Profile, ProfileCard, type ImagePayload } from 'entities/profile'
+import { useInitialEffect } from 'shared/hooks/use-initial-effect'
 import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
 import { PageError } from 'shared/ui/page-error'
 import { PageLoader } from 'shared/ui/page-loader'
@@ -29,11 +30,9 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className
 
 	useLazyModuleLoading(reducerMap)
 
-	useEffect(() => {
-		if (PROJECT !== 'storybook') {
-			void dispatch(fetchProfile())
-		}
-	}, [dispatch])
+	useInitialEffect(() => {
+		void dispatch(fetchProfile())
+	})
 
 	const updateData = useCallback(
 		async (profile: Partial<Profile>) => {

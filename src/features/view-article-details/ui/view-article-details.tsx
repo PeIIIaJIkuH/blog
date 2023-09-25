@@ -1,8 +1,9 @@
-import { type FC, memo, useEffect } from 'react'
+import { type FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
 import { ArticleCard } from 'entities/article'
+import { useInitialEffect } from 'shared/hooks/use-initial-effect'
 import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
 import { PageError } from 'shared/ui/page-error'
 import { PageLoader } from 'shared/ui/page-loader'
@@ -30,11 +31,9 @@ export const ViewArticleDetails: FC<ViewArticleDetailsProps> = memo(({ className
 
 	useLazyModuleLoading(reducerMap)
 
-	useEffect(() => {
-		if (PROJECT !== 'storybook') {
-			void dispatch(fetchArticle(articleId))
-		}
-	}, [articleId, dispatch])
+	useInitialEffect(() => {
+		void dispatch(fetchArticle(articleId))
+	})
 
 	if (status === 'loading') {
 		return <PageLoader />

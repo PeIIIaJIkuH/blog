@@ -1,7 +1,6 @@
 import { type ImagePayload } from 'entities/profile'
 import { AsyncThunkWrapper } from 'shared/helpers/async-thunk-wrapper'
 
-import { profileActions } from '../profile-slice'
 import { fetchProfile, updateProfile, updateProfileImage } from '../services'
 
 const data = {
@@ -29,8 +28,6 @@ describe('features/view-and-edit-profile/model/services', () => {
 		expect(thunkWrapper.api.get).toHaveBeenCalledWith('/profile')
 		expect(result.meta.requestStatus).toEqual('fulfilled')
 		expect(result.payload).toEqual(userResponse)
-		expect(thunkWrapper.dispatch).toHaveBeenCalledWith(profileActions.setProfile(userResponse))
-		expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(3)
 	})
 
 	it('should return error if status is not 200 on fetch profile', async () => {
@@ -43,7 +40,6 @@ describe('features/view-and-edit-profile/model/services', () => {
 		expect(thunkWrapper.api.get).toHaveBeenCalledWith('/profile')
 		expect(result.payload).toEqual(userResponse)
 		expect(result.meta.requestStatus).toEqual('rejected')
-		expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(2)
 	})
 
 	it('should update profile', async () => {
@@ -57,8 +53,6 @@ describe('features/view-and-edit-profile/model/services', () => {
 		expect(thunkWrapper.api.patch).toHaveBeenCalledWith('/profile', userRequest)
 		expect(result.meta.requestStatus).toEqual('fulfilled')
 		expect(result.payload).toEqual(userResponse)
-		expect(thunkWrapper.dispatch).toHaveBeenCalledWith(profileActions.setProfile(userResponse))
-		expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(3)
 	})
 
 	it('should return error if status is not 200 on update profile', async () => {
@@ -72,7 +66,6 @@ describe('features/view-and-edit-profile/model/services', () => {
 		expect(thunkWrapper.api.patch).toHaveBeenCalledWith('/profile', userRequest)
 		expect(result.payload).toEqual(userResponse)
 		expect(result.meta.requestStatus).toEqual('rejected')
-		expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(2)
 	})
 
 	it('should update profile image', async () => {
@@ -89,8 +82,6 @@ describe('features/view-and-edit-profile/model/services', () => {
 		expect(thunkWrapper.api.patch).toHaveBeenCalledWith('/profile/image', expect.any(FormData))
 		expect(result.meta.requestStatus).toEqual('fulfilled')
 		expect(result.payload).toEqual(userResponse)
-		expect(thunkWrapper.dispatch).toHaveBeenCalledWith(profileActions.setProfile(userResponse))
-		expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(3)
 	})
 
 	it('should return error if status is not 200 on update profile image', async () => {
@@ -107,6 +98,5 @@ describe('features/view-and-edit-profile/model/services', () => {
 		expect(thunkWrapper.api.patch).toHaveBeenCalledWith('/profile/image', expect.any(FormData))
 		expect(result.payload).toEqual(userResponse)
 		expect(result.meta.requestStatus).toEqual('rejected')
-		expect(thunkWrapper.dispatch).toHaveBeenCalledTimes(2)
 	})
 })
