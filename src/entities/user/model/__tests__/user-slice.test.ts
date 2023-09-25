@@ -5,6 +5,7 @@ describe('entities/user/model/user-slice', () => {
 	it('should return the initial state', () => {
 		expect(userSlice.reducer(undefined, {} as any)).toEqual({
 			user: null,
+			rehydrated: false,
 		})
 	})
 
