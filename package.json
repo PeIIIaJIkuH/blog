@@ -111,8 +111,7 @@
 		"react-dom": "^18.2.0",
 		"react-i18next": "12.2.0",
 		"react-redux": "^8.0.5",
-		"react-router-dom": "^6.8.1",
-		"redux-persist": "^6.0.0"
+		"react-router-dom": "^6.8.1"
 	},
 	"readme": "ERROR: No README data found!"
 }

@@ -1,5 +1,5 @@
 export const LS_KEYS = {
-	USER: 'persist:user',
+	USER: 'user',
 	THEME: 'theme',
 	SIDEBAR_OPEN: 'sidebar-open',
 }

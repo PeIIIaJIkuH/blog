@@ -16,15 +16,8 @@ import { type ArticlesState } from 'features/view-articles'
 
 import { type store } from './store'
 
-interface PersistPartial {
-	_persist: {
-		version: number
-		rehydrated: boolean
-	}
-}
-
 export interface RootState {
-	user: UserState & PersistPartial
+	user: UserState
 	login?: LoginState
 	profile?: ProfileState
 	articles?: ArticlesState

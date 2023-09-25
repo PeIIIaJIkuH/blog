@@ -8,9 +8,9 @@ export const api = axios.create({
 
 api.interceptors.request.use(
 	(config) => {
-		const user = JSON.parse(localStorage.getItem(LS_KEYS.USER) ?? '{}')
-		if (!user?.user || user.user === 'null') return config
-		config.headers.Authorization = String(user?.user)
+		const user = JSON.parse(localStorage.getItem(LS_KEYS.USER) ?? JSON.stringify(null))
+		if (!user || user === 'null') return config
+		config.headers.Authorization = String(user)
 		return config
 	},
 	async (error) => await Promise.reject(error),
