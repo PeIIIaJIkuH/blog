@@ -43,3 +43,9 @@ Default.decorators = [
 		reducerMap,
 	),
 ]
+Default.parameters = {
+	router: {
+		path: '/profiles/:id',
+		route: '/profiles/1',
+	},
+}
