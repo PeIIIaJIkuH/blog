@@ -1,7 +1,7 @@
 export { ArticleCard } from './ui/article-card/article-card'
 export { ArticleDetailsLazy as ArticleDetails } from './ui/article-details/article-details.lazy'
 export { ArticlesLazy as Articles } from './ui/articles/articles.lazy'
-export type { Article } from './model/types'
+export * from './model/types'
 export * from './model/slices/article-details.slice'
 export * from './model/slices/articles.slice'
 export * from './model/types/article-details.types'
