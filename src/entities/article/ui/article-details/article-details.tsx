@@ -45,7 +45,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, articl
 		void dispatch(fetchArticle(articleId))
 	})
 
-	if (status === 'loading' || !article) {
+	if (status === 'loading') {
 		return <PageLoader />
 	}
 
@@ -55,6 +55,10 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, articl
 
 	if (!article && status === 'success') {
 		return <PageError message='No article' />
+	}
+
+	if (!article) {
+		return null
 	}
 
 	return (

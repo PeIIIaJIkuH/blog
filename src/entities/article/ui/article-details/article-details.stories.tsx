@@ -12,7 +12,7 @@ const reducerMap: ReducerMap = {
 }
 
 const componentMeta: ComponentMeta<typeof ArticleDetails> = {
-	title: 'entities/article-details',
+	title: 'entities/article/article-details',
 	component: ArticleDetails,
 	decorators: [
 		(Story) => (
