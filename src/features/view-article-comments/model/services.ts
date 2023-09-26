@@ -16,7 +16,7 @@ export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string, Stor
 				},
 			})
 			if (!response.data) {
-				throw new Error('No data')
+				return thunkAPI.rejectWithValue('No data')
 			}
 			return response.data
 		} catch (e) {

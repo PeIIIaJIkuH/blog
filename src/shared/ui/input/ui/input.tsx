@@ -21,10 +21,12 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'
 	autoFocus?: boolean
 	clearable?: boolean
 	type?: 'text' | 'password' | 'number'
+	variant?: 'outlined' | 'underlined'
+	fullWidth?: boolean
 }
 
 export const Input: FC<InputProps> = memo(
-	({ className, value, onChange, type = 'text', autoFocus, clearable, ...rest }) => {
+	({ className, value, onChange, type = 'text', autoFocus, clearable, variant = 'outlined', fullWidth, ...rest }) => {
 		const ref = useRef<HTMLInputElement>(null)
 		const [newType, setNewType] = useState(type)
 
@@ -71,9 +73,9 @@ export const Input: FC<InputProps> = memo(
 		)
 
 		return (
-			<div className={cls(s.wrapper, className)} data-testid='wrapper'>
+			<div className={cls(s.wrapper, className, fullWidth && s.fullWidth)} data-testid='wrapper'>
 				<input
-					className={cls(s.input)}
+					className={cls(s.input, s[`variant-${variant}`], fullWidth && s.fullWidth)}
 					value={value}
 					onChange={handleChange}
 					type={newType}

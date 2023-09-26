@@ -14,7 +14,7 @@ import { fetchProfile, updateProfile, updateProfileImage } from '../../model/ser
 import { type ImagePayload } from '../../model/types'
 import { ProfileCard } from '../profile-card/profile-card'
 
-interface ViewAndEditProfileProps {
+export interface ViewAndEditProfileProps {
 	className?: string
 	profileId: string
 }

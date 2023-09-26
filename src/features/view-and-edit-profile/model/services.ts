@@ -12,7 +12,7 @@ export const fetchProfile = createAsyncThunk<User, string, StoreThunkConfig<stri
 		try {
 			const response = await thunkAPI.extra.api.get<User>(`/users/${userId}`)
 			if (!response.data) {
-				throw new Error('No data')
+				return thunkAPI.rejectWithValue('No data')
 			}
 			return response.data
 		} catch (e) {
@@ -30,7 +30,7 @@ export const updateProfile = createAsyncThunk<
 	try {
 		const response = await thunkAPI.extra.api.patch<User>(`/users/${user.id}`, user)
 		if (!response.data) {
-			throw new Error('No data')
+			return thunkAPI.rejectWithValue('No data')
 		}
 		return response.data
 	} catch (e) {
@@ -49,7 +49,7 @@ export const updateProfileImage = createAsyncThunk<User, ImagePayload & { userId
 			formData.append('userId', payload.userId)
 			const response = await thunkAPI.extra.api.patch<User>('/users/image', formData)
 			if (!response.data) {
-				throw new Error('No data')
+				return thunkAPI.rejectWithValue('No data')
 			}
 			return response.data
 		} catch (e) {

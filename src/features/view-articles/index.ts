@@ -1,2 +1,2 @@
 export { type ArticlesState } from './model/types'
-export { ViewArticles } from './ui/view-articles'
+export { ViewArticlesLazy as ViewArticles } from './ui/view-articles.lazy'

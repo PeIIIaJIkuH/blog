@@ -12,3 +12,4 @@ export type IconType =
 	| 'sun'
 	| 'user'
 	| 'x'
+	| 'send'

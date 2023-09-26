@@ -12,7 +12,7 @@ import { articleDetailsReducer } from '../model/article-details-slice'
 import { getArticle, getError, getStatus } from '../model/selectors'
 import { fetchArticle } from '../model/services'
 
-interface ViewArticleDetailsProps {
+export interface ViewArticleDetailsProps {
 	className?: string
 	articleId: string
 }

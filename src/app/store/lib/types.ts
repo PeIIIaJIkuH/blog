@@ -8,6 +8,7 @@ import {
 import { type AxiosInstance } from 'axios'
 
 import { type UserState } from 'entities/user'
+import { type AddArticleCommentState } from 'features/add-article-comment'
 import { type LoginState } from 'features/auth-by-username'
 import { type ProfileState } from 'features/view-and-edit-profile'
 import { type ArticleCommentsState } from 'features/view-article-comments'
@@ -23,6 +24,7 @@ export interface RootState {
 	articles?: ArticlesState
 	articleDetails?: ArticleDetailsState
 	articleComments?: ArticleCommentsState
+	addArticleComment?: AddArticleCommentState
 }
 
 export type RootStateKeys = keyof RootState
@@ -47,4 +49,5 @@ export interface StoreThunkExtra {
 export interface StoreThunkConfig<T> {
 	rejectValue: T
 	extra: StoreThunkExtra
+	state: RootState
 }

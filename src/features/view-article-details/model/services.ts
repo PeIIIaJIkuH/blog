@@ -11,7 +11,7 @@ export const fetchArticle = createAsyncThunk<Article | null, string, StoreThunkC
 		try {
 			const response = await thunkAPI.extra.api.get<Article | null>(`/articles/${articleId}`)
 			if (!response.data) {
-				throw new Error('No data')
+				return thunkAPI.rejectWithValue('No data')
 			}
 			return response.data
 		} catch (e) {

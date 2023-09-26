@@ -4,6 +4,7 @@ import { AppRoute, RoutePath } from 'shared/config/routes'
 import { cls } from 'shared/helpers/cls'
 import { AppLink } from 'shared/ui/app-link'
 import { Image } from 'shared/ui/image'
+import { Skeleton } from 'shared/ui/skeleton'
 import { Typography } from 'shared/ui/typography'
 
 import { type Comment } from '../../model/types'
@@ -12,10 +13,27 @@ import s from './comment-card.module.scss'
 
 interface CommentCardProps {
 	className?: string
-	comment: Comment
+	comment?: Comment
+	isLoading?: boolean
 }
 
-export const CommentCard: FC<CommentCardProps> = memo(({ className, comment }) => {
+export const CommentCard: FC<CommentCardProps> = memo(({ className, comment, isLoading }) => {
+	if (isLoading) {
+		return (
+			<div className={cls(className, s.commentCard)}>
+				<div className={s.header}>
+					<Skeleton className={s.avatar} circle height='2rem' width='2rem' radius='sm' />
+					<Skeleton className={s.username} width='10rem' radius='sm' />
+				</div>
+				<Skeleton className={s.content} />
+			</div>
+		)
+	}
+
+	if (!comment) {
+		return null
+	}
+
 	return (
 		<div className={cls(className, s.commentCard)}>
 			<AppLink to={`${RoutePath[AppRoute.PROFILE]}${comment.user.id}`} className={s.header}>

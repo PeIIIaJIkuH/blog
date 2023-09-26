@@ -12,7 +12,7 @@ import { getArticles, getError, getStatus } from '../model/selectors'
 
 import s from './view-articles.module.scss'
 
-interface ViewArticlesProps {
+export interface ViewArticlesProps {
 	className?: string
 }
 

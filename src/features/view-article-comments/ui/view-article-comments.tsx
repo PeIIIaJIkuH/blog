@@ -7,7 +7,6 @@ import { cls } from 'shared/helpers/cls'
 import { useInitialEffect } from 'shared/hooks/use-initial-effect'
 import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
 import { PageError } from 'shared/ui/page-error'
-import { PageLoader } from 'shared/ui/page-loader'
 import { Typography } from 'shared/ui/typography'
 
 import { articleCommentsReducer, getArticleCommentsSelectors } from '../model/article-comments-slice'
@@ -20,7 +19,7 @@ const reducerMap: ReducerMap = {
 	articleComments: articleCommentsReducer,
 }
 
-interface ViewArticleCommentsProps {
+export interface ViewArticleCommentsProps {
 	className?: string
 	articleId: string
 }
@@ -39,7 +38,16 @@ export const ViewArticleComments: FC<ViewArticleCommentsProps> = memo(({ classNa
 	})
 
 	if (status === 'loading') {
-		return <PageLoader />
+		return (
+			<div className={cls(className, s.viewArticleComments)}>
+				<Typography as='h2' text={t('comments.title', { ns: 'article-details' })} size='xl' weight='bold' />
+				<CommentCard isLoading />
+				<CommentCard isLoading />
+				<CommentCard isLoading />
+				<CommentCard isLoading />
+				<CommentCard isLoading />
+			</div>
+		)
 	}
 
 	if (status === 'error') {

@@ -7,8 +7,6 @@
 }
 
 .input {
-	border-radius: var(--radius-sm);
-	border: 1px solid var(--color-font);
 	outline: none;
 	color: var(--color-font);
 	background: var(--color-background);
@@ -16,10 +14,6 @@
 	display: inline-block;
 	min-width: 250px;
 	line-height: 1;
-
-	&:focus {
-		border: 1px solid var(--color-primary);
-	}
 
 	&:-webkit-autofill,
 	&:-webkit-autofill:hover,
@@ -102,4 +96,27 @@
 
 .input:focus ~ .showPassword {
 	border-left: 1px solid var(--color-primary);
+}
+
+.variant-outlined {
+	border-radius: var(--radius-sm);
+	border: 1px solid var(--color-font);
+
+	&:focus {
+		border-color: var(--color-primary);
+	}
+}
+
+.variant-underlined {
+	border-radius: 0;
+	border: none;
+	border-bottom: 1px solid var(--color-font);
+
+	&:focus {
+		border-color: var(--color-primary);
+	}
+}
+
+.fullWidth {
+	width: 100%;
 }

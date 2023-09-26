@@ -15,7 +15,7 @@ export const loginByUsername = createAsyncThunk<User, LoginPayload, StoreThunkCo
 				password: payload.password,
 			})
 			if (!response.data) {
-				throw new Error('No data')
+				return thunkAPI.rejectWithValue('No data')
 			}
 			thunkAPI.dispatch(userActions.setUser(response.data))
 			return response.data

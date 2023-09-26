@@ -10,6 +10,7 @@ import HomeIcon from 'shared/assets/icons/home.svg'
 import InfoCircleIcon from 'shared/assets/icons/info-circle.svg'
 import MoonIcon from 'shared/assets/icons/moon.svg'
 import PencilIcon from 'shared/assets/icons/pencil.svg'
+import SendIcon from 'shared/assets/icons/send.svg'
 import SunIcon from 'shared/assets/icons/sun.svg'
 import UserIcon from 'shared/assets/icons/user.svg'
 import XIcon from 'shared/assets/icons/x.svg'
@@ -27,6 +28,7 @@ export const icons: Record<IconType, FC<SVGProps<SVGSVGElement>>> = {
 	'info-circle': InfoCircleIcon,
 	moon: MoonIcon,
 	pencil: PencilIcon,
+	send: SendIcon,
 	sun: SunIcon,
 	user: UserIcon,
 	x: XIcon,

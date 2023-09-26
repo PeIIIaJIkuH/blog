@@ -2,9 +2,11 @@
 	"title": "Article Details",
 	"errors": {
 		"no_article": "No article found",
-		"no_comments": "No comments yet"
+		"no_comments": "No comments yet",
+		"comment_not_added": "Comment not added"
 	},
 	"comments": {
-		"title": "Comments"
+		"title": "Comments",
+		"add": "Add comment"
 	}
 }

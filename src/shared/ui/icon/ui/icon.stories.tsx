@@ -35,6 +35,7 @@ AllIcons.decorators = [
 			<Icon type='info-circle' color={args.color} size={args.size} />
 			<Icon type='moon' color={args.color} size={args.size} />
 			<Icon type='pencil' color={args.color} size={args.size} />
+			<Icon type='send' color={args.color} size={args.size} />
 			<Icon type='sun' color={args.color} size={args.size} />
 			<Icon type='user' color={args.color} size={args.size} />
 			<Icon type='x' color={args.color} size={args.size} />

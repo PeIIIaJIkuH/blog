@@ -99,6 +99,42 @@
       "articleId": "1",
       "userId": "2",
       "content": "Second comment content"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "content": "Hello",
+      "id": "QzIP6Rm"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "content": "How are you?",
+      "id": "8WVKfJK"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "content": "I'm fine, thank you",
+      "id": "B9fdUwA"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "content": "fdas",
+      "id": "xLs9_UQ"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "content": "123",
+      "id": "Caq0hbu"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "content": "test",
+      "id": "PoTD_Z2"
     }
   ]
 }
