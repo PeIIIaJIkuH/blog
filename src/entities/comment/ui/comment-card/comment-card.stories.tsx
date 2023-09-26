@@ -16,7 +16,6 @@ UserWithAvatar.args = {
 	comment: {
 		id: '1',
 		content: 'This is a comment',
-		articleId: '1',
 		user: {
 			id: '1',
 			firstName: 'First name',
@@ -40,7 +39,6 @@ UserWithoutAvatar.args = {
 	comment: {
 		id: '1',
 		content: 'This is a comment',
-		articleId: '1',
 		user: {
 			id: '1',
 			firstName: 'First name',

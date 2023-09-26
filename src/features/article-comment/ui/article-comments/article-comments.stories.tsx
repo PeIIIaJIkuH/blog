@@ -3,22 +3,22 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { withStore } from 'shared/config/storybook'
 import { type ReducerMap } from 'shared/hooks/use-lazy-module-loading'
 
-import { articleCommentsReducer } from '../model/article-comments-slice'
+import { articleCommentsReducer } from '../../model/slices/article-comments.slice'
 
-import { ViewArticleComments } from './view-article-comments'
+import { ArticleComments } from './article-comments'
 
 const reducerMap: ReducerMap = {
 	articleComments: articleCommentsReducer,
 }
 
-const componentMeta: ComponentMeta<typeof ViewArticleComments> = {
-	title: 'features/view-article-comments',
-	component: ViewArticleComments,
+const componentMeta: ComponentMeta<typeof ArticleComments> = {
+	title: 'features/article-comment/article-comments',
+	component: ArticleComments,
 }
 
 export default componentMeta
 
-const Template: ComponentStory<typeof ViewArticleComments> = (args) => <ViewArticleComments {...args} />
+const Template: ComponentStory<typeof ArticleComments> = (args) => <ArticleComments {...args} />
 
 export const Default = Template.bind({})
 Default.decorators = [

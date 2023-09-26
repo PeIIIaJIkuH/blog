@@ -8,9 +8,13 @@ import { Icon } from 'shared/ui/icon'
 import { Input } from 'shared/ui/input'
 import { Typography } from 'shared/ui/typography'
 
-import { addArticleCommentActions, addArticleCommentReducer } from '../model/add-article-comment-slice'
-import { getComment, getError, getStatus } from '../model/selectors'
-import { addComment } from '../model/services'
+import {
+	getAddArticleCommentComment,
+	getAddArticleCommentError,
+	getAddArticleCommentStatus,
+} from '../../model/selectors/add-article-comment.selectors'
+import { addComment } from '../../model/services/add-article-comment.services'
+import { addArticleCommentActions, addArticleCommentReducer } from '../../model/slices/add-article-comment.slice'
 
 import s from './add-article-comment.module.scss'
 
@@ -19,18 +23,20 @@ const reducerMap: ReducerMap = {
 }
 
 export const AddArticleComment: FC = memo(() => {
-	const comment = useAppSelector(getComment)
-	const status = useAppSelector(getStatus)
-	const error = useAppSelector(getError)
+	const comment = useAppSelector(getAddArticleCommentComment)
+	const status = useAppSelector(getAddArticleCommentStatus)
+	const error = useAppSelector(getAddArticleCommentError)
 	const dispatch = useAppDispatch()
 	const { t } = useTranslation('article-details')
 
 	useLazyModuleLoading(reducerMap)
 
-	const onChange = useCallback((value: string) => {
-		dispatch(addArticleCommentActions.setComment(value))
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [])
+	const onChange = useCallback(
+		(value: string) => {
+			dispatch(addArticleCommentActions.setComment(value))
+		},
+		[dispatch],
+	)
 
 	const reset = useCallback(() => {
 		if (status === 'loading') return

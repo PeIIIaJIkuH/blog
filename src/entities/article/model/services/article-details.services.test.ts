@@ -38,11 +38,12 @@ const data: Article = {
 
 describe('entities/article/article-details.services', () => {
 	it('should fetch article', async () => {
+		const userRequest = 'id'
 		const userResponse = { ...data }
 
 		const thunkWrapper = new AsyncThunkWrapper(fetchArticle)
 		thunkWrapper.api.get.mockReturnValue(Promise.resolve({ data: userResponse }))
-		const result = await thunkWrapper.callThunk('id')
+		const result = await thunkWrapper.callThunk(userRequest)
 
 		expect(thunkWrapper.api.get).toHaveBeenCalledWith('/articles/id')
 		expect(result.meta.requestStatus).toEqual('fulfilled')
@@ -50,11 +51,12 @@ describe('entities/article/article-details.services', () => {
 	})
 
 	it('should return error if status is not 200 on fetch profile', async () => {
+		const userRequest = 'id'
 		const userResponse = 'No data'
 
 		const thunkWrapper = new AsyncThunkWrapper(fetchArticle)
 		thunkWrapper.api.get.mockReturnValue(Promise.resolve({ status: 401 }))
-		const result = await thunkWrapper.callThunk('id')
+		const result = await thunkWrapper.callThunk(userRequest)
 
 		expect(thunkWrapper.api.get).toHaveBeenCalledWith('/articles/id')
 		expect(result.payload).toEqual(userResponse)

@@ -9,25 +9,25 @@ import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-mod
 import { PageError } from 'shared/ui/page-error'
 import { Typography } from 'shared/ui/typography'
 
-import { articleCommentsReducer, getArticleCommentsSelectors } from '../model/article-comments-slice'
-import { getError, getStatus } from '../model/selectors'
-import { fetchCommentsByArticleId } from '../model/services'
+import { getArticleCommentsStatus, getArticleCommentsError } from '../../model/selectors/article-comments.selectors'
+import { fetchCommentsByArticleId } from '../../model/services/article-comments.services'
+import { articleCommentsReducer, getArticleCommentsSelectors } from '../../model/slices/article-comments.slice'
 
-import s from './view-article-comments.module.scss'
+import s from './article-comments.module.scss'
 
 const reducerMap: ReducerMap = {
 	articleComments: articleCommentsReducer,
 }
 
-export interface ViewArticleCommentsProps {
+export interface ArticleCommentsProps {
 	className?: string
 	articleId: string
 }
 
-export const ViewArticleComments: FC<ViewArticleCommentsProps> = memo(({ className, articleId }) => {
+export const ArticleComments: FC<ArticleCommentsProps> = memo(({ className, articleId }) => {
 	const comments = useAppSelector(getArticleCommentsSelectors.selectAll)
-	const status = useAppSelector(getStatus)
-	const error = useAppSelector(getError)
+	const status = useAppSelector(getArticleCommentsStatus)
+	const error = useAppSelector(getArticleCommentsError)
 	const dispatch = useAppDispatch()
 	const { t } = useTranslation(['translation', 'article-details'])
 
@@ -39,7 +39,7 @@ export const ViewArticleComments: FC<ViewArticleCommentsProps> = memo(({ classNa
 
 	if (status === 'loading') {
 		return (
-			<div className={cls(className, s.viewArticleComments)}>
+			<div className={cls(className, s.articleComments)}>
 				<Typography as='h2' text={t('comments.title', { ns: 'article-details' })} size='xl' weight='bold' />
 				<CommentCard isLoading />
 				<CommentCard isLoading />
@@ -55,7 +55,7 @@ export const ViewArticleComments: FC<ViewArticleCommentsProps> = memo(({ classNa
 	}
 
 	return (
-		<div className={cls(className, s.viewArticleComments)}>
+		<div className={cls(className, s.articleComments)}>
 			<Typography as='h2' text={t('comments.title', { ns: 'article-details' })} size='xl' weight='bold' />
 			{comments.length ? (
 				comments.map((comment) => <CommentCard key={comment.id} comment={comment} />)

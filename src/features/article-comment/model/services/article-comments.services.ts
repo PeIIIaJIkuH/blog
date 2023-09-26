@@ -1,15 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { type StoreThunkConfig } from 'app/store'
-import { type Comment } from 'entities/comment'
 
-import { articleCommentsSliceName } from './article-comments-slice'
+import { articleCommentsSliceName } from '../slices/article-comments.slice'
+import { type ArticleComment } from '../types'
 
-export const fetchCommentsByArticleId = createAsyncThunk<Comment[], string, StoreThunkConfig<string>>(
+export const fetchCommentsByArticleId = createAsyncThunk<ArticleComment[], string, StoreThunkConfig<string>>(
 	`${articleCommentsSliceName}/fetchCommentsByArticleId`,
 	async (articleId, thunkAPI) => {
 		try {
-			const response = await thunkAPI.extra.api.get<Comment[]>('/comments', {
+			const response = await thunkAPI.extra.api.get<ArticleComment[]>('/comments', {
 				params: {
 					articleId,
 					_expand: 'user',

@@ -2,26 +2,27 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { type StoreThunkConfig } from 'app/store'
 import { getArticleDetailsArticle } from 'entities/article'
-import { type Comment } from 'entities/comment'
 import { getUserUser } from 'entities/user'
-import { fetchCommentsByArticleId } from 'features/view-article-comments'
 
-import { addArticleCommentSliceName } from './add-article-comment-slice'
-import { getComment } from './selectors'
+import { getAddArticleCommentComment } from '../selectors/add-article-comment.selectors'
+import { addArticleCommentSliceName } from '../slices/add-article-comment.slice'
+import { type ArticleComment } from '../types'
 
-export const addComment = createAsyncThunk<Comment, void, StoreThunkConfig<string>>(
+import { fetchCommentsByArticleId } from './article-comments.services'
+
+export const addComment = createAsyncThunk<ArticleComment, void, StoreThunkConfig<string>>(
 	`${addArticleCommentSliceName}/addComment`,
 	async (_, thunkAPI) => {
 		try {
 			const user = getUserUser(thunkAPI.getState())
-			const comment = getComment(thunkAPI.getState())
+			const comment = getAddArticleCommentComment(thunkAPI.getState())
 			const article = getArticleDetailsArticle(thunkAPI.getState())
 
 			if (!user || !comment || !article) {
 				return thunkAPI.rejectWithValue('No data')
 			}
 
-			const response = await thunkAPI.extra.api.post<Comment>('/comments', {
+			const response = await thunkAPI.extra.api.post<ArticleComment>('/comments', {
 				articleId: article.id,
 				userId: user.id,
 				content: comment,

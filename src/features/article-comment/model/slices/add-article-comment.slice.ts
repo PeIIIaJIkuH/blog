@@ -1,7 +1,7 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-import { addComment } from './services'
-import { type AddArticleCommentState } from './types'
+import { addComment } from '../services/add-article-comment.services'
+import { type AddArticleCommentState } from '../types/add-article-comment.types'
 
 const initialState: AddArticleCommentState = {
 	comment: '',

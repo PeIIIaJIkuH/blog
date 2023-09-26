@@ -3,11 +3,11 @@ import { type Article } from 'entities/article'
 import { fetchArticle } from '../services/article-details.services'
 import { type ArticleDetailsState } from '../types/article-details.types'
 
-import { articleDetailsActions, articleDetailsReducer, articleDetailsSlice } from './article-details.slice'
+import { articleDetailsActions, articleDetailsReducer } from './article-details.slice'
 
 describe('entities/articles/article-details.slice', () => {
 	it('should return the initial state', () => {
-		expect(articleDetailsSlice.reducer(undefined, {} as any)).toEqual({
+		expect(articleDetailsReducer(undefined, {} as any)).toEqual({
 			article: null,
 			status: 'idle',
 			error: null,

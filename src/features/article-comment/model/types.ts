@@ -1,8 +1,9 @@
 // eslint-disable-next-line boundaries/element-types -- This is a type definition file, not a module
 import { type User } from 'entities/user'
 
-export interface Comment {
+export interface ArticleComment {
 	id: string
 	content: string
 	user: User
+	articleId: string
 }

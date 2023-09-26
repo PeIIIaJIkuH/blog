@@ -1,12 +1,12 @@
 import { type PayloadAction, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
 
 import { type RootState } from 'app/store'
-import { type Comment } from 'entities/comment'
 
-import { fetchCommentsByArticleId } from './services'
-import { type ArticleCommentsState } from './types'
+import { fetchCommentsByArticleId } from '../services/article-comments.services'
+import { type ArticleComment } from '../types'
+import { type ArticleCommentsState } from '../types/article-comments.types'
 
-const articleCommentsAdapter = createEntityAdapter<Comment>({
+const articleCommentsAdapter = createEntityAdapter<ArticleComment>({
 	selectId: (comment) => comment.id,
 })
 
@@ -30,7 +30,7 @@ const articleCommentsSlice = createSlice({
 			state.status = 'loading'
 			state.error = null
 		})
-		builder.addCase(fetchCommentsByArticleId.fulfilled, (state, action: PayloadAction<Comment[]>) => {
+		builder.addCase(fetchCommentsByArticleId.fulfilled, (state, action: PayloadAction<ArticleComment[]>) => {
 			state.status = 'success'
 			articleCommentsAdapter.setAll(state, action.payload)
 		})

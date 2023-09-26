@@ -135,6 +135,12 @@
       "userId": "2",
       "content": "test",
       "id": "PoTD_Z2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "content": "testing commenting feature",
+      "id": "OuDCgBz"
     }
   ]
 }
