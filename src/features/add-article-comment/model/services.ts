@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import { type StoreThunkConfig } from 'app/store'
 import { getArticleDetailsArticle } from 'entities/article'
 import { type Comment } from 'entities/comment'
-import { getUser } from 'entities/user'
+import { getUserUser } from 'entities/user'
 import { fetchCommentsByArticleId } from 'features/view-article-comments'
 
 import { addArticleCommentSliceName } from './add-article-comment-slice'
@@ -13,7 +13,7 @@ export const addComment = createAsyncThunk<Comment, void, StoreThunkConfig<strin
 	`${addArticleCommentSliceName}/addComment`,
 	async (_, thunkAPI) => {
 		try {
-			const user = getUser(thunkAPI.getState())
+			const user = getUserUser(thunkAPI.getState())
 			const comment = getComment(thunkAPI.getState())
 			const article = getArticleDetailsArticle(thunkAPI.getState())
 

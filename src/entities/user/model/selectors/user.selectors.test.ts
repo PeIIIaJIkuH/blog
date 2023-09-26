@@ -1,7 +1,7 @@
 import { type RootState } from 'app/store'
 import { type DeepPartialObject } from 'shared/types'
 
-import { getUser, getRehydrated } from '../selectors'
+import { getUserRehydrated, getUserUser } from './user.selectors'
 
 const state: DeepPartialObject<RootState> = {
 	user: {
@@ -19,23 +19,23 @@ const emptyState: DeepPartialObject<RootState> = {
 	},
 }
 
-describe('entities/user/model/selectors', () => {
+describe('entities/user/user.selectors', () => {
 	it('should return user', () => {
-		expect(getUser(state as RootState)).toEqual({
+		expect(getUserUser(state as RootState)).toEqual({
 			id: 'test-id',
 			username: 'test-username',
 		})
 	})
 
 	it('should return null if user is not set', () => {
-		expect(getUser(emptyState as RootState)).toBeNull()
+		expect(getUserUser(emptyState as RootState)).toBeNull()
 	})
 
 	it('should return rehydrated', () => {
-		expect(getRehydrated(state as RootState)).toEqual(true)
+		expect(getUserRehydrated(state as RootState)).toEqual(true)
 	})
 
 	it('should return false if rehydrated is not set', () => {
-		expect(getRehydrated(emptyState as RootState)).toEqual(false)
+		expect(getUserRehydrated(emptyState as RootState)).toEqual(false)
 	})
 })

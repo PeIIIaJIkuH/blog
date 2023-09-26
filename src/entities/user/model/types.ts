@@ -13,8 +13,3 @@ export interface User {
 	currency: string
 	balance: number
 }
-
-export interface UserState {
-	user: User | null
-	rehydrated: boolean
-}

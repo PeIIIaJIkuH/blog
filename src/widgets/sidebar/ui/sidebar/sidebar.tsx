@@ -1,7 +1,7 @@
 import { type FC, memo, useMemo, useState, useCallback } from 'react'
 
 import { useAppSelector } from 'app/store'
-import { getUser } from 'entities/user'
+import { getUserUser } from 'entities/user'
 import { BurgerButton } from 'features/burger-button'
 import { LanguageSwitcher } from 'features/language-switcher'
 import { ThemeSwitcher } from 'features/theme-switcher'
@@ -28,7 +28,7 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
 		})
 	}, [])
 
-	const user = useAppSelector(getUser)
+	const user = useAppSelector(getUserUser)
 
 	const filteredLinks = useMemo(() => SIDEBAR_LINKS.filter((item) => !item.auth || user), [user])
 

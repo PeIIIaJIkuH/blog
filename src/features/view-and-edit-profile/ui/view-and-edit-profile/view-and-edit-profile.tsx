@@ -2,7 +2,7 @@ import { type FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { useAppDispatch, useAppSelector } from 'app/store'
-import { getUser, type User } from 'entities/user'
+import { getUserUser, type User } from 'entities/user'
 import { useInitialEffect } from 'shared/hooks/use-initial-effect'
 import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
 import { PageError } from 'shared/ui/page-error'
@@ -27,7 +27,7 @@ export const ViewAndEditProfile: FC<ViewAndEditProfileProps> = memo(({ className
 	const profile = useAppSelector(getProfile)
 	const status = useAppSelector(getStatus)
 	const error = useAppSelector(getError)
-	const user = useAppSelector(getUser)
+	const user = useAppSelector(getUserUser)
 	const dispatch = useAppDispatch()
 
 	const { t } = useTranslation(['translation', 'profile'])
