@@ -3,7 +3,7 @@ import { type FC } from 'react'
 import { cls } from 'shared/helpers/cls'
 import { Typography } from 'shared/ui/typography'
 
-import { type TextBlock } from '../../../../model/types'
+import { type TextBlock } from '../../model/types'
 
 import s from './article-text-block.module.scss'
 

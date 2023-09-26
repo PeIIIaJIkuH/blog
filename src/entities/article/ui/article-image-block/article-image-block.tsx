@@ -4,7 +4,7 @@ import { cls } from 'shared/helpers/cls'
 import { Image } from 'shared/ui/image'
 import { Typography } from 'shared/ui/typography'
 
-import { type ImageBlock } from '../../../../model/types'
+import { type ImageBlock } from '../../model/types'
 
 import s from './article-image-block.module.scss'
 

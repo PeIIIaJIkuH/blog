@@ -5,7 +5,7 @@ import { Button } from 'shared/ui/button'
 import { Icon } from 'shared/ui/icon'
 import { Typography } from 'shared/ui/typography'
 
-import { type CodeBlock } from '../../../../model/types'
+import { type CodeBlock } from '../../model/types'
 
 import s from './article-code-block.module.scss'
 

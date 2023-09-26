@@ -1,7 +1,7 @@
 import { type ArticleBlock } from '../model/types'
-import { ArticleCodeBlock } from '../ui/article-card/blocks/article-code-block/article-code-block'
-import { ArticleImageBlock } from '../ui/article-card/blocks/article-image-block/article-image-block'
-import { ArticleTextBlock } from '../ui/article-card/blocks/article-text-block/article-text-block'
+import { ArticleCodeBlock } from '../ui/article-code-block/article-code-block'
+import { ArticleImageBlock } from '../ui/article-image-block/article-image-block'
+import { ArticleTextBlock } from '../ui/article-text-block/article-text-block'
 
 interface RenderBlockProps {
 	block: ArticleBlock
