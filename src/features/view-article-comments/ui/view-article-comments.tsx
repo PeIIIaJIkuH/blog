@@ -6,9 +6,12 @@ import { CommentCard } from 'entities/comment'
 import { cls } from 'shared/helpers/cls'
 import { useInitialEffect } from 'shared/hooks/use-initial-effect'
 import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
+import { PageError } from 'shared/ui/page-error'
+import { PageLoader } from 'shared/ui/page-loader'
 import { Typography } from 'shared/ui/typography'
 
 import { articleCommentsReducer, getArticleCommentsSelectors } from '../model/article-comments-slice'
+import { getError, getStatus } from '../model/selectors'
 import { fetchCommentsByArticleId } from '../model/services'
 
 import s from './view-article-comments.module.scss'
@@ -23,9 +26,11 @@ interface ViewArticleCommentsProps {
 }
 
 export const ViewArticleComments: FC<ViewArticleCommentsProps> = memo(({ className, articleId }) => {
-	const { t } = useTranslation('article-details')
 	const comments = useAppSelector(getArticleCommentsSelectors.selectAll)
+	const status = useAppSelector(getStatus)
+	const error = useAppSelector(getError)
 	const dispatch = useAppDispatch()
+	const { t } = useTranslation(['translation', 'article-details'])
 
 	useLazyModuleLoading(reducerMap)
 
@@ -33,13 +38,21 @@ export const ViewArticleComments: FC<ViewArticleCommentsProps> = memo(({ classNa
 		void dispatch(fetchCommentsByArticleId(articleId))
 	})
 
+	if (status === 'loading') {
+		return <PageLoader />
+	}
+
+	if (status === 'error') {
+		return <PageError message={error ? t(error, { ns: 'article-details' }) : t('errors.general')} />
+	}
+
 	return (
 		<div className={cls(className, s.viewArticleComments)}>
-			<Typography as='h2' text={t('comments.title')} size='xl' weight='bold' />
+			<Typography as='h2' text={t('comments.title', { ns: 'article-details' })} size='xl' weight='bold' />
 			{comments.length ? (
 				comments.map((comment) => <CommentCard key={comment.id} comment={comment} />)
 			) : (
-				<Typography as='span' text={t('comments.no_comments')} />
+				<Typography as='span' text={t('errors.no_comments', { ns: 'article-details' })} />
 			)}
 		</div>
 	)

@@ -1,10 +1,10 @@
 {
 	"title": "Article Details",
 	"errors": {
-		"no_article": "No article found"
+		"no_article": "No article found",
+		"no_comments": "No comments yet"
 	},
 	"comments": {
-		"title": "Comments",
-		"no_comments": "No comments yet"
+		"title": "Comments"
 	}
 }

@@ -3,7 +3,7 @@ import { type ComponentStory, type ComponentMeta } from '@storybook/react'
 import { ProfileCard } from './profile-card'
 
 const componentMeta: ComponentMeta<typeof ProfileCard> = {
-	title: 'features/view-and-edit-profiles/profile-card',
+	title: 'features/view-and-edit-profile/profile-card',
 	component: ProfileCard,
 }
 
