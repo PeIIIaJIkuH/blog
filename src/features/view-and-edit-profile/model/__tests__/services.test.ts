@@ -36,7 +36,7 @@ describe('features/view-and-edit-profile/model/services', () => {
 
 	it('should return error if status is not 200 on fetch profile', async () => {
 		const userRequest = 'test-userId'
-		const userResponse = 'error'
+		const userResponse = 'No data'
 
 		const thunkWrapper = new AsyncThunkWrapper(fetchProfile)
 		thunkWrapper.api.get.mockReturnValue(Promise.resolve({ status: 401 }))
@@ -62,7 +62,7 @@ describe('features/view-and-edit-profile/model/services', () => {
 
 	it('should return error if status is not 200 on update profile', async () => {
 		const userRequest = { ...user }
-		const userResponse = 'error'
+		const userResponse = 'No data'
 
 		const thunkWrapper = new AsyncThunkWrapper(updateProfile)
 		thunkWrapper.api.patch.mockReturnValue(Promise.resolve({ status: 401 }))
@@ -96,7 +96,7 @@ describe('features/view-and-edit-profile/model/services', () => {
 			image: new File([], 'test-image'),
 			type: 'avatar',
 		}
-		const userResponse = 'error'
+		const userResponse = 'No data'
 
 		const thunkWrapper = new AsyncThunkWrapper(updateProfileImage)
 		thunkWrapper.api.patch.mockReturnValue(Promise.resolve({ status: 401 }))

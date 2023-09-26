@@ -40,7 +40,7 @@ describe('features/auth-by-username/model/services', () => {
 
 	it('should return error if status is not 200 on login by username', async () => {
 		const userRequest = { ...data }
-		const userResponse = 'error'
+		const userResponse = 'No data'
 
 		const thunkWrapper = new AsyncThunkWrapper(loginByUsername)
 		thunkWrapper.api.post.mockReturnValue(Promise.resolve({ status: 401 }))

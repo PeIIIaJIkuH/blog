@@ -50,7 +50,7 @@ describe('features/view-article-details/model/services', () => {
 	})
 
 	it('should return error if status is not 200 on fetch profile', async () => {
-		const userResponse = 'error'
+		const userResponse = 'No data'
 
 		const thunkWrapper = new AsyncThunkWrapper(fetchArticle)
 		thunkWrapper.api.get.mockReturnValue(Promise.resolve({ status: 401 }))
