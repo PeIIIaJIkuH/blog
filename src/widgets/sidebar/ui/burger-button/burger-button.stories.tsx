@@ -4,7 +4,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { BurgerButton } from './burger-button'
 
 const componentMeta: ComponentMeta<typeof BurgerButton> = {
-	title: 'features/burger-button',
+	title: 'widgets/sidebar/burger-button',
 	component: BurgerButton,
 	decorators: [
 		(Story, { args }) => {

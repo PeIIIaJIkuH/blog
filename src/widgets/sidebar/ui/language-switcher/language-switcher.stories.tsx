@@ -3,7 +3,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { LanguageSwitcher } from './language-switcher'
 
 const componentMeta: ComponentMeta<typeof LanguageSwitcher> = {
-	title: 'features/language-switcher',
+	title: 'widgets/sidebar/language-switcher',
 	component: LanguageSwitcher,
 }
 

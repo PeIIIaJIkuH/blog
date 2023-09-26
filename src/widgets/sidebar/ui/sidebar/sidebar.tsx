@@ -2,14 +2,14 @@ import { type FC, memo, useMemo, useState, useCallback } from 'react'
 
 import { useAppSelector } from 'app/store'
 import { getUserUser } from 'entities/user'
-import { BurgerButton } from 'features/burger-button'
-import { LanguageSwitcher } from 'features/language-switcher'
-import { ThemeSwitcher } from 'features/theme-switcher'
 import { LS_KEYS } from 'shared/constants/local-storage'
 import { cls } from 'shared/helpers/cls'
-import { SidebarLink } from 'widgets/sidebar/ui/sidebar-link/sidebar-link'
 
 import { SIDEBAR_LINKS } from '../../lib/constants'
+import { BurgerButton } from '../burger-button/burger-button'
+import { LanguageSwitcher } from '../language-switcher/language-switcher'
+import { SidebarLink } from '../sidebar-link/sidebar-link'
+import { ThemeSwitcher } from '../theme-switcher/theme-switcher'
 
 import s from './sidebar.module.scss'
 

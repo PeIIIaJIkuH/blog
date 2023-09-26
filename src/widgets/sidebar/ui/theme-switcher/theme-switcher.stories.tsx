@@ -3,7 +3,7 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { ThemeSwitcher } from './theme-switcher'
 
 const componentMeta: ComponentMeta<typeof ThemeSwitcher> = {
-	title: 'features/theme-switcher',
+	title: 'widgets/sidebar/theme-switcher',
 	component: ThemeSwitcher,
 }
 
