@@ -1,7 +1,6 @@
 import { type FC, memo } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { RoutePath } from 'shared/config/routes'
 import { cls } from 'shared/helpers/cls'
 import { AppLink } from 'shared/ui/app-link'
 import { Icon } from 'shared/ui/icon'
@@ -21,7 +20,7 @@ export const SidebarLink: FC<SidebarLinkProps> = memo(({ className, item, collap
 	const { t } = useTranslation()
 
 	return (
-		<AppLink to={RoutePath[item.path]} nav className={cls(s.link, className, collapsed && s.collapsed)}>
+		<AppLink to={item.path} nav className={cls(s.link, className, collapsed && s.collapsed)}>
 			<Icon type={item.icon} />
 			<Typography as='span' text={t(item.text)} />
 		</AppLink>

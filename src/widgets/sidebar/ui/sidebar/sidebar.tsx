@@ -1,11 +1,10 @@
-import { type FC, memo, useMemo, useState, useCallback } from 'react'
+import { type FC, memo, useState, useCallback } from 'react'
+import { useSelector } from 'react-redux'
 
-import { useAppSelector } from 'app/store'
-import { getUserUser } from 'entities/user'
 import { LS_KEYS } from 'shared/constants/local-storage'
 import { cls } from 'shared/helpers/cls'
 
-import { SIDEBAR_LINKS } from '../../lib/constants'
+import { getSidebarItems } from '../../model/selectors'
 import { BurgerButton } from '../burger-button/burger-button'
 import { LanguageSwitcher } from '../language-switcher/language-switcher'
 import { SidebarLink } from '../sidebar-link/sidebar-link'
@@ -19,6 +18,7 @@ interface SidebarProps {
 
 export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
 	const [isOpen, setIsOpen] = useState(localStorage.getItem(LS_KEYS.SIDEBAR_OPEN) !== 'false' ?? false)
+	const items = useSelector(getSidebarItems)
 
 	const toggle = useCallback(() => {
 		setIsOpen((prev) => {
@@ -28,16 +28,12 @@ export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
 		})
 	}, [])
 
-	const user = useAppSelector(getUserUser)
-
-	const filteredLinks = useMemo(() => SIDEBAR_LINKS.filter((item) => !item.auth || user), [user])
-
 	return (
 		<div className={cls(s.sidebar, className, !isOpen && s.collapsed)} data-testid='sidebar'>
 			<div className={s.controls}>
 				<BurgerButton isOpen={isOpen} toggle={toggle} />
 				<div className={s.links}>
-					{filteredLinks.map((item) => (
+					{items.map((item) => (
 						<SidebarLink item={item} key={item.path} collapsed={!isOpen} />
 					))}
 				</div>

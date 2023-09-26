@@ -40,7 +40,7 @@ export const ArticleComments: FC<ArticleCommentsProps> = memo(({ className, arti
 	if (status === 'loading') {
 		return (
 			<div className={cls(className, s.articleComments)}>
-				<Typography as='h2' text={t('comments.title', { ns: 'article-details' })} size='xl' weight='bold' />
+				<Typography as='h2' text={t('article-details:comments.title')} size='xl' weight='bold' />
 				<CommentCard isLoading />
 				<CommentCard isLoading />
 				<CommentCard isLoading />
@@ -51,16 +51,16 @@ export const ArticleComments: FC<ArticleCommentsProps> = memo(({ className, arti
 	}
 
 	if (status === 'error') {
-		return <PageError message={error ? t(error, { ns: 'article-details' }) : t('errors.general')} />
+		return <PageError message={error ? t(`article-details:${error}`) : t('errors.general')} />
 	}
 
 	return (
 		<div className={cls(className, s.articleComments)}>
-			<Typography as='h2' text={t('comments.title', { ns: 'article-details' })} size='xl' weight='bold' />
+			<Typography as='h2' text={t('article-details:comments.title')} size='xl' weight='bold' />
 			{comments.length ? (
 				comments.map((comment) => <CommentCard key={comment.id} comment={comment} />)
 			) : (
-				<Typography as='span' text={t('errors.no_comments', { ns: 'article-details' })} />
+				<Typography as='span' text={t('article-details:errors.no_comments')} />
 			)}
 		</div>
 	)

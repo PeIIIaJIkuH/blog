@@ -41,7 +41,7 @@ export const ProfileDetails: FC<ProfileDetailsProps> = memo(({ className, profil
 
 	useInitialEffect(() => {
 		void dispatch(fetchProfile(profileId))
-	})
+	}, [profileId])
 
 	const updateData = useCallback(
 		(key: keyof User) => async (value: string) => {
@@ -80,7 +80,7 @@ export const ProfileDetails: FC<ProfileDetailsProps> = memo(({ className, profil
 	}
 
 	if (status === 'error') {
-		return <PageError message={error ? t(error, { ns: 'profile' }) : t('errors.general')} />
+		return <PageError message={error ? t(`profile:${error}`) : t('errors.general')} />
 	}
 
 	return (
@@ -107,19 +107,19 @@ export const ProfileDetails: FC<ProfileDetailsProps> = memo(({ className, profil
 						initialValue={profile?.username}
 						className={s.username}
 						onUpdate={updateData('username')}
-						label={t('username')}
+						label={t('profile:username')}
 						readOnly={readOnly}
 					/>
 					<div className={s.group}>
 						<EditableInput
 							initialValue={profile?.firstName}
-							label={t('firstName')}
+							label={t('profile:firstName')}
 							onUpdate={updateData('firstName')}
 							readOnly={readOnly}
 						/>
 						<EditableInput
 							initialValue={profile?.lastName}
-							label={t('lastName')}
+							label={t('profile:lastName')}
 							onUpdate={updateData('lastName')}
 							readOnly={readOnly}
 						/>
@@ -127,13 +127,13 @@ export const ProfileDetails: FC<ProfileDetailsProps> = memo(({ className, profil
 					<div className={s.group}>
 						<EditableInput
 							initialValue={profile?.email}
-							label={t('email')}
+							label={t('profile:email')}
 							onUpdate={updateData('email')}
 							readOnly={readOnly}
 						/>
 						<EditableInput
 							initialValue={profile?.birthDate}
-							label={t('birthDate')}
+							label={t('profile:birthDate')}
 							onUpdate={updateData('birthDate')}
 							readOnly={readOnly}
 						/>
@@ -141,13 +141,13 @@ export const ProfileDetails: FC<ProfileDetailsProps> = memo(({ className, profil
 					<div className={s.group}>
 						<EditableInput
 							initialValue={profile?.country}
-							label={t('country')}
+							label={t('profile:country')}
 							onUpdate={updateData('country')}
 							readOnly={readOnly}
 						/>
 						<EditableInput
 							initialValue={profile?.city}
-							label={t('city')}
+							label={t('profile:city')}
 							onUpdate={updateData('city')}
 							readOnly={readOnly}
 						/>
@@ -155,13 +155,13 @@ export const ProfileDetails: FC<ProfileDetailsProps> = memo(({ className, profil
 					<div className={s.group}>
 						<EditableInput
 							initialValue={profile?.balance !== undefined ? profile.balance.toString() : ''}
-							label={t('balance')}
+							label={t('profile:balance')}
 							onUpdate={updateData('balance')}
 							readOnly={readOnly}
 						/>
 						<EditableInput
 							initialValue={profile?.currency}
-							label={t('currency')}
+							label={t('profile:currency')}
 							onUpdate={updateData('currency')}
 							readOnly={readOnly}
 						/>
