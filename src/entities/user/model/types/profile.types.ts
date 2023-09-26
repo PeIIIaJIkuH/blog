@@ -1,5 +1,6 @@
-import { type User } from 'entities/user'
 import { type Status } from 'shared/types'
+
+import { type User } from '../types'
 
 export interface ProfileState {
 	profile: User | null

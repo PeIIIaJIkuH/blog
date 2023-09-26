@@ -1,42 +1,90 @@
 import { type FC, memo, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 
-import { type User } from 'entities/user'
+import { useAppDispatch, useAppSelector } from 'app/store'
 import { cls } from 'shared/helpers/cls'
+import { useInitialEffect } from 'shared/hooks/use-initial-effect'
+import { type ReducerMap, useLazyModuleLoading } from 'shared/hooks/use-lazy-module-loading'
 import { EditableInput } from 'shared/ui/editable-input'
 import { ImageInput } from 'shared/ui/image-input'
+import { PageError } from 'shared/ui/page-error'
+import { PageLoader } from 'shared/ui/page-loader'
 
-import { type ImagePayload } from '../../model/types'
+import { getProfileError, getProfileProfile, getProfileStatus } from '../../model/selectors/profile.selectors'
+import { getUserUser } from '../../model/selectors/user.selectors'
+import { fetchProfile, updateProfileData, updateProfileImage } from '../../model/services/profile.services'
+import { profileReducer } from '../../model/slices/profile.slice'
+import { type User } from '../../model/types'
 
-import s from './profile-card.module.scss'
+import s from './profile-details.module.scss'
 
-interface ProfileCardProps {
+export interface ProfileDetailsProps {
 	className?: string
-	profile?: User | null
-	readOnly: boolean
-	updateProfileData?: (profile: Partial<User>) => Promise<void>
-	updateProfileImage?: (payload: ImagePayload) => Promise<void>
+	profileId: string
 }
 
-export const ProfileCard: FC<ProfileCardProps> = memo(
-	({ className, profile, readOnly, updateProfileData, updateProfileImage }) => {
-		const { t } = useTranslation('profile')
+const reducerMap: ReducerMap = {
+	profile: profileReducer,
+}
 
-		const updateData = useCallback(
-			(key: keyof User) => async (value: string) => {
-				await updateProfileData?.({ [key]: value })
-			},
-			[updateProfileData],
-		)
+export const ProfileDetails: FC<ProfileDetailsProps> = memo(({ className, profileId }) => {
+	const profile = useAppSelector(getProfileProfile)
+	const status = useAppSelector(getProfileStatus)
+	const error = useAppSelector(getProfileError)
+	const user = useAppSelector(getUserUser)
+	const readOnly = profileId !== user?.id
+	const dispatch = useAppDispatch()
 
-		const updateImage = useCallback(
-			(type: 'avatar' | 'background') => async (image: File) => {
-				await updateProfileImage?.({ type, image })
-			},
-			[updateProfileImage],
-		)
+	const { t } = useTranslation(['translation', 'profile'])
 
-		return (
+	useLazyModuleLoading(reducerMap)
+
+	useInitialEffect(() => {
+		void dispatch(fetchProfile(profileId))
+	})
+
+	const updateData = useCallback(
+		(key: keyof User) => async (value: string) => {
+			// await updateProfileD?.({ [key]: value })
+			if (!user) {
+				return
+			}
+			await dispatch(
+				updateProfileData({
+					[key]: value,
+					id: user?.id,
+				}),
+			)
+		},
+		[dispatch, user],
+	)
+
+	const updateImage = useCallback(
+		(type: 'avatar' | 'background') => async (image: File) => {
+			if (!user) {
+				return
+			}
+			await dispatch(
+				updateProfileImage({
+					type,
+					image,
+					userId: user?.id,
+				}),
+			)
+		},
+		[dispatch, user],
+	)
+
+	if (status === 'loading') {
+		return <PageLoader />
+	}
+
+	if (status === 'error') {
+		return <PageError message={error ? t(error, { ns: 'profile' }) : t('errors.general')} />
+	}
+
+	return (
+		<div className={className}>
 			<div className={cls(s.profileCard, className)}>
 				<div className={s.header}>
 					<ImageInput
@@ -120,6 +168,6 @@ export const ProfileCard: FC<ProfileCardProps> = memo(
 					</div>
 				</div>
 			</div>
-		)
-	},
-)
+		</div>
+	)
+})

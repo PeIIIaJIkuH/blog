@@ -1,9 +1,8 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
 
-import { type User } from 'entities/user'
-
-import { fetchProfile, updateProfile, updateProfileImage } from './services'
-import { type ProfileState } from './types'
+import { fetchProfile, updateProfileData, updateProfileImage } from '../services/profile.services'
+import { type User } from '../types'
+import { type ProfileState } from '../types/profile.types'
 
 const initialState: ProfileState = {
 	profile: null,
@@ -34,7 +33,7 @@ export const profileSlice = createSlice({
 			state.status = 'error'
 			state.error = 'errors.no_profile'
 		})
-		builder.addCase(updateProfile.fulfilled, (state, action: PayloadAction<User>) => {
+		builder.addCase(updateProfileData.fulfilled, (state, action: PayloadAction<User>) => {
 			state.profile = { ...state.profile, ...action.payload }
 		})
 		builder.addCase(updateProfileImage.fulfilled, (state, action: PayloadAction<User>) => {

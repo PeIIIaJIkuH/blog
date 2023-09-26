@@ -1,7 +1,7 @@
 import { type FC, memo } from 'react'
 import { useParams } from 'react-router-dom'
 
-import { ViewAndEditProfile } from 'features/view-and-edit-profile'
+import { ProfileDetails } from 'entities/user'
 import { PageError } from 'shared/ui/page-error'
 
 import s from './profile.module.scss'
@@ -15,7 +15,7 @@ export const ProfilePage: FC = memo(() => {
 
 	return (
 		<div className={s.profilePage}>
-			<ViewAndEditProfile profileId={id} />
+			<ProfileDetails profileId={id} />
 		</div>
 	)
 })

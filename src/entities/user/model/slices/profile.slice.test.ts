@@ -1,10 +1,10 @@
-import { type User } from 'entities/user'
+import { fetchProfile } from '../services/profile.services'
+import { type User } from '../types'
+import { type ProfileState } from '../types/profile.types'
 
-import { profileSlice, profileActions, profileReducer } from '../profile-slice'
-import { fetchProfile } from '../services'
-import { type ProfileState } from '../types'
+import { profileActions, profileReducer, profileSlice } from './profile.slice'
 
-describe('features/view-and-edit-profile/model/profile-slice', () => {
+describe('entities/user/profile.slice', () => {
 	it('should return the initial state', () => {
 		expect(profileSlice.reducer(undefined, {} as any)).toEqual({
 			profile: null,

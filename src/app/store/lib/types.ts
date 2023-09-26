@@ -8,10 +8,9 @@ import {
 import { type AxiosInstance } from 'axios'
 
 import { type ArticleDetailsState, type ArticlesState } from 'entities/article'
-import { type UserState } from 'entities/user'
+import { type ProfileState, type UserState } from 'entities/user'
 import { type AddArticleCommentState } from 'features/add-article-comment'
 import { type LoginState } from 'features/auth-by-username'
-import { type ProfileState } from 'features/view-and-edit-profile'
 import { type ArticleCommentsState } from 'features/view-article-comments'
 
 import { type store } from './store'

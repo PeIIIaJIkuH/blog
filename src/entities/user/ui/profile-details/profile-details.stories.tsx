@@ -3,22 +3,22 @@ import { type ComponentMeta, type ComponentStory } from '@storybook/react'
 import { withStore } from 'shared/config/storybook'
 import { type ReducerMap } from 'shared/hooks/use-lazy-module-loading'
 
-import { profileReducer } from '../../model/profile-slice'
+import { profileReducer } from '../../model/slices/profile.slice'
 
-import { ViewAndEditProfile } from './view-and-edit-profile'
+import { ProfileDetails } from './profile-details'
 
 const reducerMap: ReducerMap = {
 	profile: profileReducer,
 }
 
-const componentMeta: ComponentMeta<typeof ViewAndEditProfile> = {
-	title: 'features/view-and-edit-profile',
-	component: ViewAndEditProfile,
+const componentMeta: ComponentMeta<typeof ProfileDetails> = {
+	title: 'entities/user/profile-details',
+	component: ProfileDetails,
 }
 
 export default componentMeta
 
-const Template: ComponentStory<typeof ViewAndEditProfile> = (args) => <ViewAndEditProfile {...args} />
+const Template: ComponentStory<typeof ProfileDetails> = (args) => <ProfileDetails {...args} />
 
 export const Default = Template.bind({})
 Default.decorators = [

@@ -1,8 +1,9 @@
-import { type User } from 'entities/user'
 import { AsyncThunkWrapper } from 'shared/helpers/async-thunk-wrapper'
 
-import { fetchProfile, updateProfile, updateProfileImage } from '../services'
-import { type ImagePayload } from '../types'
+import { type User } from '../types'
+import { type ImagePayload } from '../types/profile.types'
+
+import { fetchProfile, updateProfileData, updateProfileImage } from './profile.services'
 
 const user: User = {
 	id: 'test-id',
@@ -20,7 +21,7 @@ const user: User = {
 	avatarUrl: 'test-avatarUrl',
 }
 
-describe('features/view-and-edit-profile/model/services', () => {
+describe('entities/user/profile.services', () => {
 	it('should fetch profile', async () => {
 		const userRequest = 'test-userId'
 		const userResponse = { ...user }
@@ -51,7 +52,7 @@ describe('features/view-and-edit-profile/model/services', () => {
 		const userRequest = { ...user }
 		const userResponse = { ...userRequest }
 
-		const thunkWrapper = new AsyncThunkWrapper(updateProfile)
+		const thunkWrapper = new AsyncThunkWrapper(updateProfileData)
 		thunkWrapper.api.patch.mockReturnValue(Promise.resolve({ data: userResponse }))
 		const result = await thunkWrapper.callThunk(userRequest)
 
@@ -64,7 +65,7 @@ describe('features/view-and-edit-profile/model/services', () => {
 		const userRequest = { ...user }
 		const userResponse = 'No data'
 
-		const thunkWrapper = new AsyncThunkWrapper(updateProfile)
+		const thunkWrapper = new AsyncThunkWrapper(updateProfileData)
 		thunkWrapper.api.patch.mockReturnValue(Promise.resolve({ status: 401 }))
 		const result = await thunkWrapper.callThunk(userRequest)
 

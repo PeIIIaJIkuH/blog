@@ -1,10 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 
 import { type StoreThunkConfig } from 'app/store'
-import { type User } from 'entities/user'
 
-import { profileSliceName } from './profile-slice'
-import { type ImagePayload } from './types'
+import { profileSliceName } from '../slices/profile.slice'
+import { type User } from '../types'
+import { type ImagePayload } from '../types/profile.types'
 
 export const fetchProfile = createAsyncThunk<User, string, StoreThunkConfig<string>>(
 	`${profileSliceName}/fetchProfile`,
@@ -22,7 +22,7 @@ export const fetchProfile = createAsyncThunk<User, string, StoreThunkConfig<stri
 	},
 )
 
-export const updateProfile = createAsyncThunk<
+export const updateProfileData = createAsyncThunk<
 	User,
 	Pick<User, 'id'> & Partial<Exclude<User, 'id'>>,
 	StoreThunkConfig<string>
