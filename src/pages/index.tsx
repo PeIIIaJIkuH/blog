@@ -1,16 +1,16 @@
 import { type FC, Suspense } from 'react'
 import { Route, type RouteProps, Routes } from 'react-router-dom'
 
-import { About } from 'pages/about'
-import { ArticleDetails } from 'pages/article-details'
-import { Articles } from 'pages/articles'
-import { Home } from 'pages/home'
-import { NotFound } from 'pages/not-found'
-import { Profile } from 'pages/profile'
 import { AppRoute, RoutePath } from 'shared/config/routes'
 import { PageLoader } from 'shared/ui/page-loader'
 
+import { AboutPage } from './about'
+import { ArticleDetailsPage } from './article-details'
+import { ArticlesPage } from './articles'
 import { AuthRoute } from './auth-route'
+import { HomePage } from './home'
+import { NotFoundPage } from './not-found'
+import { ProfilePage } from './profile'
 
 type AppRouteProps = RouteProps & {
 	auth?: boolean
@@ -19,30 +19,30 @@ type AppRouteProps = RouteProps & {
 const routes: Record<AppRoute, AppRouteProps> = {
 	[AppRoute.HOME]: {
 		path: RoutePath[AppRoute.HOME],
-		element: <Home />,
+		element: <HomePage />,
 	},
 	[AppRoute.ABOUT]: {
 		path: RoutePath[AppRoute.ABOUT],
-		element: <About />,
+		element: <AboutPage />,
 	},
 	[AppRoute.PROFILE]: {
 		path: `${RoutePath[AppRoute.PROFILE]}:id`,
-		element: <Profile />,
+		element: <ProfilePage />,
 		auth: true,
 	},
 	[AppRoute.ARTICLES]: {
 		path: RoutePath[AppRoute.ARTICLES],
-		element: <Articles />,
+		element: <ArticlesPage />,
 		auth: true,
 	},
 	[AppRoute.ARTICLE_DETAILS]: {
 		path: `${RoutePath[AppRoute.ARTICLE_DETAILS]}:id`,
-		element: <ArticleDetails />,
+		element: <ArticleDetailsPage />,
 		auth: true,
 	},
 	[AppRoute.NOT_FOUND]: {
 		path: RoutePath[AppRoute.NOT_FOUND],
-		element: <NotFound />,
+		element: <NotFoundPage />,
 	},
 }
 

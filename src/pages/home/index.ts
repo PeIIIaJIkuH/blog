@@ -1,1 +1,1 @@
-export { HomeLazy as Home } from './ui/home.lazy'
+export { HomePageLazy as HomePage } from './ui/home.lazy'

@@ -1,9 +1,9 @@
 import { type FC, lazy } from 'react'
 
-export const HomeLazy = lazy<FC>(async () => {
+export const HomePageLazy = lazy<FC>(async () => {
 	return await new Promise((resolve) =>
 		setTimeout(() => {
-			resolve(import('./home').then(({ Home }) => ({ default: Home })))
+			resolve(import('./home').then(({ HomePage }) => ({ default: HomePage })))
 		}, 1000),
 	)
 })

@@ -1,11 +1,11 @@
 import { type FC } from 'react'
 
-import { renderBlock } from 'entities/article/lib/render-block'
 import { cls } from 'shared/helpers/cls'
 import { Icon } from 'shared/ui/icon'
 import { Image } from 'shared/ui/image'
 import { Typography } from 'shared/ui/typography'
 
+import { renderBlock } from '../../lib/render-block'
 import { type Article } from '../../model/types'
 
 import s from './article-card.module.scss'

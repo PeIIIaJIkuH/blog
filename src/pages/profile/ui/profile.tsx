@@ -6,7 +6,7 @@ import { PageError } from 'shared/ui/page-error'
 
 import s from './profile.module.scss'
 
-export const Profile: FC = memo(() => {
+export const ProfilePage: FC = memo(() => {
 	const { id } = useParams<{ id: string }>()
 
 	if (!id) {
@@ -14,7 +14,7 @@ export const Profile: FC = memo(() => {
 	}
 
 	return (
-		<div className={s.profile}>
+		<div className={s.profilePage}>
 			<ViewAndEditProfile profileId={id} />
 		</div>
 	)

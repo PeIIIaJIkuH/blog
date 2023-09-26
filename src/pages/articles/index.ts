@@ -1,1 +1,1 @@
-export { ArticlesLazy as Articles } from './ui/articles.lazy'
+export { ArticlesPageLazy as ArticlesPage } from './ui/articles.lazy'

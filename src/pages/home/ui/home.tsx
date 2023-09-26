@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next'
 
 import s from './home.module.scss'
 
-export const Home: FC = memo(() => {
+export const HomePage: FC = memo(() => {
 	const { t } = useTranslation('home')
 
 	return (
-		<div className={s.home}>
+		<div className={s.homePage}>
 			<h1>{t('title')}</h1>
 		</div>
 	)

@@ -1,9 +1,9 @@
 import { type FC, lazy } from 'react'
 
-export const ArticleDetailsLazy = lazy<FC>(async () => {
+export const ArticleDetailsPageLazy = lazy<FC>(async () => {
 	return await new Promise((resolve) =>
 		setTimeout(() => {
-			resolve(import('./article-details').then(({ ArticleDetails }) => ({ default: ArticleDetails })))
+			resolve(import('./article-details').then(({ ArticleDetailsPage }) => ({ default: ArticleDetailsPage })))
 		}, 1000),
 	)
 })

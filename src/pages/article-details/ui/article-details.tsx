@@ -1,14 +1,14 @@
 import { type FC, memo } from 'react'
 import { useParams } from 'react-router-dom'
 
+import { ArticleDetails } from 'entities/article'
 import { AddArticleComment } from 'features/add-article-comment'
 import { ViewArticleComments } from 'features/view-article-comments'
-import { ViewArticleDetails } from 'features/view-article-details'
 import { PageError } from 'shared/ui/page-error'
 
 import s from './article-details.module.scss'
 
-export const ArticleDetails: FC = memo(() => {
+export const ArticleDetailsPage: FC = memo(() => {
 	const { id } = useParams<{ id: string }>()
 
 	if (!id) {
@@ -16,8 +16,8 @@ export const ArticleDetails: FC = memo(() => {
 	}
 
 	return (
-		<div className={s.articleDetails}>
-			<ViewArticleDetails articleId={id} />
+		<div className={s.articleDetailsPage}>
+			<ArticleDetails articleId={id} />
 			<AddArticleComment />
 			<ViewArticleComments articleId={id} />
 		</div>
