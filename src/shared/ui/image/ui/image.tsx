@@ -7,7 +7,7 @@ import s from './image.module.scss'
 
 interface ImageProps {
 	className?: string
-	src: string
+	src: string | null
 	alt: string
 	width: CSSProperties['width']
 	height: CSSProperties['height']
@@ -28,7 +28,7 @@ export const Image: FC<RequiredOnlyOne<ImageProps, 'width' | 'height'>> = memo(
 		return (
 			<img
 				className={cls(s.image, className, s[`radius-${radius}`], s[`object-fit-${fit}`])}
-				src={src}
+				src={src ?? undefined}
 				alt={alt}
 				title={alt}
 				style={styles}

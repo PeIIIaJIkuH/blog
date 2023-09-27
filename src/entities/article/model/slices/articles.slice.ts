@@ -4,7 +4,40 @@ import { type Article } from '../types'
 import { type ArticlesState } from '../types/articles.types'
 
 const initialState: ArticlesState = {
-	articles: [],
+	articles: [
+		{
+			id: 'id',
+			title: 'title',
+			subtitle: 'subtitle',
+			createdAt: 'createdAt',
+			tags: ['tag1', 'tag2'],
+			views: 100,
+			imgUrl: 'https://placehold.co/600x400',
+			blocks: [
+				{
+					type: 'text',
+					data: {
+						title: 'title',
+						content: ['paragraph1', 'paragraph2'],
+					},
+				},
+				{
+					type: 'image',
+					data: {
+						url: 'https://placehold.co/600x400',
+						caption: 'caption',
+					},
+				},
+				{
+					type: 'code',
+					data: {
+						code: 'line 1',
+						language: 'language',
+					},
+				},
+			],
+		},
+	],
 	status: 'idle',
 	error: null,
 }

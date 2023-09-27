@@ -1,5 +1,4 @@
 import { type FC, memo } from 'react'
-import { useTranslation } from 'react-i18next'
 
 import { useAppSelector } from 'app/store'
 import { cls } from 'shared/helpers/cls'
@@ -9,6 +8,7 @@ import { PageLoader } from 'shared/ui/page-loader'
 
 import { getArticlesArticles, getArticlesStatus, getArticlesError } from '../../model/selectors/articles.selectors'
 import { articlesReducer } from '../../model/slices/articles.slice'
+import { ArticleCards } from '../article-cards/article-cards'
 
 import s from './articles.module.scss'
 
@@ -24,8 +24,6 @@ export const Articles: FC<ArticlesProps> = memo(({ className }) => {
 	const articles = useAppSelector(getArticlesArticles)
 	const status = useAppSelector(getArticlesStatus)
 	const error = useAppSelector(getArticlesError)
-
-	const { t } = useTranslation('articles')
 
 	useLazyModuleLoading(reducerMap)
 
@@ -43,7 +41,7 @@ export const Articles: FC<ArticlesProps> = memo(({ className }) => {
 
 	return (
 		<div className={cls(className, s.articles)}>
-			<div>{t('title')}</div>
+			<ArticleCards articles={articles} view='grid' />
 		</div>
 	)
 })
