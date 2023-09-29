@@ -1,4 +1,4 @@
-import { useCallback, useContext } from 'react'
+import { useCallback, useContext, useEffect } from 'react'
 
 import { LS_KEYS } from 'shared/constants/local-storage'
 
@@ -12,13 +12,25 @@ interface UseTheme {
 export const useTheme = (): UseTheme => {
 	const { theme, setTheme } = useContext(ThemeContext)
 
-	const toggleTheme = useCallback(() => {
-		setTheme((prev) => {
-			const newTheme = prev === 'light' ? 'dark' : 'light'
+	const updateTheme = useCallback(
+		(newTheme: Theme) => {
+			setTheme(newTheme)
 			localStorage.setItem(LS_KEYS.THEME, newTheme)
-			return newTheme
+		},
+		[setTheme],
+	)
+
+	const toggleTheme = useCallback(() => {
+		const newTheme = theme === 'light' ? 'dark' : 'light'
+		updateTheme(newTheme)
+	}, [theme, updateTheme])
+
+	useEffect(() => {
+		window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+			const newTheme = e.matches ? 'dark' : 'light'
+			updateTheme(newTheme)
 		})
-	}, [setTheme])
+	}, [setTheme, updateTheme])
 
 	return { theme, toggleTheme }
 }
