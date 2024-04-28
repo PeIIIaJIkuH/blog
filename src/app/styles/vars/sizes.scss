@@ -1,7 +1,8 @@
 :root {
 	--header-height: 64px;
-	--sidebar-width: 240px;
+	--sidebar-width-expanded: 240px;
 	--sidebar-width-collapsed: 80px;
+	--sidebar-current-width: var(--sidebar-width-expanded);
 }
 
 :root {

@@ -11,12 +11,11 @@
 
 		.backgroundImage {
 			position: absolute;
-			top: 0;
-			left: -20px;
-			right: -20px;
-			width: calc(100% + 40px);
+			top: -1rem;
+			left: -1rem;
+			right: -1rem;
+			width: calc(100% + 2rem);
 			height: 100%;
-			object-fit: cover;
 		}
 
 		.avatarImage {

@@ -1,9 +1,11 @@
 .sidebar {
+	--sidebar-current-width: var(--sidebar-width-expanded);
+
 	position: fixed;
 	top: var(--header-height);
 	bottom: 0;
 	z-index: var(--z-index-header);
-	width: var(--sidebar-width);
+	width: var(--sidebar-current-width);
 	background: var(--color-background);
 	color: var(--color-font);
 	border-right: 1px solid var(--color-gray-1);
@@ -52,7 +54,7 @@
 	}
 
 	&.collapsed {
-		width: var(--sidebar-width-collapsed);
+		--sidebar-current-width: var(--sidebar-width-collapsed);
 
 		.switchers {
 			height: 90px;
